@@ -1,26 +1,26 @@
+/*body {
+    font-family: Georgia, 'Times New Roman', Times, sans-serif;
+}*/
 
 header .row a:hover {
     text-decoration: underline;
     color: black;
 }
 
-nav .btn {
-    font-family: Georgia, 'Times New Roman', Times, sans-serif;
-    font-size: 20px;
-}
-
 .col p {
     color: #333333;
     text-align: justify;
-    font-family: Georgia, 'Times New Roman', Times, sans-serif;
-    font-size: 23px;
+    font-size: 30px;
 }
 
 .col h3{
     color: black;
-    font-family: Georgia, 'Times New Roman', Times, serif;
     text-align: left;
     font-size: 2em;
+}
+
+.card-title {
+    font-weight: bold;
 }
 
 .banniere {
@@ -28,17 +28,18 @@ nav .btn {
     background-size: cover;
     background-position: center; 
     background-repeat: no-repeat; 
-    height: 350px; 
+    height: 400px; 
     display: flex;
     align-items: center; 
     justify-content: center;
     text-align: center; 
-    color: bisque; 
     margin: auto;
-    font-size: 2em;
-    font-family: Georgia, 'Times New Roman', Times, serif;
     width: 100%;
     margin-bottom: 30px;
+}
+.banniere h2 {
+    font-size: 45px;
+    color: bisque; 
 }
 
 .banniere h2:hover {
@@ -110,3 +111,53 @@ footer h3:hover{
     text-align: center;
 }
 
+/*reservation*/
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.help {
+    text-align: left;
+    margin-top: 15px;
+}
+.help a {
+    color: #0066c0;
+    text-decoration: none;
+    font-size: 14px;
+}
+.help a:hover {
+    text-decoration: underline;
+}
+
+
+/**************************/
+.business, .register {
+    margin-top: 20px;
+    font-size: 14px;
+}
+.register a {
+    color: #0066c0;
+    text-decoration: none;
+    font-weight: bold;
+}
+.register a:hover {
+    text-decoration: underline;
+}
+
+.radio-container {
+    display: flex;
+    align-items: center; /* Alignement vertical parfait */
+    gap: 10px; /* Espace entre le bouton et le texte */
+    margin-bottom: 5px; /* Espacement entre chaque option */
+}
+
+.radio-container input[type="radio"] {
+    width: 16px;
+    height: 16px;
+    margin: 0; /* Supprime le décalage */
+}
