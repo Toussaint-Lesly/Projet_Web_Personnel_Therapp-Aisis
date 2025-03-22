@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Creer Compte</title>
+
+        <link href = "../styles/style_bootstrap.css" rel = "stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+       
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"> <!--pour les icones-->
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="https://kit.fontawesome.com/14273d579a.js" crossorigin="anonymous"></script>
+    </head>
+    
+    <body class="bg-success bg-opacity-10">
+        <header>
+            <nav class="navbar my-5 text-dark navbar-expand-md bg-light navbar-light bg-opacity-10">
+                <div class="container justify-content-center align-items-center">
+                    <a href="../index.html">
+                        <img src="../images/logo1.jpg" alt="logo du site" width="300" height="100">
+                    </a>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <section>
+                <div class="container" style="width: 400px; height: auto; background-color: white; box-shadow: 2px; margin-top: -40px; border-radius: 20px; padding: 20px;">
+                    <h2>Creer compte</h2>
+                    <form>
+                        <div>
+                            <label for="exampleInputEmail1" class="form-label"><strong>Votre nom</strong></label>
+                            <input type="email" placeholder="Nom" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        </div>
+
+                        <div style="margin-top: 20px;">
+                            <label for="exampleInputEmail1" class="form-label"><strong>Votre prenom</strong></label>
+                            <input type="email" placeholder="Prenom" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        </div>
+
+                        <div style="margin-top: 20px;">
+                            <label for="exampleInputEmail1" class="form-label"><strong>Numero de telephone portable ou adresse email</strong></label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        </div>
+
+                        <div style="margin-top: 20px;">
+                            <label for="exampleInputEmail1" class="form-label"><strong>Mot de passe</strong></label>
+                            <input type="password" placeholder="Au moins 6 caracteres" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        </div>
+
+                        <div id="exampleInputEmail1" class="form-text mt-3">
+                            Votre mot de passe doit contenir entre 6 et 20 caractères, inclure des lettres et des chiffres, et ne doit pas contenir d'espaces, de caractères spéciaux ou d'émojis.
+                        </div>
+
+                        <div style="margin-top: 20px;">
+                            <label for="exampleInputEmail1" class="form-label"><strong>Entrez le mot de passe a nouveau</strong></label>
+                            <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        </div>
+
+                        <button style="margin-top: 20px; width: 100%; background-color: #ffd814; border: none; padding: 10px; font-size: 16px; cursor: pointer; border-radius: 20px;">
+                            <a href="reservation.html" style="text-decoration: none; color: black;">Continuer</a> 
+                        </button>
+
+                        <div style="margin-top: 20px;">
+                            <p>
+                                En créant un compte, vous acceptez les <a href="">conditions d'utilisation et de vente de Therapp-Aisis.</a> 
+                                Consultez notre <a href="">déclaration de confidentialité</a> ainsi que notre <a href="">politique relative aux publicités 
+                                ciblées par centres d’intérêts</a>.
+                            </p>
+                        </div>
+
+                        <div class="mt-4"><hr style="border:2px solid black;"></div>
+
+                        <div class="mt-4">
+                            <p>vous possedez deja un compte? <a href="">Identifiez-vous</a></p>
+                        </div>
+                    </form>
+                </div>        
+            </section>
+        </main>
+
+        <footer>
+            <section>
+                <div class="container mt-5">
+                    <hr style="border: 3px solid black;">
+                </div>
+            </section>
+
+            <div class="container my-5 text-center bg-secondary bg-opacity-25" style="font-size: 25px;">
+                <div class="row">
+                    <div class="col-sm-12 col-md-4">
+                        <h3>Aide</h3> 
+                        <a href="#">Moyens de paiement</a><br>
+                        <a href="#">Mentions legales</a>
+                    </div>
+
+                    <div class="col-sm-12 col-md-4">
+                        <h3>L'entreprise</h3>
+                        <a href="#">Qui sommes-nous</a><br>
+                        <a href="#">Nous contacter</a><br>
+                    </div>
+
+                    <div class = "col-sm-12 col-lg-4 text-center">  <!--les icones orientes a droite-->
+                        <h3>Suivre notre actualite</h3>
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <a href = "https://www.instagram.com" target="_blank">
+                                    <i class="bi-instagram" style="font-size: 2.5rem; color: black;"></i> 
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href = "https://wwww.bi-youtube" target="_blank">
+                                    <i class="bi-youtube" style="font-size: 2.5rem; color: black"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href = "https://pinterest.com/" target="_blank">
+                                    <i class="bi-pinterest" style="font-size: 2.5rem; color: black"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href = "https://facebook.com/" target="_blank">
+                                    <i class="bi-facebook" style="font-size: 2.5rem; color: black"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
