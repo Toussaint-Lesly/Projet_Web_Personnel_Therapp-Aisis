@@ -30,83 +30,81 @@
         <main>
             <section>
                 <div class="container" style="width: 400px; height: auto; background-color: white; box-shadow: 2px; margin-top: -40px; border-radius: 20px; padding: 20px;">
-                    <h2>Creer compte</h2>
-                    <form>
+                    <h2>Créer un compte</h2>
+                    <!-- avec required dans, le systeme gere les erreurs -->
+                    <!-- avec novalidate, c'est moi qui capte mes erreurs -->
+                    <form action="../backend/register.php" method="POST">
                         <div>
-                            <label for="exampleInputEmail1" class="form-label"><strong>Votre nom</strong></label>
-                            <input type="email" placeholder="Nom" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <label for="name" class="form-label"><strong>Votre nom</strong></label>
+                            <input type="text" placeholder="Nom" class="form-control" id="name" name="name" required>
                         </div>
-
+                    
                         <div style="margin-top: 20px;">
-                            <label for="exampleInputEmail1" class="form-label"><strong>Votre prenom</strong></label>
-                            <input type="email" placeholder="Prenom" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <label for="firstname" class="form-label"><strong>Votre prénom</strong></label>
+                            <input type="text" placeholder="Prénom" class="form-control" id="firstname" name="firstname" required>
                         </div>
-
+                    
                         <div style="margin-top: 20px;">
-                            <label for="exampleInputEmail1" class="form-label"><strong>Numero de telephone portable ou adresse email</strong></label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <label for="tel" class="form-label"><strong>Numéro de téléphone</strong></label>
+                            <input type="tel" placeholder="+0123456789" class="form-control" id="tel" name="tel" required>
                         </div>
-
+                    
                         <div style="margin-top: 20px;">
-                            <label for="exampleInputEmail1" class="form-label"><strong>Mot de passe</strong></label>
-                            <input type="password" placeholder="Au moins 6 caracteres" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <label for="email" class="form-label"><strong>Adresse email</strong></label>
+                            <input type="email" placeholder="jeandupond@..." class="form-control" id="email" name="email" required>
                         </div>
-
-                        <div id="exampleInputEmail1" class="form-text mt-3">
+                    
+                        <div style="margin-top: 20px;">
+                            <label for="password" class="form-label"><strong>Mot de passe</strong></label>
+                            <input type="password" placeholder="Au moins 6 caractères" class="form-control" id="password" name="password" required>
+                        </div>
+                    
+                        <div id="" class="form-text mt-3">
                             Votre mot de passe doit contenir entre 6 et 20 caractères, inclure des lettres et des chiffres, et ne doit pas contenir d'espaces, de caractères spéciaux ou d'émojis.
                         </div>
-
+                    
                         <div style="margin-top: 20px;">
-                            <label for="exampleInputEmail1" class="form-label"><strong>Entrez le mot de passe a nouveau</strong></label>
-                            <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <label for="password_confirm" class="form-label"><strong>Confirmez votre mot de passe</strong></label>
+                            <input type="password" class="form-control" id="password_confirm" name="password_confirm" required>
                         </div>
-
-                        <button style="margin-top: 20px; width: 100%; background-color: #ffd814; border: none; padding: 10px; font-size: 16px; cursor: pointer; border-radius: 20px;">
-                            <a href="reservation.html" style="text-decoration: none; color: black;">Continuer</a> 
+                    
+                        <button type="submit" style="margin-top: 20px; width: 100%; background-color: #ffd814; border: none; padding: 10px; font-size: 16px; cursor: pointer; border-radius: 20px; text-decoration: none; color: black;">
+                            Continuer
                         </button>
-
-                        <div style="margin-top: 20px;">
-                            <p>
-                                En créant un compte, vous acceptez les <a href="">conditions d'utilisation et de vente de Therapp-Aisis.</a> 
-                                Consultez notre <a href="">déclaration de confidentialité</a> ainsi que notre <a href="">politique relative aux publicités 
-                                ciblées par centres d’intérêts</a>.
-                            </p>
-                        </div>
-
-                        <div class="mt-4"><hr style="border:2px solid black;"></div>
-
-                        <div class="mt-4">
-                            <p>vous possedez deja un compte? <a href="">Identifiez-vous</a></p>
-                        </div>
                     </form>
+                    <div id="messages" style="margin-bottom: 20px;"></div>
                 </div>        
             </section>
         </main>
 
         <footer>
-            <section>
+            <!-- <section>
                 <div class="container mt-5">
                     <hr style="border: 3px solid black;">
                 </div>
-            </section>
+            </section> -->
 
-            <div class="container my-5 text-center bg-secondary bg-opacity-25" style="font-size: 25px;">
+            <div class="container-fluid mt-5 text-center bg-secondary bg-opacity-25" style="font-size: 25px;">
                 <div class="row">
                     <div class="col-sm-12 col-md-4">
-                        <h3>Aide</h3> 
-                        <a href="#">Moyens de paiement</a><br>
-                        <a href="#">Mentions legales</a>
+                        <h3>Aide</h3>
+                        <hr style="border: 2px solid black; margin-top: 20px;">
+
+                        <!-- <a href="#">Conditions generales de vente</a><br> -->
+                        <a href="a_propos_cures.html">A-propos</a><br>
                     </div>
 
                     <div class="col-sm-12 col-md-4">
                         <h3>L'entreprise</h3>
-                        <a href="#">Qui sommes-nous</a><br>
+                        <hr style="border: 2px solid black; margin-top: 20px;">
                         <a href="#">Nous contacter</a><br>
+                        <!-- <a href="#">Avis clients</a> -->
                     </div>
 
-                    <div class = "col-sm-12 col-lg-4 text-center">  <!--les icones orientes a droite-->
+                    <div class = "col-sm-12 col-lg-4 text-center"> <!--les icones orientes a droite-->
                         <h3>Suivre notre actualite</h3>
-                        <ul class="list-inline">
+                        <hr style="border: 2px solid black; margin-top: 20px;">
+                        <ul class="list-inline"> <!--les icones sur une seule ligne-->
                             <li class="list-inline-item">
                                 <a href = "https://www.instagram.com" target="_blank">
                                     <i class="bi-instagram" style="font-size: 2.5rem; color: black;"></i> 
@@ -132,5 +130,6 @@
                 </div>
             </div>
         </footer>
+        <script src="../scripts/register.js"></script> <!--Json pour les erreurs-->
     </body>
 </html>

@@ -1,10 +1,14 @@
 /*body {
-    font-family: Georgia, 'Times New Roman', Times, sans-serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }*/
 
 header .row a:hover {
     text-decoration: underline;
     color: black;
+}
+
+.navbar-nav {
+    margin: auto; /* Centre les éléments du menu */
 }
 
 .col p {
@@ -66,7 +70,25 @@ footer h3:hover{
     color: #333333;
 }
 
-    /* les images */
+.cure .card {
+    border: 1px solid #ddd;  /* Exemple de style pour les cartes */
+}
+
+.cure .card-body {
+    padding: 20px;  /* Ajuster le padding de la carte */
+}
+
+.cure .card-title {
+    font-size: 1.5rem;  /* Agrandir le titre de la carte */
+}
+
+.card-img-top {
+    width: 100%;
+    height: 200px;  /* Ajuster la hauteur pour que toutes les images aient la même taille */
+    object-fit: cover;  /* Garantir que l'image couvre bien l'espace sans être déformée */
+}
+
+/* les images */
 
 .image-container {
     position: relative;
