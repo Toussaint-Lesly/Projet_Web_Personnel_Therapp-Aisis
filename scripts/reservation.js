@@ -81,14 +81,6 @@ function initSelectChambrePage() {
     const typesVues = document.getElementById("types-vues");
     const typesList1 = document.getElementById("types-");
 
-    $("#arrival-date, #departure-date").datepicker({
-        dateFormat: "dd/mm/yy",
-        minDate: 0,
-        showAnim: "slideDown",
-        showOtherMonths: true,
-        selectOtherMonths: true
-    }).datepicker("widget").css("max-width", "400px");
-
     // Définition des vues de chaque type de chambre
     const sousTypes = {
         "standardSimple": ["Vue sur mer", "Vue sur parc", "Vue sur piscine", "Vue sur jardin"],
@@ -97,6 +89,17 @@ function initSelectChambrePage() {
         "confortDouble": ["Vue sur mer", "Vue sur parc", "Vue sur piscine", "Vue sur jardin"],
         "suite": ["Vue sur mer", "Vue sur parc", "Vue sur piscine", "Vue sur jardin"]
     };
+
+    // gestion du calendrier a modifier
+    $("#arrival-date, #departure-date").datepicker({
+        dateFormat: "dd/mm/yy",
+        minDate: 0,
+        showAnim: "slideDown",
+        showOtherMonths: true,
+        selectOtherMonths: true
+    }).datepicker("widget").css("max-width", "400px");
+
+    
 
     // Afficher dynamiquement les vues selon la chambre sélectionnée
     if (chambreSelect) {
@@ -147,7 +150,7 @@ function submitForm() {
         return;
     }
 
-    alert(`Vous avez réservé : ${cure} - ${sousType.value}`);
+    alert(`Voulez-vous réservez ? : ${cure} - ${sousType.value}`);
 }
 
 // -------------------
@@ -168,6 +171,6 @@ function submitForm1() {
         return;
     }
 
-    alert(`Vous avez réservé : ${chambre} - ${sousType1.value}`);
+    alert(`Voulez-vous réservez ? ${chambre} - ${sousType1.value}`);
 }
 

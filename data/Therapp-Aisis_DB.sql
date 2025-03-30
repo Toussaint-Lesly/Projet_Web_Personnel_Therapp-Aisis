@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS contient_etapes CASCADE;
 DROP TABLE IF EXISTS etapes CASCADE;
 DROP TABLE IF EXISTS tarif_prestations CASCADE;
 DROP TABLE IF EXISTS saisons CASCADE;
-DROP TABLE IF EXISTS utilisateur CASCADE;
+DROP TABLE IF EXISTS utilisateurs CASCADE;
 DROP TABLE IF EXISTS tarif_hebergements CASCADE;
 DROP TABLE IF EXISTS type_chambre CASCADE;
 DROP TABLE IF EXISTS reservation_cure CASCADE;
@@ -133,18 +133,15 @@ INSERT INTO saisons (nom_saison, date_debut, date_fin) VALUES
 ('Hiver', '2024-01-01', '2024-03-31'), ('Printemps', '2024-04-01', '2024-06-30'),
 ('Été', '2024-07-01', '2024-09-30'), ('Automne', '2024-10-01', '2024-12-31');
 
-CREATE TABLE utilisateur (
-    id serial primary key,
-    pseudo varchar(25),
-    password text,
-    email varchar(100) UNIQUE NOT NULL
-);
 
-INSERT INTO utilisateur (pseudo, password, email) VALUES
-('user1', 'pass123', 'email1'), ('user2', 'securepass', 'email5'), ('user3', 'mypassword', 'email8'),
-('user4', 'hashpass', 'email2'), ('user5', 'pass456', 'email6'), ('user6', 'data123', 'email9'),
-('user7', 'pgpass', 'email3'), ('user8', 'userpass', 'email7'), ('user9', 'testpass', 'email10'),
-('user10', 'hello123', 'email4');
+CREATE TABLE utilisateurs (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255),
+    firstname VARCHAR(255),
+    tel VARCHAR(20),
+    email VARCHAR(255) UNIQUE NOT NULL,
+    mot_de_passe VARCHAR(255) NOT NULL
+);
 
 CREATE TABLE tarif_hebergements (
 	nom_saison varchar(40) not null,
@@ -190,16 +187,10 @@ CREATE TABLE reservation_cure (
     code_prestation VARCHAR(5) NOT NULL,
     date_reservation TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     statut VARCHAR(20) DEFAULT 'en attente',
-    FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id),
+    FOREIGN KEY (id_utilisateur) REFERENCES utilisateurs(id),
     FOREIGN KEY (code_prestation) REFERENCES prestations(code_prestation)
 );
 
-INSERT INTO reservation_cure (id_utilisateur, code_prestation, date_reservation, statut) VALUES
-(1, 'P001', '2024-06-01', 'Confirmée'), (2, 'P002', '2024-06-05', 'En attente'),
-(3, 'P003', '2024-07-10', 'Annulée'), (4, 'P004', '2024-07-15', 'Confirmée'),
-(5, 'P005', '2024-08-01', 'En attente'), (6, 'P006', '2024-08-05', 'Confirmée'),
-(7, 'P007', '2024-09-01', 'Confirmée'), (8, 'P008', '2024-09-10', 'Annulée'),
-(9, 'P009', '2024-10-01', 'Confirmée'), (10, 'P010', '2024-10-05', 'En attente');
 
 CREATE TABLE reservation_hebergement (
     id_reservation_hebergement SERIAL PRIMARY KEY,
@@ -212,17 +203,6 @@ CREATE TABLE reservation_hebergement (
     FOREIGN KEY (id_type_chambre) REFERENCES type_chambre(id_type_chambre)
 );
 
-INSERT INTO reservation_hebergement (id_reservation_cure, id_type_chambre, date_debut, date_fin, statut) VALUES
-(1, 'CH1', '2024-06-01', '2024-06-07', 'Confirmée'),
-(2, 'CH2', '2024-06-05', '2024-06-10', 'En attente'),
-(4, 'CH3', '2024-07-15', '2024-07-20', 'Confirmée'),
-(6, 'CH4', '2024-08-05', '2024-08-12', 'Confirmée'),
-(7, 'CH5', '2024-09-01', '2024-09-08', 'Confirmée'),
-(9, 'CH6', '2024-10-01', '2024-10-14', 'Confirmée'),
-(3, 'CH2', '2024-07-12', '2024-07-18', 'Annulée'),
-(5, 'CH4', '2024-08-02', '2024-08-07', 'Confirmée'),
-(8, 'CH1', '2024-09-11', '2024-09-18', 'Annulée'),
-(10, 'CH3', '2024-10-06', '2024-10-12', 'En attente');
 
 
 ALTER TABLE contient_soins
