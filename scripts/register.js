@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function () {
     let form = document.querySelector("form");
     let baliseNom = document.getElementById("name");
@@ -7,48 +6,55 @@ document.addEventListener("DOMContentLoaded", function () {
     let baliseEmail = document.getElementById("email");
     let balisePassword = document.getElementById("password");
     let balisePasswordConfirm = document.getElementById("password_confirm");
-    let messageDiv = document.getElementById("messages"); // Ajouter un div pour afficher les messages
 
-    function afficherErreur(message) {
+    let nomMessage = document.getElementById("nomMessages"); 
+    let prenomMessage = document.getElementById("prenomMessages"); 
+    let telMessage = document.getElementById("telMessages"); 
+    let emailMessage = document.getElementById("emailMessages"); 
+    let passWordMessage = document.getElementById("passWordMessages"); 
+
+    function afficherErreur(container, message) {
+        container.innerHTML = ""; // Nettoie les messages précédents
         let erreur = document.createElement("p");
         erreur.style.color = "red";
         erreur.textContent = message;
-        messageDiv.appendChild(erreur);
+        container.appendChild(erreur);
     }
 
-    function verifierChamp(balise, message) {
+    function verifierChamp(balise, message, container) {
         if (balise.value.trim() === "") {
-            afficherErreur(message);
+            afficherErreur(container, message);
             return false;
         }
         return true;
     }
 
-    function validerEmail(email) {
+    function validerEmail(email, container) {
         let emailRegExp = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         if (!emailRegExp.test(email)) {
-            afficherErreur("Le format de l'email est incorrect !");
+            afficherErreur(container, "Le format de l'email est incorrect !");
             return false;
         }
         return true;
     }
 
-    function validerTel(tel) {
+    function validerTel(tel, container) {
         let telRegExp = /^\+?[0-9]{7,15}$/; // Accepte les numéros avec ou sans "+"
         if (!telRegExp.test(tel)) {
-            afficherErreur("Le numéro de téléphone est invalide !");
+            afficherErreur(container, "Le numéro de téléphone est invalide !");
             return false;
         }
         return true;
     }
 
-    function validerMotDePasse(password, passwordConfirm) {
+    function validerMotDePasse(password, passwordConfirm, container) {
+        container.innerHTML = ""; // Nettoie les messages précédents
         if (password.length < 6) {
-            afficherErreur("Le mot de passe doit contenir au moins 6 caractères.");
+            afficherErreur(container, "Le mot de passe doit contenir au moins 6 caractères.");
             return false;
         }
         if (password !== passwordConfirm) {
-            afficherErreur("Les mots de passe ne correspondent pas.");
+            afficherErreur(container, "Les mots de passe ne correspondent pas.");
             return false;
         }
         return true;
@@ -56,22 +62,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
     form.addEventListener("submit", (event) => {
         event.preventDefault(); // Empêche le rechargement de la page
-        messageDiv.innerHTML = ""; // Efface les messages d'erreur précédents
+
+        // Efface tous les anciens messages d'erreur
+        nomMessage.innerHTML = "";
+        prenomMessage.innerHTML = "";
+        telMessage.innerHTML = "";
+        emailMessage.innerHTML = "";
+        passWordMessage.innerHTML = "";
 
         let valide = true;
 
         // Vérification des champs
-        valide &= verifierChamp(baliseNom, "Le champ Nom est obligatoire.");
-        valide &= verifierChamp(balisePrenom, "Le champ Prénom est obligatoire.");
-        valide &= verifierChamp(baliseTel, "Le champ Téléphone est obligatoire.");
-        valide &= verifierChamp(baliseEmail, "Le champ Email est obligatoire.");
-        valide &= verifierChamp(balisePassword, "Le champ Mot de passe est obligatoire.");
-        valide &= verifierChamp(balisePasswordConfirm, "Veuillez confirmer votre mot de passe.");
+        if (!verifierChamp(baliseNom, "Le champ Nom est obligatoire.", nomMessage)) valide = false;
+        if (!verifierChamp(balisePrenom, "Le champ Prénom est obligatoire.", prenomMessage)) valide = false;
+        if (!verifierChamp(baliseTel, "Le champ Téléphone est obligatoire.", telMessage)) valide = false;
+        if (!verifierChamp(baliseEmail, "Le champ Email est obligatoire.", emailMessage)) valide = false;
+        if (!verifierChamp(balisePassword, "Le champ Mot de passe est obligatoire.", passWordMessage)) valide = false;
+        if (!verifierChamp(balisePasswordConfirm, "Veuillez confirmer votre mot de passe.", passWordMessage)) valide = false;
 
         // Validation spécifique
-        valide &= validerEmail(baliseEmail.value);
-        valide &= validerTel(baliseTel.value);
-        valide &= validerMotDePasse(balisePassword.value, balisePasswordConfirm.value);
+        if (!validerEmail(baliseEmail.value, emailMessage)) valide = false;
+        if (!validerTel(baliseTel.value, telMessage)) valide = false;
+        if (!validerMotDePasse(balisePassword.value, balisePasswordConfirm.value, passWordMessage)) valide = false;
 
         if (valide) {
             form.submit(); // Envoie le formulaire si tout est valide

@@ -3,11 +3,7 @@
 session_start();
 header('Content-Type: application/json');
 
-// Connexion à la base de données
-$host = "localhost";
-$dbname = "therapp_db";
-$user = "postgres";
-$password = "123";
+require 'db.php'; // Connexion à la base de données
 
 try {
     $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password);
@@ -34,5 +30,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit();
 }
 ?>
-
-

@@ -1,138 +1,12 @@
 
-DROP TABLE IF EXISTS prestations CASCADE;
-DROP TABLE IF EXISTS contient_soins CASCADE;
-DROP TABLE IF EXISTS soins CASCADE;
-DROP TABLE IF EXISTS contient_etapes CASCADE;
-DROP TABLE IF EXISTS etapes CASCADE;
-DROP TABLE IF EXISTS tarif_prestations CASCADE;
-DROP TABLE IF EXISTS saisons CASCADE;
+-- Suppression des anciennes tables si elles existent
 DROP TABLE IF EXISTS utilisateurs CASCADE;
-DROP TABLE IF EXISTS tarif_hebergements CASCADE;
-DROP TABLE IF EXISTS type_chambre CASCADE;
-DROP TABLE IF EXISTS reservation_cure CASCADE;
-DROP TABLE IF EXISTS reservation_hebergement CASCADE;
+DROP TABLE IF EXISTS cures CASCADE;
+DROP TABLE IF EXISTS sous_types CASCADE;
+DROP TABLE IF EXISTS hebergements CASCADE;
+DROP TABLE IF EXISTS vue_chambre CASCADE;
 
--- Creation des tables---
-
-
-CREATE TABLE prestations (
-    code_prestation VARCHAR(5) PRIMARY KEY,
-    nom_prestation VARCHAR(50) NOT NULL,
-    objectif TEXT NOT NULL,
-    duree_min INT NOT NULL,
-    duree_max INT NOT NULL,
-    soins_inclus TEXT NOT NULL,
-    critere TEXT,
-    public_cible TEXT,
-    resultats TEXT
-);
-
-INSERT INTO prestations (code_prestation, nom_prestation, objectif, duree_min, duree_max, soins_inclus, critere, public_cible, resultats) VALUES
-('P001', 'Cure Détox', 'Éliminer les toxines', 3, 7, 'Massages, tisanes, sauna', 'Fatigue', 'Personnes stressées', 'Vitalité accrue'),
-('P002', 'Cure Relaxation', 'Réduire le stress', 5, 10, 'Massages, méditation, bains aromatiques', 'Stress', 'Personnes anxieuses', 'Apaisement mental'),
-('P003', 'Cure Revitalisation', 'Booster l’énergie', 4, 7, 'Hydrothérapie, fitness, nutrition', 'Fatigue', 'Fatigue chronique', 'Plus d’énergie'),
-('P004', 'Cure Sommeil', 'Améliorer le sommeil', 6, 10, 'Relaxation, luminothérapie, huiles', 'Insomnie', 'Troubles du sommeil', 'Sommeil réparateur'),
-('P005', 'Cure Minceur', 'Perte de poids durable', 7, 14, 'Coaching, massages, sport', 'Tour de taille', 'Perte de poids', 'Silhouette affinée'),
-('P006', 'Cure Anti-Âge', 'Préserver la jeunesse', 5, 10, 'Soins visage, antioxydants', 'Vieillissement', 'Personnes âgées', 'Peau raffermie'),
-('P007', 'Cure Immunité', 'Renforcer l’organisme', 6, 12, 'Nutrition, relaxation, compléments', 'Faible immunité', 'Personnes souvent malades', 'Moins d’infections'),
-('P008', 'Cure Dos', 'Soulager les douleurs dorsales', 5, 10, 'Massages, ostéopathie, stretching', 'Douleurs', 'Tensions musculaires', 'Meilleure posture'),
-('P009', 'Cure Prévention Santé', 'Prévenir les maladies', 7, 14, 'Bilan, thérapies naturelles', 'Prévention', 'Personnes soucieuses de leur santé', 'État général amélioré'),
-('P010', 'Cure Remise en Forme', 'Retrouver tonus et endurance', 5, 10, 'Fitness, massages, stretching', 'Forme physique', 'Fatigue passagère', 'Regain d’énergie');
-
-
-CREATE TABLE soins (
-	code_soin varchar(5) primary key,
-    libelle_soins varchar(100) not null,
-    duree_soins interval not null,
-    effectifs_max numeric(2) 
-);
-
-INSERT INTO soins (code_soin, libelle_soins, duree_soins, effectifs_max) VALUES
-('S001', 'Massage relaxant', '00:45:00', 3), ('S002', 'Hydrothérapie', '00:30:00', 2),
-('S003', 'Enveloppement d’algues', '00:50:00', 1), ('S004', 'Méditation guidée', '00:20:00', 5),
-('S005', 'Luminothérapie', '00:30:00', 4), ('S006', 'Coaching diététique', '01:00:00', 2),
-('S007', 'Ostéopathie', '00:45:00', 1), ('S008', 'Cryothérapie', '00:25:00', 2),
-('S009', 'Massage tonifiant', '00:50:00', 3), ('S010', 'Séance de fitness', '01:00:00', 6);
-
-CREATE TABLE contient_soins (
-	code_prestation varchar(5),
-	code_soin varchar(5),
-	occurence numeric(2),
-	constraint PK_2 primary key (code_prestation, code_soin) 
-);
-
-INSERT INTO contient_soins (code_prestation, code_soin, occurence) VALUES
-('P001', 'S001', 2), -- Cure Détox inclut 2 massages relaxants
-('P001', 'S002', 1), -- Cure Détox inclut 1 séance d’hydrothérapie
-('P002', 'S004', 3), -- Cure Relaxation inclut 3 séances de méditation
-('P002', 'S005', 2), -- Cure Relaxation inclut 2 séances de luminothérapie
-('P003', 'S006', 1), -- Cure Revitalisation inclut 1 coaching diététique
-('P003', 'S009', 2), -- Cure Revitalisation inclut 2 massages tonifiants
-('P004', 'S007', 1), -- Cure Sommeil inclut 1 séance d’ostéopathie
-('P005', 'S010', 4), -- Cure Minceur inclut 4 séances de fitness
-('P006', 'S008', 1), -- Cure Anti-Âge inclut 1 cryothérapie
-('P007', 'S003', 2); -- Cure Immunité inclut 2 enveloppements d’algues
-
-CREATE TABLE etapes (
-	code_etape varchar(5) primary key,
-	duree time not null,
-	desc_etape varchar(100)
-);
-
-INSERT INTO etapes (code_etape, duree, desc_etape) VALUES
-('E001', '00:10:00', 'Détente du patient avant le soin'),
-('E002', '00:15:00', 'Échauffement musculaire'),
-('E003', '00:20:00', 'Application d’huiles essentielles'),
-('E004', '00:10:00', 'Massage thérapeutique'),
-('E005', '00:30:00', 'Phase de relaxation profonde'),
-('E006', '00:20:00', 'Hydrothérapie et bain thermal'),
-('E007', '00:25:00', 'Séance de luminothérapie'),
-('E008', '00:10:00', 'Respiration guidée et méditation'),
-('E009', '00:15:00', 'Application de boues marines'),
-('E010', '00:20:00', 'Finalisation et conseils post-soin');
-
-CREATE TABLE contient_etapes (
-	code_soin varchar(5),
-	code_etape varchar(5),
-    numero_etape numeric(2),
-	constraint PK_3 primary key (code_soin, code_etape) 
-);
-
-INSERT INTO contient_etapes (code_soin, code_etape, numero_etape) VALUES
-('S001', 'E001', 1), -- Massage relaxant commence par détente
-('S001', 'E003', 2), -- Puis application d’huiles essentielles
-('S001', 'E004', 3), -- Puis massage thérapeutique
-('S002', 'E006', 1), -- Hydrothérapie commence directement avec le bain thermal
-('S004', 'E008', 1), -- Méditation commence par respiration guidée
-('S005', 'E007', 1), -- Luminothérapie commence immédiatement
-('S006', 'E009', 1), -- Coaching diététique commence avec application de boues
-('S007', 'E002', 1), -- Ostéopathie commence par échauffement
-('S009', 'E010', 3), -- Massage tonifiant se termine par conseils post-soin
-('S010', 'E005', 2); -- Fitness se termine par relaxation profonde
-
-CREATE TABLE tarif_prestations (
-	code_prestation varchar(5),
-	nom_saison varchar(40),
-	prix_prestation numeric(3),
-	constraint PK_4 primary key (code_prestation, nom_saison) 
-);
-
-
-INSERT INTO tarif_prestations (code_prestation, nom_saison, prix_prestation) VALUES
-('P001', 'Hiver', 250), ('P002', 'Printemps', 300), ('P003', 'Été', 400),
-('P004', 'Automne', 350), ('P005', 'Hiver', 450), ('P006', 'Printemps', 500),
-('P007', 'Été', 550), ('P008', 'Automne', 400), ('P009', 'Hiver', 600), ('P010', 'Printemps', 500);
-
-CREATE TABLE saisons (
-    nom_saison varchar(40) primary key,
-    date_debut date,
-    date_fin date
-);
-
-INSERT INTO saisons (nom_saison, date_debut, date_fin) VALUES
-('Hiver', '2024-01-01', '2024-03-31'), ('Printemps', '2024-04-01', '2024-06-30'),
-('Été', '2024-07-01', '2024-09-30'), ('Automne', '2024-10-01', '2024-12-31');
-
+-- Création des tables
 
 CREATE TABLE utilisateurs (
     id SERIAL PRIMARY KEY,
@@ -143,103 +17,215 @@ CREATE TABLE utilisateurs (
     mot_de_passe VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE tarif_hebergements (
-	nom_saison varchar(40) not null,
-	id_type_chambre varchar(6),
-	prix_hebergement numeric(3),
-	constraint PK_5 primary key (nom_saison, id_type_chambre) 
+CREATE TABLE cures (
+    id_cure SERIAL PRIMARY KEY,  
+    nom VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    duree VARCHAR(50) NOT NULL,
+    objectifs TEXT NOT NULL,
+    soins TEXT NOT NULL,
+    cible TEXT NOT NULL,
+    resultats TEXT NOT NULL
 );
 
-INSERT INTO tarif_hebergements (nom_saison, id_type_chambre, prix_hebergement) VALUES
-('Hiver', 'CH1', 120),
-('Hiver', 'CH2', 150),
-('Printemps', 'CH3', 180),
-('Printemps', 'CH4', 200),
-('Été', 'CH5', 250),
-('Été', 'CH6', 300),
-('Automne', 'CH7', 220),
-('Automne', 'CH8', 280),
-('Hiver', 'CH9', 170),
-('Printemps', 'CH10', 130);
-
-CREATE TABLE type_chambre (
-	id_type_chambre varchar(6) primary key,
-	desc_type_chambre varchar (100),
-    nb_personnes INT,
-    desc_vu_chambre varchar (20)
-);
-
-INSERT INTO type_chambre (id_type_chambre, desc_type_chambre, nb_personnes, desc_vu_chambre) VALUES
-('CH1', 'Chambre simple', 1, 'Vue mer'),
-('CH2', 'Chambre double', 2, 'Vue jardin'),
-('CH3', 'Suite luxe', 3, 'Vue mer'),
-('CH4', 'Bungalow', 4, 'Vue tropicale'),
-('CH5', 'Chambre économique', 1, 'Vue rue'),
-('CH6', 'Chambre familiale', 4, 'Vue jardin'),
-('CH7', 'Penthouse', 2, 'Vue panoramique'),
-('CH8', 'Chalet privé', 6, 'Vue montagne'),
-('CH9', 'Chambre classique', 2, 'Vue mer'),
-('CH10', 'Studio cosy', 2, 'Vue rue');
-
-CREATE TABLE reservation_cure (
-    id_reservation_cure SERIAL PRIMARY KEY,
-    id_utilisateur INT NOT NULL,
-    code_prestation VARCHAR(5) NOT NULL,
-    date_reservation TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    statut VARCHAR(20) DEFAULT 'en attente',
-    FOREIGN KEY (id_utilisateur) REFERENCES utilisateurs(id),
-    FOREIGN KEY (code_prestation) REFERENCES prestations(code_prestation)
+CREATE TABLE sous_types (
+    id_sous_type SERIAL PRIMARY KEY,  
+    id_cure INT NOT NULL,  
+    nom_sous_type VARCHAR(255) NOT NULL,
+    prix DECIMAL(10,2) NOT NULL,
+    image VARCHAR(255),
+    FOREIGN KEY (id_cure) REFERENCES cures(id_cure) ON DELETE CASCADE
 );
 
 
-CREATE TABLE reservation_hebergement (
-    id_reservation_hebergement SERIAL PRIMARY KEY,
-    id_reservation_cure INT NOT NULL,
-    id_type_chambre VARCHAR(3) NOT NULL,
-    date_debut DATE NOT NULL,
-    date_fin DATE NOT NULL,
-    statut VARCHAR(20) DEFAULT 'en attente',
-    FOREIGN KEY (id_reservation_cure) REFERENCES reservation_cure(id_reservation_cure) ON DELETE CASCADE,
-    FOREIGN KEY (id_type_chambre) REFERENCES type_chambre(id_type_chambre)
+CREATE TABLE hebergement (
+    id_hebergement SERIAL PRIMARY KEY,  
+    type_chambre TEXT NOT NULL,
+    prix_base DECIMAL(10,2) NOT NULL CHECK (prix_base >= 0),
+    image VARCHAR(255)
 );
 
 
-
-ALTER TABLE contient_soins
-    ADD CONSTRAINT code_prestation_ref_prestations_fkey FOREIGN KEY (code_prestation) REFERENCES prestations(code_prestation);
-
-
-ALTER TABLE contient_soins
-    ADD CONSTRAINT code_soin_ref_soins_fkey FOREIGN KEY (code_soin) REFERENCES soins(code_soin);
-
-
-ALTER TABLE tarif_prestations
-    ADD CONSTRAINT code_prestation_ref_prestations_fkey FOREIGN KEY (code_prestation) REFERENCES prestations(code_prestation);
-
-
-ALTER TABLE contient_etapes
-    ADD CONSTRAINT code_soin_ref_soins_fkey FOREIGN KEY (code_soin) REFERENCES soins(code_soin);
-
-
-ALTER TABLE contient_etapes
-    ADD CONSTRAINT code_etape_ref_etapes_fkey FOREIGN KEY (code_etape) REFERENCES etapes(code_etape);
-
-
-ALTER TABLE tarif_prestations
-    ADD CONSTRAINT nom_saison_ref_saisons_fkey FOREIGN KEY (nom_saison) REFERENCES saisons(nom_saison);
-
-
-ALTER TABLE tarif_hebergements
-    ADD CONSTRAINT nom_saison_ref_saisons_fkey FOREIGN KEY (nom_saison) REFERENCES saisons(nom_saison);
-
-
-ALTER TABLE tarif_hebergements
-    ADD CONSTRAINT id_type_chambre_ref_type_chambre_fkey FOREIGN KEY (id_type_chambre) REFERENCES type_chambre(id_type_chambre);
-
-
-CREATE VIEW prix_chere AS (
-	SELECT DISTINCT nom_prestation, nom_saison, prix_prestation FROM prestations NATURAL JOIN tarif_prestations NATURAL JOIN saisons  ORDER BY prix_prestation DESC LIMIT 3	
+CREATE TABLE vue_chambre (
+    id_vue_chambre SERIAL PRIMARY KEY,  
+    id_hebergement INT NOT NULL,  
+    vue VARCHAR(255) NOT NULL,
+    supplement DECIMAL(10,2) DEFAULT 0 CHECK (supplement >= 0),
+    image VARCHAR(255),
+    FOREIGN KEY (id_hebergement) REFERENCES hebergement(id_hebergement) ON DELETE CASCADE
 );
+
+-- Insérer des données dans la table cures
+
+INSERT INTO cures (nom, description, duree, objectifs, soins, cible, resultats) VALUES 
+    ('Cure Détox et Purification', 
+     'Programme de purification du corps avec des soins naturels.', 
+     '3 à 7 jours', 
+     'Éliminer les toxines et revitaliser l’organisme.', 
+     'Massages drainants, tisanes détox, séances de sauna, bains aux huiles essentielles.', 
+     'Idéal pour ceux qui ressentent de la fatigue, des troubles digestifs ou un excès de stress.',
+     'Sensation de légèreté, digestion améliorée, peau plus éclatante.'
+     ),
+
+    ('Cure Revitalisation et Énergie',
+     'Boostez votre énergie et luttez contre la fatigue avec des soins revitalisants.',
+     '4 à 7 jours',
+     'Booster l’énergie et restaurer la vitalité.',
+     'Hydrothérapie, exercices énergétiques, massages tonifiants, nutrition revitalisante.',
+     'Ceux qui ressentent une baisse d’énergie, une fatigue chronique ou une récupération lente.',
+     'Plus d’énergie au quotidien, meilleure concentration, réduction de la fatigue.'
+     ),
+
+    ( 
+     'Cure Sommeil et Relaxation Profonde',
+     'Améliorez votre sommeil grâce à des thérapies naturelles et des techniques de relaxation.',
+     '6 à 10 jours',
+     'Éliminer les toxines et revitaliser l’organisme.',
+     'Séances de relaxation, luminothérapie, massages aux huiles apaisantes, tisanes relaxantes.',
+     'Ceux qui souffrent d’insomnie, de sommeil perturbé ou de réveils nocturnes fréquents.',
+     'Endormissement plus rapide, sommeil profond et réparateur, réduction du stress.'
+    ),
+
+    (
+     'Cure Minceur et Équilibre Alimentaire',
+     'Affinez votre silhouette avec un programme combinant nutrition et soins spécifiques.',
+     '7 à 14 jours',
+     'Perte de poids durable et équilibre nutritionnel.',
+     'Coaching diététique, massages amincissants, exercices physiques, soins drainants.',
+     'Ceux qui souhaitent perdre du poids de manière saine et durable.',
+     'Silhouette affinée, meilleures habitudes alimentaires, bien-être général.'
+    ),
+
+    (
+     'Cure Anti-Âge et Beauté',
+     'Préservez votre jeunesse et votre éclat avec des soins anti-âge et raffermissants.',
+     '5 à 10 jours',
+     'Préserver la jeunesse de la peau et revitaliser l’organisme.',
+     'Soins du visage, gommages, massages raffermissants, compléments antioxydants.',
+     'Personnes souhaitant lutter contre le vieillissement cutané et retrouver une peau éclatante.',
+     'Peau plus ferme, teint éclatant, ralentissement du vieillissement cellulaire.'
+    ),
+
+
+    (
+     'Cure Immunité et Renforcement du Corps',
+     'Renforcez vos défenses naturelles avec un programme ciblé sur l’immunité.',
+     '6 à 12 jours',
+     'Stimuler les défenses immunitaires et renforcer l’organisme.',
+     'Nutrition fortifiante, exercices doux, compléments naturels, séances de relaxation.',
+     'Idéal pour les personnes souvent malades ou en convalescence.',
+     'Système immunitaire renforcé, meilleure résistance aux infections.'
+    ),
+           
+    (
+     'Cure Spécial Dos',
+     'Soulagez vos douleurs dorsales et améliorez votre posture avec des soins thérapeutiques.',
+     '6 à 10 jours',
+     'Soulager les douleurs dorsales et améliorer la posture.',
+     'Massages thérapeutiques, ostéopathie, séances de stretching, hydrothérapie.',
+     'Ceux qui souffrent de douleurs lombaires, cervicales ou de tensions musculaires.',
+     'Moins de douleurs, meilleure posture, soulagement durable.'
+    ),
+
+    (
+     'Cure Prévention Santé',
+     'Affinez votre silhouette avec un programme combinant nutrition et soins spécifiques.',
+     '7 à 14 jours',
+     'Prévenir les maladies chroniques et améliorer l’état général.',
+     'Bilan santé, suivi nutritionnel, exercices adaptés, thérapies naturelles.',
+     'Personnes soucieuses de leur santé et souhaitant prévenir les risques de maladies',
+     'Meilleure forme physique et mentale, prévention des maladies chroniques.'
+    ),
+
+    (
+     'Cure Remise en Forme',
+     'Préservez votre santé et votre bien-être général avec un programme préventif personnalisé.',
+     '5 à 10 jours',
+     'Retrouver un corps tonique et une bonne condition physique.',
+     'Séances de fitness, massages revitalisants, suivi nutritionnel, stretching',
+     'Ceux qui veulent retrouver la forme après une période de fatigue ou d’inactivité.',
+     'Corps plus tonique, regain d’énergie, meilleure endurance.'
+    ),
+       
+    ('Cure Relaxation et Anti-Stress', 
+     'Programme de détente et de relaxation pour réduire le stress.', 
+     '5 à 10 jours', 
+     'Réduire le stress et retrouver un bien-être intérieur.', 
+     'Massages relaxants, méditation guidée, sophrologie, bains aromathérapeutiques.', 
+     'Idéal pour ceux qui ressentent de la fatigue, des troubles digestifs ou un excès de stress.', 
+     'Apaisement mental, réduction des tensions musculaires, sommeil réparateur.'
+     );
+
+-- Insérer des données dans la table sous_types
+
+INSERT INTO sous_types (id_cure, nom_sous_type, prix, image) VALUES 
+    ((SELECT id_cure FROM cures WHERE nom = 'Cure Détox et Purification'), 'Détox aux thés (infusions purifiantes, drainage lymphatique)', 150, '../images/detox1_1.png'),
+    ((SELECT id_cure FROM cures WHERE nom = 'Cure Détox et Purification'), 'Détox aux fruits et légumes', 130, '../images/detox_1.png'),
+    ((SELECT id_cure FROM cures WHERE nom = 'Cure Relaxation et Anti-Stress'), 'Relaxation par l’aromathérapie (diffusion d’huiles essentielles, massages relaxants)', 150, '../images/antiStress.jpg'),
+    ((SELECT id_cure FROM cures WHERE nom = 'Cure Relaxation et Anti-Stress'), 'Relaxation par l’hydrothérapie (bains bouillonnants, douches sensorielles)', 140, '../images/bains_chaudes.jpeg'),
+    ((SELECT id_cure FROM cures WHERE nom = 'Cure Revitalisation et Énergie'), 'Revitalisation par les super-aliments (jus détox, compléments naturels)', 170, '../images/revitalisante.jpg'),
+    ((SELECT id_cure FROM cures WHERE nom = 'Cure Revitalisation et Énergie'), 'Revitalisation par la luminothérapie (exposition à la lumière, soins énergétiques)', 160, '../images/detox1_1.png'),
+    ((SELECT id_cure FROM cures WHERE nom = 'Cure Sommeil et Relaxation Profonde'), 'Sommeil réparateur par la sophrologie (séances de relaxation guidée, respiration)', 190, '../images/sommeil.jpg'),
+    ((SELECT id_cure FROM cures WHERE nom = 'Cure Sommeil et Relaxation Profonde'), 'Sommeil profond par la phytothérapie (infusions calmantes, huiles relaxantes)', 130, '../images/sommeil1.jpg'),
+    ((SELECT id_cure FROM cures WHERE nom = 'Cure Remise en Forme'), 'Remise en forme par le sport et le mouvement (séances de fitness, yoga, pilates, renforcement musculaire)', 180, '../images/yoga.jpg'),
+    ((SELECT id_cure FROM cures WHERE nom = 'Cure Remise en Forme'), 'Remise en forme par la récupération et la relaxation (massages tonifiants, hydrothérapie, bains reminéralisants)', 200, '../images/massage.jpg'),        
+    ((SELECT id_cure FROM cures WHERE nom = 'Cure Anti-Âge et Beauté'), 'Anti-âge par la nutrition (antioxydants, compléments pour la peau)', 200, '../images/aliments-immunite_anti-age.jpg'),
+    ((SELECT id_cure FROM cures WHERE nom = 'Cure Anti-Âge et Beauté'), 'Anti-âge par les soins du visage (masques naturels, hydratation profonde)', 220, '../images/antiage.jpeg'),
+    ((SELECT id_cure FROM cures WHERE nom = 'Cure Immunité et Renforcement du Corps'), 'Immunité avec la naturopathie (plantes médicinales, probiotiques)', 120, '../images/naturopathie.jpeg'),
+    ((SELECT id_cure FROM cures WHERE nom = 'Cure Immunité et Renforcement du Corps'), 'Immunité avec le sauna et le hammam (sudation, élimination des toxines)', 100, '../images/sauna.jpeg'),
+    ((SELECT id_cure FROM cures WHERE nom = 'Cure Spécial Dos'), 'Soulagement du dos par l’hydrothérapie (bains chauds, jets d’eau ciblés)', 150, '../images/bains_chaudes.jpeg'),
+    ((SELECT id_cure FROM cures WHERE nom = 'Cure Spécial Dos'), 'Soulagement du dos par la kinésithérapie (massages thérapeutiques, exercices posturaux)', 150, '../images/kinesytherapie.jpeg'),
+    ((SELECT id_cure FROM cures WHERE nom = 'Cure Prévention Santé'), 'Prévention santé par la micronutrition (vitamines, minéraux, alimentation adaptée)', 180, '../images/micronutrition.jpeg'),
+    ((SELECT id_cure FROM cures WHERE nom = 'Cure Prévention Santé'), 'Prévention santé par l’activité physique douce (marche, stretching, qi gong)', 200, '../images/sante_douce.jpeg'),
+    ((SELECT id_cure FROM cures WHERE nom = 'Cure Minceur et Équilibre Alimentaire'), 'Minceur avec diététique personnalisée (coaching alimentaire, repas équilibrés)', 110, '../images/detox_minceur.jpeg'),
+    ((SELECT id_cure FROM cures WHERE nom = 'Cure Minceur et Équilibre Alimentaire'), 'Minceur avec activité physique douce (yoga, pilates, drainage lymphatique)', 180, '../images/yoga1.jpg');
+
+
+-- Insérer des données dans la table hebergement
+
+INSERT INTO hebergement (type_chambre, prix_base, image) VALUES
+('Chambre standard simple', 80.00, '../images/standard_simple.jpg'),
+('Chambre standard double', 110.00, '../images/standard_double.jpg'),
+('Chambre confort simple', 100.00, '../images/confort_simple.jpg'),
+('Chambre confort double', 130.00, '../images/confort_double.jpg'),
+('Suite', 200.00, '../images/suite.jpg');
+
+-- Vues pour la chambre 1 (standard simple)
+INSERT INTO vue_chambre (id_hebergement, vue, supplement, image) VALUES
+(1, 'Vue sur plage', 30.00, '../images/mer.jpg'),
+(1, 'Vue sur piscine', 20.00, '../images/vu_piscine.jpg'),
+(1, 'Vue sur jardin', 10.00, '../images/jardin.jpg'),
+(1, 'Vue sur parc', 15.00, '../images/park.jpg');
+
+
+-- Vues pour la chambre 2 (standard double)
+INSERT INTO vue_chambre (id_hebergement, vue, supplement, image) VALUES
+(2, 'Vue sur plage', 35.00, '../images/mer.jpg'),
+(2, 'Vue sur piscine', 25.00, '../images/vu_piscine.jpg'),
+(2, 'Vue sur jardin', 15.00, '../images/jardin.jpg'),
+(2, 'Vue sur parc', 20.00, '../images/park.jpg');
+
+-- Vues pour la chambre 3 (confort simple)
+INSERT INTO vue_chambre (id_hebergement, vue, supplement, image) VALUES
+(3, 'Vue sur plage', 40.00, '../images/mer.jpg'),
+(3, 'Vue sur piscine', 30.00, '../images/vu_piscine.jpg'),
+(3, 'Vue sur jardin', 20.00, '../images/jardin.jpg'),
+(3, 'Vue sur parc', 25.00, '../images/park.jpg');
+
+-- Vues pour la chambre 4 (confort double)
+INSERT INTO vue_chambre (id_hebergement, vue, supplement, image) VALUES
+(4, 'Vue sur plage', 45.00, '../images/mer.jpg'),
+(4, 'Vue sur piscine', 35.00, '../images/vu_piscine.jpg'),
+(4, 'Vue sur jardin', 25.00, '../images/jardin.jpg'),
+(4, 'Vue sur parc', 30.00, '../images/park.jpg');
+
+-- Vues pour la suite
+INSERT INTO vue_chambre (id_hebergement, vue, supplement, image) VALUES
+(5, 'Vue sur plage', 50.00, '../images/mer.jpg'),
+(5, 'Vue sur piscine', 40.00, '../images/vu_piscine.jpg'),
+(5, 'Vue sur jardin', 30.00, '../images/jardin.jpg'),
+(5, 'Vue sur parc', 35.00, '../images/park.jpg');
+
 
 
 --- Importer mon fichir dans la base de donnees therapp_db:
@@ -251,7 +237,33 @@ CREATE VIEW prix_chere AS (
 
 --- Voir les tables de la base :
 --- \dt
+ 
+--- Creer u utilisateur "www-data"
+--- Donner privilege  et les droits sur les tables 
+--- GRANT ALL PRIVILEGES ON DATABASE therapp_db TO "www-data";
+--- GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE cures TO "www-data";
+--- GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE hebergements TO "www-data";
+--- GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE sous_types TO "www-data";
+--- GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE vue_chambre TO "www-data";
+--- GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE utilisateurs TO "www-data";
+--- GRANT USAGE, SELECT ON SEQUENCE utilisateurs_id_seq TO "www-data";
 
---- Node js
---- Tester la connexion : node db.js
---- tester la base de donnees avec Node Js : node test_db.js
+
+
+
+/*
+Therapp_Aisis_Projet/
+├── backend/
+│   └── reservation.php,.....         <-- fichier PHP
+├── vues/
+│   └── reservation.html , ....       <-- page HTML visible par l’utilisateur
+├── Scripts/
+│   └── reservation.js , ....         <-- script JS lié à reservation.html
+├── data/
+│   └── Therapp-Aisis_DB.sql    <-- fichier PHP
+├── styles/
+│   └── style.css               <-- page css
+├── images/
+│   └── ......                  <-- les images
+___index.html
+*/

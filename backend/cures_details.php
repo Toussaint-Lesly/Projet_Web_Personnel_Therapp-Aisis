@@ -1,12 +1,38 @@
+<?php
+
+
+require 'db.php';
+
+// Récupération de l'ID de la cure depuis l'URL
+if (isset($_GET['id'])) {
+    $idCure = $_GET['id'];
+
+    // Récupération de la cure spécifique
+    $query = "SELECT * FROM cures WHERE id_cure = :idCure";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute(['idCure' => $idCure]);
+    $cure = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    // Récupération de toutes les cures (pour afficher toutes les cures)
+    $queryAll = "SELECT * FROM cures";
+    $stmtAll = $pdo->prepare($queryAll);
+    $stmtAll->execute();
+    $allCures = $stmtAll->fetchAll(PDO::FETCH_ASSOC);
+} else {
+    // Si l'ID n'est pas présent dans l'URL
+    die("Cure non trouvée.");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>A-propos</title>
+        <title>Cures</title>
         
-        <link href = "../styles/style_bootstrap.css" rel = "stylesheet">
+        <link href = "../styles/style.css" rel = "stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" 
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
        
@@ -17,7 +43,7 @@
         <script src="../scripts/navbar.js" defer></script>
     </head>
 
-    <body class="bg-success bg-opacity-10">
+<body class="bg-success bg-opacity-10">
         <header>
             <nav class="navbar text-dark navbar-expand-md bg-light navbar-light bg-opacity-10" style="font-size: 25px;">
                 <div class="container-fluid px-5 d-flex justify-content-between align-items-center">
@@ -37,30 +63,30 @@
                                 <a class="nav-link text-dark mx-3" href="../index.html">Accueil</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <!-- j'ai enleve dropdown-toggle de la classe nav-link pour cacher la fleche-->
-                                <a class="nav-link text-dark mx-3" data-bs-toggle="dropdown" href="prestations_Therapp-Aisis_boostrap.html" role="button" aria-expanded="false">Nos cures</a>
-                                <ul class="dropdown-menu bg-light " style="width: 400px; text-decoration: none; padding: 10px; font-size: 25px;">
-                                    <li><a href="prestations_Therapp-Aisis_boostrap.html#dropdown-detox" class="text-dark" style="text-decoration: none;">Cure Détox et Purification</a></li>
-                                    <li><a href="prestations_Therapp-Aisis_boostrap.html#dropdown-relaxation" class="text-dark" style="text-decoration: none;">Cure Relaxation et Anti-Stress</a></li>
-                                    <li><a href="prestations_Therapp-Aisis_boostrap.html#dropdown-revitalisation" class="text-dark" style="text-decoration: none;">Cure Revitalisation et Énergie</a></li>
-                                    <li><a href="prestations_Therapp-Aisis_boostrap.html#dropdown-sommeil" class="text-dark" style="text-decoration: none;">Cure Sommeil et Relaxation Profonde</a></li>
-                                    <li><a href="prestations_Therapp-Aisis_boostrap.html#dropdown-minceur" class="text-dark" style="text-decoration: none;">Cure Minceur et Équilibre Alimentaire</a></li>
-                                    <li><a href="prestations_Therapp-Aisis_boostrap.html#dropdown-anti-age" class="text-dark" style="text-decoration: none;">Cure Anti-Âge et Beauté</a></li>
-                                    <li><a href="prestations_Therapp-Aisis_boostrap.html#dropdown-immunite" class="text-dark" style="text-decoration: none;">Cure Immunité et Renforcement du Corps</a></li>
-                                    <li><a href="prestations_Therapp-Aisis_boostrap.html#dropdown-dos" class="text-dark" style="text-decoration: none;">Cure Spécial Dos</a></li>
-                                    <li><a href="prestations_Therapp-Aisis_boostrap.html#dropdown-sante" class="text-dark" style="text-decoration: none;">Cure Prévention Santé</a></li>
-                                    <li><a href="prestations_Therapp-Aisis_boostrap.html#dropdown-forme" class="text-dark" style="text-decoration: none;">Cure Remise en Forme</a></li>
+                                <a class="nav-link text-dark mx-3" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Nos cures</a>
+                                <ul class="dropdown-menu bg-light" style="width: 400px; text-decoration: none; padding: 10px; font-size: 25px;">
+                                    <li><a href="cures.php#cure-détox-et-purification" class="text-dark" style="text-decoration: none;">Cure Détox et Purification</a></li>
+                                    <li><a href="cures.php#cure-relaxation-et-anti-stress" class="text-dark" style="text-decoration: none;">Cure Relaxation et Anti-Stress</a></li>
+                                    <li><a href="cures.php#cure-revitalisation-et-Énergie" class="text-dark" style="text-decoration: none;">Cure Revitalisation et Énergie</a></li>
+                                    <li><a href="cures.php#cure-sommeil-et-relaxation-profonde" class="text-dark" style="text-decoration: none;">Cure Sommeil et Relaxation Profonde</a></li>
+                                    <li><a href="cures.php#cure-minceur-et-Équilibre-alimentaire" class="text-dark" style="text-decoration: none;">Cure Minceur et Équilibre Alimentaire</a></li>
+                                    <li><a href="cures.php#cure-anti-Âge-et-beauté" class="text-dark" style="text-decoration: none;">Cure Anti-Âge et Beauté</a></li>
+                                    <li><a href="cures.php#cure-immunité-et-renforcement-du-corps" class="text-dark" style="text-decoration: none;">Cure Immunité et Renforcement du Corps</a></li>
+                                    <li><a href="cures.php#cure-spécial-dos" class="text-dark" style="text-decoration: none;">Cure Spécial Dos</a></li>
+                                    <li><a href="cures.php#cure-prévention-santé" class="text-dark" style="text-decoration: none;">Cure Prévention Santé</a></li>
+                                    <li><a href="cures.php#cure-remise-en-forme" class="text-dark" style="text-decoration: none;">Cure Remise en Forme</a></li>
                                 </ul>
                             </li>
+                            
                             <li class="nav-item dropdown">
                                 <!-- j'ai enleve dropdown-toggle de la classe nav-link pour cacher la fleche-->
-                                <a class="nav-link text-dark mx-3" data-bs-toggle="dropdown" href="vues/hebergement_Therapp-Aissis_boostrap.html" role="button" aria-expanded="false">Nos chambres</a>
+                                <a class="nav-link text-dark mx-3" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Nos chambres</a>
                                 <ul class="dropdown-menu bg-light" style="width: 350px; text-decoration: none; padding: 10px; font-size: 25px;">
-                                    <li><a href="hebergement_Therapp-Aissis_boostrap.html#dropdown-stsimple" class="text-dark" style="text-decoration: none;">Chambre standard simple</a></li>
-                                    <li><a href="hebergement_Therapp-Aissis_boostrap.html#dropdown-stdouble" class="text-dark" style="text-decoration: none;">Chambre standard double</a></li>
-                                    <li><a href="hebergement_Therapp-Aissis_boostrap.html#dropdown-dbsimple" class="text-dark" style="text-decoration: none;">Chambre confort simple</a></li>
-                                    <li><a href="hebergement_Therapp-Aissis_boostrap.html#dropdown-dbdouble" class="text-dark" style="text-decoration: none;">Chambre confort double</a></li>
-                                    <li><a href="hebergement_Therapp-Aissis_boostrap.html#dropdown-suite" class="text-dark" style="text-decoration: none;">Suite</a></li>
+                                    <li><a href="hebergement.php#chambres_standard" class="text-dark" style="text-decoration: none;">Chambre standard simple</a></li>
+                                    <li><a href="hebergement.php#chambres_standard" class="text-dark" style="text-decoration: none;">Chambre standard double</a></li>
+                                    <li><a href="hebergement.php#chambres_confort" class="text-dark" style="text-decoration: none;">Chambre confort simple</a></li>
+                                    <li><a href="hebergement.php#chambres_confort" class="text-dark" style="text-decoration: none;">Chambre confort double</a></li>
+                                    <li><a href="hebergement.php#suite" class="text-dark" style="text-decoration: none;">Suite</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -74,7 +100,7 @@
                         <a href="#" id="close-search" class="me-3 d-none">  
                             <i class="bi bi-x" style="font-size: 2rem; color: red; cursor: pointer;"></i>
                         </a>
-                        <a href="s_identifier.html" class="me-3">
+                        <a href="../vues/login.html" class="me-3">
                             <i class="bi bi-person" style="font-size: 2rem; color: #333333;"></i>
                         </a>
                         <a href="#">
@@ -85,15 +111,69 @@
             </nav>
         </header>
 
-        <main>
-            <section class="my-1">
-                <div class="container-fluid">
-                    <div class="banniere">
-                        <h2>Therapp-Aisis, un havre de paix ! <br> Rééquilibrer votre énergie, revitalisez votre vie!</h2>
-                    </div> 
+    <main>
+        <section class="my-1">
+            <div class="container-fluid">
+                <div class="banniere">
+                    <h2>Therapp-Aisis, un havre de paix ! <br> Rééquilibrer votre énergie, revitalisez votre vie!</h2>
+                </div> 
+            </div>
+        </section>
+    
+        <section class="container mt-4 cure-details">
+            <h5 class="card-title text-center"><?php echo htmlspecialchars($cure['nom']); ?></h5>
+                <!-- Afficher la cure sélectionnée -->
+                <div id="cure-<?php echo $cure['id_cure']; ?>" class="row d-flex justify-content-center align-items-center">
+                    <div class="col-12 mb-4" style="width: auto">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body">
+                                
+                                <p>💡 <strong>Objectifs :</strong> <?php echo htmlspecialchars($cure['objectifs']); ?></p>
+                                <p>🕒 <strong>Durée :</strong> <?php echo htmlspecialchars($cure['duree']); ?> jours</p>
+                                <p>🔹 <strong>Soins inclus :</strong> <?php echo htmlspecialchars($cure['soins']); ?></p>
+                                <p>👤 <strong>Cible :</strong> <?php echo htmlspecialchars($cure['cible']); ?></p>
+                                <p>✅ <strong>Résultats :</strong> <?php echo htmlspecialchars($cure['resultats']); ?></p>
+                                <a href="../vues/reservation.html">
+                                    <button class="btn-outline-primary justify-content-center text-dark px-4">Reserver</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </section>
 
+                <!-- Bouton pour afficher les autres cures -->
+                <div class="text-center mt-4">
+                        <button id="toggleCuresBtn" class="btn btn-outline-primary">Voir les details des autres cures >></button>
+                </div>
+
+                <!-- Affichage de toutes les autres cures, cachées par défaut -->
+            <div id="allCuresContainer" class="hidden mt-5">
+                <div class="row">
+                    <?php foreach ($allCures as $otherCure): ?>
+                        <div class="col-md-4 mt-4 mb-4">
+                        <h5 class="card-title text-center"><?php echo htmlspecialchars($otherCure['nom']); ?></h5>
+                            <div class="card shadow-sm h-100">
+                                <div class="card-body">
+                                    <p>💡 <strong>Objectifs :</strong> <?php echo htmlspecialchars($otherCure['objectifs']); ?></p>
+                                    <p>🕒 <strong>Durée :</strong> <?php echo htmlspecialchars($otherCure['duree']); ?> jours</p>
+                                    <p>🔹 <strong>Soins inclus :</strong> <?php echo htmlspecialchars($otherCure['soins']); ?></p>
+                                    <p>👤 <strong>Cible :</strong> <?php echo htmlspecialchars($otherCure['cible']); ?></p>
+                                    <p>✅ <strong>Résultats :</strong> <?php echo htmlspecialchars($otherCure['resultats']); ?></p>
+                                    <a href="vues/reservation.html" class="btn btn-outline-primary text-dark">Reserver</a>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+                <!-- Nouveau bouton pour masquer les cures -->
+                <div class="text-center mt-4">
+                    <button id="hideCuresBtn" class="btn btn-outline-primary">Masquer les details</button>
+                </div>
+            </div>
+        </section>
+
+        <section>
+                        
             <div class="container my-5" style="font-size: 25px; text-align: justify;">
                 <h2 class="text-center mb-5"><strong>La Médecine Thérapeutique et le Bien-Être Holistique</strong></h2>
         
@@ -201,9 +281,9 @@
                 </div>
 
             </div>
-        </main>
-
-        <footer>
+        </section>
+    </main>
+    <footer>
             <div class="container-fluid mt-5 text-center bg-secondary bg-opacity-25" style="font-size: 25px;">
                 <div class="row">
                     <div class="col-sm-12 col-md-4">
@@ -211,7 +291,7 @@
                         <hr style="border: 2px solid black; margin-top: 20px;">
 
                         <!-- <a href="#">Conditions generales de vente</a><br> -->
-                        <a href="a_propos_cures.html">A-propos</a><br>
+                        <a href="../vues/a_propos_cures.html">A-propos</a><br>
                     </div>
 
                     <div class="col-sm-12 col-md-4">
@@ -250,5 +330,6 @@
                 </div>
             </div>
         </footer>
-    </body>
+    <script src="../scripts/cures_details.js"></script>
+</body>
 </html>
