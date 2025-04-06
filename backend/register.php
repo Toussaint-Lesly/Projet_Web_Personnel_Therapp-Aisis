@@ -1,23 +1,6 @@
 <?php
-// Activer l'affichage des erreurs PHP pour le débogage
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
-// Connexion à la base de données PostgreSQL
-$dsn = 'pgsql:host=localhost;dbname=therapp_db';
-$username = 'postgres';
-$password = '123';
-
-try {
-    // Connexion PDO
-    $pdo = new PDO($dsn, $username, $password);
-    // Configuration pour afficher les erreurs PDO
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    // Affichage de l'erreur de connexion
-    die("Erreur de connexion à la base de données : " . $e->getMessage());
-}
+require 'db.php'; // Connexion à la base de données
 
 // Vérifier si le formulaire a été soumis via POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

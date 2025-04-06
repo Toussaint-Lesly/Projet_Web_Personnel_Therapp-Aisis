@@ -183,3 +183,8 @@ input {
     height: 16px;
     margin: 0; /* Supprime le décalage */
 }
+
+/*masquer les cures*/
+.hidden {
+    display: none;
+}
