@@ -3,8 +3,9 @@
 DROP TABLE IF EXISTS utilisateurs CASCADE;
 DROP TABLE IF EXISTS cures CASCADE;
 DROP TABLE IF EXISTS sous_types CASCADE;
-DROP TABLE IF EXISTS hebergements CASCADE;
+DROP TABLE IF EXISTS hebergement CASCADE;
 DROP TABLE IF EXISTS vue_chambre CASCADE;
+DROP TABLE IF EXISTS reservation CASCADE;
 
 -- Création des tables
 
@@ -54,6 +55,53 @@ CREATE TABLE vue_chambre (
     image VARCHAR(255),
     FOREIGN KEY (id_hebergement) REFERENCES hebergement(id_hebergement) ON DELETE CASCADE
 );
+
+
+CREATE TABLE reservation (
+    id_reservation SERIAL PRIMARY KEY,
+    statut VARCHAR(100) DEFAULT 'En attente',
+
+    -- Infos personnelles
+    --- nom VARCHAR(100) NOT NULL,
+    --- prenom VARCHAR(100) NOT NULL,
+    --- telephone VARCHAR(20),
+    --- email VARCHAR(150),
+    --- adresse VARCHAR(255),
+
+    -- Références (pour intégrité) + copies locales des valeurs affichées
+    id_cure INT NOT NULL,
+    description TEXT NOT NULL,   -- Copie figée de la description
+    id_sous_type INT NOT NULL,
+    nom_sous_type VARCHAR(255) NOT NULL,
+    prix  DECIMAL(10,2) NOT NULL, -- Prix de la cure sélectionnée
+
+    id_hebergement INT NULL,
+    type_chambre TEXT NULL,       -- Copie du type de chambre
+    prix_base DECIMAL(10,2) NULL,
+
+    id_vue_chambre INT NULL,
+    vue TEXT NULL,                         -- Copie de la vue choisie
+    supplement DECIMAL(10,2) DEFAULT 0,
+
+    -- Nombre de personnes
+    --- nombre_enfants INT DEFAULT 0,
+    --- nombre_adultes INT DEFAULT 1,
+
+    -- Dates
+    date_arrivee DATE NOT NULL,
+    date_depart DATE NOT NULL,
+    --- date_reservation TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    -- Prix total
+    prix_total DECIMAL(10,2) NOT NULL,
+
+    -- Clés étrangères
+    FOREIGN KEY (id_cure) REFERENCES cures(id_cure) ON DELETE CASCADE,
+    FOREIGN KEY (id_sous_type) REFERENCES sous_types(id_sous_type) ON DELETE CASCADE,
+    FOREIGN KEY (id_hebergement) REFERENCES hebergement(id_hebergement) ON DELETE CASCADE,
+    FOREIGN KEY (id_vue_chambre) REFERENCES vue_chambre(id_vue_chambre) ON DELETE SET NULL
+);
+
 
 -- Insérer des données dans la table cures
 
