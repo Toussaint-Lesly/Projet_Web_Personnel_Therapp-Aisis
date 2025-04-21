@@ -65,16 +65,16 @@ if (isset($_GET['id'])) {
                             <li class="nav-item dropdown">
                                 <a class="nav-link text-dark mx-3" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Nos cures</a>
                                 <ul class="dropdown-menu bg-light" style="width: 400px; text-decoration: none; padding: 10px; font-size: 25px;">
-                                    <li><a href="cures.php#cure-détox-et-purification" class="text-dark" style="text-decoration: none;">Cure Détox et Purification</a></li>
-                                    <li><a href="cures.php#cure-relaxation-et-anti-stress" class="text-dark" style="text-decoration: none;">Cure Relaxation et Anti-Stress</a></li>
-                                    <li><a href="cures.php#cure-revitalisation-et-Énergie" class="text-dark" style="text-decoration: none;">Cure Revitalisation et Énergie</a></li>
-                                    <li><a href="cures.php#cure-sommeil-et-relaxation-profonde" class="text-dark" style="text-decoration: none;">Cure Sommeil et Relaxation Profonde</a></li>
-                                    <li><a href="cures.php#cure-minceur-et-Équilibre-alimentaire" class="text-dark" style="text-decoration: none;">Cure Minceur et Équilibre Alimentaire</a></li>
-                                    <li><a href="cures.php#cure-anti-Âge-et-beauté" class="text-dark" style="text-decoration: none;">Cure Anti-Âge et Beauté</a></li>
-                                    <li><a href="cures.php#cure-immunité-et-renforcement-du-corps" class="text-dark" style="text-decoration: none;">Cure Immunité et Renforcement du Corps</a></li>
-                                    <li><a href="cures.php#cure-spécial-dos" class="text-dark" style="text-decoration: none;">Cure Spécial Dos</a></li>
-                                    <li><a href="cures.php#cure-prévention-santé" class="text-dark" style="text-decoration: none;">Cure Prévention Santé</a></li>
-                                    <li><a href="cures.php#cure-remise-en-forme" class="text-dark" style="text-decoration: none;">Cure Remise en Forme</a></li>
+                                    <li><a href="../vues/cures.html#cure-detox-et-purification" class="text-dark" style="text-decoration: none;">Cure Détox et Purification</a></li>
+                                    <li><a href="../vues/cures.html#cure-relaxation-et-anti-stress" class="text-dark" style="text-decoration: none;">Cure Relaxation et Anti-Stress</a></li>
+                                    <li><a href="../vues/cures.html#cure-revitalisation-et-energie" class="text-dark" style="text-decoration: none;">Cure Revitalisation et Énergie</a></li>
+                                    <li><a href="../vues/cures.html#cure-sommeil-et-relaxation-profonde" class="text-dark" style="text-decoration: none;">Cure Sommeil et Relaxation Profonde</a></li>
+                                    <li><a href="../vues/cures.html#cure-minceur-et-equilibre-alimentaire" class="text-dark" style="text-decoration: none;">Cure Minceur et Équilibre Alimentaire</a></li>
+                                    <li><a href="../vues/cures.html#cure-anti-age-et-beaute" class="text-dark" style="text-decoration: none;">Cure Anti-Âge et Beauté</a></li>
+                                    <li><a href="../vues/cures.html#cure-immunite-et-renforcement-du-corps" class="text-dark" style="text-decoration: none;">Cure Immunité et Renforcement du Corps</a></li>
+                                    <li><a href="../vues/cures.html#cure-special-dos" class="text-dark" style="text-decoration: none;">Cure Spécial Dos</a></li>
+                                    <li><a href="../vues/cures.html#cure-prevention-sante" class="text-dark" style="text-decoration: none;">Cure Prévention Santé</a></li>
+                                    <li><a href="../vues/cures.html#cure-remise-en-forme" class="text-dark" style="text-decoration: none;">Cure Remise en Forme</a></li>
                                 </ul>
                             </li>
                             
@@ -103,7 +103,7 @@ if (isset($_GET['id'])) {
                         <a href="../vues/login.html" class="me-3">
                             <i class="bi bi-person" style="font-size: 2rem; color: #333333;"></i>
                         </a>
-                        <a href="#">
+                        <a href="../vues/afficher_dans_panier.html">
                             <i class="bi bi-cart4" style="font-size: 2rem; color: #333333"></i>
                         </a>
                       </form>
@@ -121,11 +121,11 @@ if (isset($_GET['id'])) {
         </section>
     
         <section class="container mt-4 cure-details">
-            <h5 class="card-title text-center"><?php echo htmlspecialchars($cure['nom']); ?></h5>
+            <h5 class="card-title text-center"><?php echo htmlspecialchars($cure['nom']); ?></h5> -->
                 <!-- Afficher la cure sélectionnée -->
                 <div id="cure-<?php echo $cure['id_cure']; ?>" class="row d-flex justify-content-center align-items-center">
                     <div class="col-12 mb-4" style="width: auto">
-                        <div class="card shadow-sm h-100">
+                        <div class="card h-100">
                             <div class="card-body">
                                 
                                 <p>💡 <strong>Objectifs :</strong> <?php echo htmlspecialchars($cure['objectifs']); ?></p>
@@ -133,9 +133,9 @@ if (isset($_GET['id'])) {
                                 <p>🔹 <strong>Soins inclus :</strong> <?php echo htmlspecialchars($cure['soins']); ?></p>
                                 <p>👤 <strong>Cible :</strong> <?php echo htmlspecialchars($cure['cible']); ?></p>
                                 <p>✅ <strong>Résultats :</strong> <?php echo htmlspecialchars($cure['resultats']); ?></p>
-                                <a href="../vues/reservation.html">
-                                    <button class="btn-outline-primary justify-content-center text-dark px-4">Reserver</button>
-                                </a>
+                                <div class="text-center">
+                                    <a href="../vues/reservation.html" class="center btn btn-outline-primary text-dark">Reserver</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -143,23 +143,24 @@ if (isset($_GET['id'])) {
 
                 <!-- Bouton pour afficher les autres cures -->
                 <div class="text-center mt-4">
-                        <button id="toggleCuresBtn" class="btn btn-outline-primary">Voir les details des autres cures >></button>
-                </div>
-
+                        <button id="toggleCuresBtn" class="btn btn-outline-primary">Voir plus >></button>
+                </div> 
                 <!-- Affichage de toutes les autres cures, cachées par défaut -->
             <div id="allCuresContainer" class="hidden mt-5">
                 <div class="row">
                     <?php foreach ($allCures as $otherCure): ?>
                         <div class="col-md-4 mt-4 mb-4">
                         <h5 class="card-title text-center"><?php echo htmlspecialchars($otherCure['nom']); ?></h5>
-                            <div class="card shadow-sm h-100">
+                            <div class="card h-auto">
                                 <div class="card-body">
                                     <p>💡 <strong>Objectifs :</strong> <?php echo htmlspecialchars($otherCure['objectifs']); ?></p>
                                     <p>🕒 <strong>Durée :</strong> <?php echo htmlspecialchars($otherCure['duree']); ?> jours</p>
                                     <p>🔹 <strong>Soins inclus :</strong> <?php echo htmlspecialchars($otherCure['soins']); ?></p>
                                     <p>👤 <strong>Cible :</strong> <?php echo htmlspecialchars($otherCure['cible']); ?></p>
                                     <p>✅ <strong>Résultats :</strong> <?php echo htmlspecialchars($otherCure['resultats']); ?></p>
-                                    <a href="vues/reservation.html" class="btn btn-outline-primary text-dark">Reserver</a>
+                                    <div class="text-center">
+                                        <a href="../vues/reservation.html" class="center btn btn-outline-primary text-dark">Reserver</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
