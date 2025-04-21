@@ -14,137 +14,209 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="https://kit.fontawesome.com/14273d579a.js" crossorigin="anonymous"></script>
+        <script src="../scripts/maj_compteur_panier.js" defer></script>
     </head>
     
     <body class="bg-success bg-opacity-10">
         <header>
-            <nav class="navbar my-5 text-dark navbar-expand-md bg-light navbar-light bg-opacity-10">
-                <div class="container justify-content-center align-items-center">
-                    <a href="../index.html">
-                        <img src="../images/logo1.jpg" alt="logo du site" width="300" height="100">
+            <nav class="navbar text-dark navbar-expand-md bg-light navbar-light bg-opacity-10" style="font-size: 25px;">
+                <div class="container-fluid px-5 d-flex justify-content-between align-items-center">
+                    
+                    <a class="navbar-brand" href="../index.html">
+                        <img src="../images/logo1.jpg" alt="logo du site" width="250" height="80">
                     </a>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                                       
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark mx-3" href="../index.html">Accueil</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link text-dark mx-3" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Nos cures</a>
+                                <ul class="dropdown-menu bg-light" style="width: 400px; text-decoration: none; padding: 10px; font-size: 25px;">
+                                    <li><a href="cures.html#cure-detox-et-purification" class="text-dark" style="text-decoration: none;">Cure Détox et Purification</a></li>
+                                    <li><a href="cures.html#cure-relaxation-et-anti-stress" class="text-dark" style="text-decoration: none;">Cure Relaxation et Anti-Stress</a></li>
+                                    <li><a href="cures.html#cure-revitalisation-et-energie" class="text-dark" style="text-decoration: none;">Cure Revitalisation et Énergie</a></li>
+                                    <li><a href="cures.html#cure-sommeil-et-relaxation-profonde" class="text-dark" style="text-decoration: none;">Cure Sommeil et Relaxation Profonde</a></li>
+                                    <li><a href="cures.html#cure-minceur-et-equilibre-alimentaire" class="text-dark" style="text-decoration: none;">Cure Minceur et Équilibre Alimentaire</a></li>
+                                    <li><a href="cures.html#cure-anti-age-et-beaute" class="text-dark" style="text-decoration: none;">Cure Anti-Âge et Beauté</a></li>
+                                    <li><a href="cures.html#cure-immunite-et-renforcement-du-corps" class="text-dark" style="text-decoration: none;">Cure Immunité et Renforcement du Corps</a></li>
+                                    <li><a href="cures.html#cure-special-dos" class="text-dark" style="text-decoration: none;">Cure Spécial Dos</a></li>
+                                    <li><a href="cures.html#cure-prevention-sante" class="text-dark" style="text-decoration: none;">Cure Prévention Santé</a></li>
+                                    <li><a href="cures.html#cure-remise-en-forme" class="text-dark" style="text-decoration: none;">Cure Remise en Forme</a></li>
+                                </ul>
+                            </li>
+                            
+                            <li class="nav-item dropdown">
+                                <!-- j'ai enleve dropdown-toggle de la classe nav-link pour cacher la fleche-->
+                                <a class="nav-link text-dark mx-3" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Nos chambres</a>
+                                <ul class="dropdown-menu bg-light" style="width: 350px; text-decoration: none; padding: 10px; font-size: 25px;">
+                                    <li><a href="hebergements.html#chambre-standard-simple" class="text-dark" style="text-decoration: none;">Chambre standard simple</a></li>
+                                    <li><a href="hebergements.html#chambre-standard-double" class="text-dark" style="text-decoration: none;">Chambre standard double</a></li>
+                                    <li><a href="hebergements.html#chambre-confort-simple" class="text-dark" style="text-decoration: none;">Chambre confort simple</a></li>
+                                    <li><a href="hebergements.html#chambre-confort-double" class="text-dark" style="text-decoration: none;">Chambre confort double</a></li>
+                                    <li><a href="hebergements.html#suite" class="text-dark" style="text-decoration: none;">Suite</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <form class="d-flex">
+                        <a href="#" id="search-icon" class="me-3">
+                            <i class="bi bi-search" type="submit" style="font-size: 2rem; color: #333333; cursor: pointer;"></i>
+                        </a>
+                        <input id="search-bar" class="form-control me-2 d-none" type="search" placeholder="Rechercher..." aria-label="Search"> 
+                        <a href="#" id="close-search" class="me-3 d-none">  
+                            <i class="bi bi-x" style="font-size: 2rem; color: red; cursor: pointer;"></i>
+                        </a>
+                        <a href="../vues/login.html" class="me-3">
+                            <i class="bi bi-person" style="font-size: 2rem; color: #333333;"></i>
+                        </a>
+                        <a href="afficher_dans_panier.html">
+                            <i class="bi bi-cart4" style="font-size: 2rem; color: #333333">
+                                <span class="position-absolute top-1 translate-middle badge bg-danger rounded-pill ms-1" 
+                                id="panier-count" style="font-size: 0.90rem; padding: 0.25em 0.4em;">0</span>
+                            </i>
+                        </a>
+                      </form>
                 </div>
             </nav>
         </header>
+    <main>
+        <section>
+            <div class="container my-5" style="background-color: white; padding: 20px; width: 600px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 20px;">
+                <h2>Réservation de Cure</h2>
+                    <form method="POST" id="form-reservation">
 
-        <main>
+                        <div>
+                            <!-- Sélection de la cure principale -->
+                            <div class="row"> 
+                                <div class="col">
+                                    <label for="cure">Choisissez une cure :</label>
+                                </div>
+                                <div class="col">
+                                    <select id="cure" name="id_cure"> <!--modification ajout de name="id_cure"-->
+                                        <option value="">-- Sélectionnez une cure --</option>
+                                        <option value="1">Cure Détox et Purification</option>
+                                        <option value="2">Cure Relaxation et Anti-Stress</option>
+                                        <option value="3">Cure Revitalisation et Énergie</option>
+                                        <option value="4">Cure Sommeil et Relaxation Profonde</option>
+                                        <option value="5">Cure Minceur et Équilibre Alimentaire</option>
+                                        <option value="6">Cure Anti-Âge et Beauté</option>
+                                        <option value="7">Cure Immunité et Renforcement du Corps</option>
+                                        <option value="8">Cure Spécial Dos</option>
+                                        <option value="9">Cure Prévention Santé</option>
+                                        <option value="10">Cure Remise en Forme</option>
+                                    </select>
+                                </div>
+                            </div>
+        
+                            <!--Zone pour afficher les sous-types-->
+                            <div id="types-container" style="display: none; margin-top: 20px;">
+                                <label>Choisissez un type de cure :</label>
+                                <div id="types-list"></div>
+                            </div>
+                            
+                            <!-- Choix hébergement  -->
+                            <div class="row justify-content-center my-5">
+                                <div class="col-sm-8">
+                                    <label for="text" class="form-label">Souhaitez-vous réserver une chambre ?</label>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Sélectionnez
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                            <li>
+                                                <button class="dropdown-item" type="button" onclick="afficherChambre(true)">Oui</button>
+                                            </li>
+                                            <li>
+                                                <button class="dropdown-item" type="button" onclick="afficherChambre(false)">Non</button>
+                                            </li>   
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-            <section style="margin-top: -35px;">
-                <div class="container" style="background-color: white; padding: 20px; width: 600px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 20px;">
-                   
-                    <h2>Réservation de Cure</h2>
+                        <div>
+                            <!-- chambre -->
+                            <div id="select_chambre" style="display: none; border: 1px solid #ccc; padding: 20px; border-radius: 10px;">
+                            <h2>Réservation de chambre</h2>
+
+                            <div class="row mb-3"> 
+                                <div class="col">
+                                    <label for="chambre">Choisissez un type de chambre :</label>
+                                </div>
+                                <div class="col">
+                                    <select id="chambre" name="id_hebergement" class="form-select">
+                                        <option value="">-- Sélectionnez une chambre --</option>
+                                        <option value="1">Standard simple</option>
+                                        <option value="2">Standard double</option>
+                                        <option value="3">Confort simple</option>
+                                        <option value="4">Confort double</option>
+                                        <option value="5">Suite</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                                <!-- Zone pour afficher les vues -->
+                            <div id="types-vues" style="display: none; margin-top: 20px;">
+                                <label>Choisissez une vue :</label>
+                                <div id="vue_chambres"></div>
+                            </div>
+                            
+                                <!--Affichage du prix total-->
+                            <div id="prix-total" style="display: none; margin-top: 20px;"></div>
+
+                            <div class="row justify-content-center my-2">
+                                <div class="col-md-5">
+                                    <label for="arrival-date" class="form-label" style="font-size: 20px;">Date d'arrivée</label>
+                                    <input type="text" id="arrival-date" name="date_arrivee" class="form-control" placeholder="Sélectionner une date" required>
+                                </div>
+                                <div class="col-md-5">
+                                    <label for="departure-date" class="form-label" style="font-size: 20px;">Date de départ</label>
+                                    <input type="text" id="departure-date" name="date_depart" class="form-control" placeholder="Sélectionner une date" required>
+                                </div>
+                            </div>
+
+                                <!-- Champs cachés pour insertion en BDD -->
                                 
-                    <!-- Sélection de la cure principale -->
-                    <div class="row"> 
-                        <div class="col">
-                            <label for="cure">Choisissez une cure :</label>
-                        </div>
-                        <div class="col">
-                            <select id="cure" name="cure">
-                                <option value="">-- Sélectionnez une cure --</option>
-                                <option value="Cure Détox et Purification">Cure Détox et Purification</option>
-                                <option value="Cure Relaxation et Anti-Stress">Cure Relaxation et Anti-Stress</option>
-                                <option value="Cure Revitalisation et Énergie">Cure Revitalisation et Énergie</option>
-                                <option value="Cure Sommeil et Relaxation Profonde">Cure Sommeil et Relaxation Profonde</option>
-                                <option value="Cure Minceur et Équilibre Alimentaire">Cure Minceur et Équilibre Alimentaire</option>
-                                <option value="Cure Anti-Âge et Beauté">Cure Anti-Âge et Beauté</option>
-                                <option value="Cure Immunité et Renforcement du Corps">Cure Immunité et Renforcement du Corps</option>
-                                <option value="Cure Spécial Dos">Cure Spécial Dos</option>
-                                <option value="Cure Prévention Santé">Cure Prévention Santé</option>
-                                <option value="Cure Remise en Forme">Cure Remise en Forme</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <!-- Zone pour afficher les sous-types -->
-                    <div id="types-container" style="display: none; margin-top: 20px;;">
-                        <label>Choisissez un type de cure :</label>
-                        <div id="types-list"></div> <!--onclick="submitForm()"-->
-                    </div>
-
-                    <div id="saison-container" style="display: none; margin-top: 20px;;">
-                        <label>Choisissez une saison :</label>
-                        <div id="saison-list"></div>  <!--onclick="submitForm()"-->
-                    </div>
-                                
-                    <form>
-
-                        <div class="row justify-content-center my-4">
-                            <div class="col-sm-3">
-                                <label for="nom" class="form-label">Votre nom :</label>
-                            </div>
-                            <div class="col-sm-9">
-                                <input type="text" placeholder="Votre nom" class="form-control" id="nom">
-                            </div>
-                        </div>
-                        <div class="row justify-content-center my-4">
-                            <div class="col-sm-3">
-                                <label for="prenom" class="form-label">Votre prenom :</label>
-                            </div>
-                            <div class="col-sm-9">
-                                <input type="text" placeholder="Votre prenom" class="form-control" id="prenom">
-                            </div>
+                            <input type="hidden" id="id_sous_type" name="id_sous_type">
+                            <input type="hidden" id="nom_sous_type" name="nom_sous_type">
+                            <input type="hidden" id="description" name="description">
+                            <input type="hidden" id="prix" name="prix">
+                            <input type="hidden" id="prix_base" name="prix_base">
+                            <input type="hidden" id="supplement" name="supplement">
+                            <input type="hidden" id="id_vue_chambre" name="id_vue_chambre">
+                            <input type="hidden" id="type_chambre" name="type_chambre">
+                            <input type="hidden" id="vue" name="vue">
+                            <input type="hidden" id="prix_total_input" name="prix_total">
                         </div>
                         
-                        <div class="row justify-content-center my-4">
-                            <div class="col-sm-3">
-                                <label for="tel" class="form-label">Telephone :</label>
-                            </div>
-                            <div class="col-sm-9">
-                                <input type="tel" placeholder="+123456789" class="form-control" id="tel">
-                            </div>
+                          <!--Bouton ajouter au panier-->
+                        <div class="row justify-content-center" style="margin-top: 20px;"> 
+                            <button type="submit" style="margin-top: 20px; width: 100%; background-color: #ffd814; border: none; padding: 10px; 
+                                font-size: 16px; cursor: pointer; border-radius: 20px;">
+                                Ajouter au panier
+                            </button>
                         </div>
 
-                        <div style="margin-top: 20px;">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" placeholder="JeanDupond@..." class="form-control" id="email" aria-describedby="emailHelp">
-                        </div>
-
-                        <div style="margin-top: 20px;">
-                            <label for="adresse" class="form-label">Adresse</label>
-                            <input type="text" class="form-control" id="adresse">
-                        </div>
+                           <!-- afficher le message -->
+                        <div id="message-reservation" class="position-fixed top-0 start-50 translate-middle-x mt-3" style="z-index: 1055; margin-top: 2rem;"></div>
                     </form>
-                    
-                    <div class="row justify-content-center my-5">
-                        <div class="col-sm-8">
-                            <label for="text" class="form-label">Souhaitez - vous reserver une chambre ?</label>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">Selectionnnez</button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                    <li><a href="select_chambre.html" class="dropdown-item" type="button">Oui</a></li>
-                                    <li>
-                                        <button class="dropdown-item" type="button" onclick="event.stopPropagation(); alert('Vous avez choisi de ne pas réserver de chambre.');">
-                                            Non
-                                        </button>
-                                    </li>   
-                                </ul>
-                              </div>
-                        </div>
-                    </div>
-            
-                    <div class="row justify-content-center" style="margin-top: -20px;">
-                        <button style="margin-top: 20px; width: 100%; background-color: #ffd814; border: none; padding: 10px; 
-                            font-size: 16px; cursor: pointer; border-radius: 20px;">
-                            <a href="#" style="text-decoration: none; color: black;">Ajouter au panier</a> 
-                        </button>
-
-                    </div>
-                </div>
-
-            </section> 
-            <section>
-                <div class="container mt-5">
-                    <hr style="border: 3px solid black;">
                 </div>
             </section>
-
         </main>
 
         <footer>
-            <div class="container my-5 text-center bg-secondary bg-opacity-25" style="font-size: 25px;">
+            <div class="container-fluid my-5 text-center bg-secondary bg-opacity-25" style="font-size: 25px;">
                 <div class="row">
                     <div class="col-sm-12 col-md-4">
                         <h3>Aide</h3>
@@ -189,3 +261,4 @@
         <script src="../scripts/reservation.js"></script> <!--les sous menus-->
     </body>
 </html>
+
