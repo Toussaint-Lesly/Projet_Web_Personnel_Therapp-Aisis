@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Acceuil</title>
         
-        <link href = "styles/style.css" rel = "stylesheet">
+        <link rel="stylesheet" href="styles/style.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
        
         <script src="https://kit.fontawesome.com/14273d579a.js" crossorigin="anonymous"></script>
@@ -22,7 +22,7 @@
                 <div class="container-fluid px-5 d-flex justify-content-between align-items-center">
                     
                     <a class="navbar-brand" href="index.html">
-                        <img src="images/logo1.jpg" alt="logo du site" width="250" height="80">
+                        <img src="images/logo1.jpg" alt="logo du site" width="250" height="85">
                     </a>
 
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
@@ -76,6 +76,9 @@
                         <a href="vues/login.html" class="me-3">
                             <i class="bi bi-person" style="font-size: 2rem; color: #333333;"></i>
                         </a>
+                        <a href="vues/wishlist.html" class="me-3">
+                            <i class="bi bi-heart" style="font-size: 2rem; color: #333333;"></i>
+                        </a>                        
                         <a href="vues/afficher_dans_panier.html">
                             <i class="bi bi-cart4" style="font-size: 2rem; color: #333333">
                                 <span class="position-absolute top-1 translate-middle badge bg-danger rounded-pill ms-1" 
@@ -88,103 +91,153 @@
         </header>
 
         <main>
-            <section class="my-1">
-                <div class="container-fluid">
-                    <div class="banniere">
-                        <h2>Therapp-Aisis, un havre de paix ! <br> Rééquilibrer votre énergie, revitalisez votre vie!</h2>
-                    </div> 
+            <!-- Bannière principale -->
+            <section class="banniere">
+                <div class="container py-5 text-center text-white text-banniere">
+                    <h1 class="display-4 fw-bold">Therapp-Aisis, un havre de paix</h1>
+                    <p class="lead mt-3">Rééquilibrez votre énergie, revitalisez votre vie !</p>
+                    <a href="vues/cures.html" class="btn btn-outline-light btn-lg mt-4">Découvrir notre centre</a>
                 </div>
             </section>
-
-            <section>
-                <div class = "container my-2 justify-content-center d-flex">
-                    <div class = "row align-items-center my-5">
-                        <h2 class="text-center" style="font-size: 35px; margin-bottom: 40px;"><strong>Le centre Therapp-Aisis</strong></h2>
-                        <div class = "col">
-                            <p>
-                            Bienvenue chez Therapp-Aisis, un havre de paix où le bien-être et l’harmonie du corps et de l’esprit sont au cœur de nos préoccupations. 
-                            Niché dans un cadre naturel apaisant, notre centre vous invite à une parenthèse régénératrice loin du stress quotidien.
-                            Que vous recherchiez une détente profonde, un équilibre intérieur ou une revitalisation complète, 
-                            nous vous proposons une gamme de soins inspirés des traditions ancestrales et des thérapies modernes. 
+        
+            <!-- Section sur le centre -->
+            <section id="centre" class="py-5 bg-light">
+                <div class="container">
+                    <h2 class="text-center mb-5">Le centre Therapp-Aisis</h2>
+                    <div class="row align-items-center">
+                        <div class="col-md-6 mb-4 mb-md-0">
+                            <p class="fs-5">
+                                Bienvenue chez <strong>Therapp-Aisis</strong>, un havre de paix où le bien-être et l’harmonie du corps et de l’esprit sont au cœur de nos préoccupations. 
+                                Niché dans un cadre naturel apaisant, notre centre vous invite à une parenthèse régénératrice loin du stress quotidien.
+                                Nous vous proposons une gamme de soins inspirés des traditions ancestrales et des thérapies modernes.
                             </p>
                         </div>
-                        <div class="col-sm-12 col-md-6">
+                        <div class="col-md-6">
                             <div class="card">
-                                <img src="images/bienFaitDeLaMer.jpeg" class="img-fluid" alt="" style="height: 500px; object-fit: cover; width: 100%;">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section> 
-            <section>
-                <div class = "container my-5 justify-content-center d-flex">
-                        <div class="row align-items-center">
-                            <div class="col-sm-12 col-md-6">
-                                <div class="card">
-                                    <img src="images/hotel.jpg" class="img-fluid" alt="" style="height: 500px; object-fit: cover; width: 100%;">
-                                </div>
-                            </div>
-                            <div class="col">
-                                <p> 
-                                    Pour votre confort, notre hôtel est intégré à notre complexe pour permettre un accès direct à l'espace de soins. 
-                                    Vous pourrez opter pour différentes chambre ayant comme vue la mer, les jardins, la piscine ou bien encore le parc.
-                                    L'hôtel est composé de 53 chambres pouvant accueilir une à quatre personnes. Vous pourrez réserver une chambre standard, confort ou chambre avec suite.
-                                </p>
+                                <img src="images/bienFaitDeLaMer.jpeg" class="img-fluid rounded shadow" alt="Vue sur la mer">
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-
-        </main>
-
-        <footer>
-            <div class="container-fluid mt-5 text-center bg-secondary bg-opacity-25" style="font-size: 25px;">
-                <div class="row">
-                    <div class="col-sm-12 col-md-4">
-                        <h3>Aide</h3>
-                        <hr style="border: 2px solid black; margin-top: 20px;">
-
-                        <!-- <a href="#">Conditions generales de vente</a><br> -->
-                        <a href="./vues/a_propos_cures.html">A-propos</a><br>
+        
+            <!-- Aperçu des cures -->
+            <section class="py-5 bg-white">
+                <div class="container">
+                    <h2 class="text-center mb-5">Nos cures phares</h2>
+                    <div class="row text-center">
+                        <div class="col-md-4 mb-4">
+                            <div class="card" style = "height: 100%;">
+                                <img src="images/detox_1.png" class="card-img-top img-fixe" alt="Cure Detox">
+                                <div class="card-body">
+                                    <h5 class="card-title">Cure Detox</h5>
+                                    <p class="card-text">Purifiez votre corps grâce à une cure revitalisante et naturelle.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card" style = "height: 100%;">
+                                <img src="images/antiStress.jpg" class="card-img-top img-fixe" alt="Cure Anti-Stress">
+                                <div class="card-body">
+                                    <h5 class="card-title">Cure Anti-Stress</h5>
+                                    <p class="card-text">Retrouvez votre sérénité grâce à nos soins relaxants et apaisants.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card" style = "height: 100%;">
+                                <img src="images/revitalisante.jpg" class="card-img-top img-fixe" alt="Cure Vitalité">
+                                <div class="card-body">
+                                    <h5 class="card-title">Cure Vitalité</h5>
+                                    <p class="card-text">Reboostez votre énergie avec des soins adaptés à vos besoins.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="col-sm-12 col-md-4">
-                        <h3>L'entreprise</h3>
-                        <hr style="border: 2px solid black; margin-top: 20px;">
-                        <a href="#">Nous contacter</a><br>
-                        <!-- <a href="#">Avis clients</a> -->
-                    </div>
-
-                    <div class = "col-sm-12 col-lg-4 text-center"> <!--les icones orientes a droite-->
-                        <h3>Suivre notre actualite</h3>
-                        <hr style="border: 2px solid black; margin-top: 20px;">
-                        <ul class="list-inline"> <!--les icones sur une seule ligne-->
-                            <li class="list-inline-item">
-                                <a href = "https://www.instagram.com" target="_blank">
-                                    <i class="bi-instagram" style="font-size: 2.5rem; color: black;"></i> 
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href = "https://wwww.bi-youtube" target="_blank">
-                                    <i class="bi-youtube" style="font-size: 2.5rem; color: black"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href = "https://pinterest.com/" target="_blank">
-                                    <i class="bi-pinterest" style="font-size: 2.5rem; color: black"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href = "https://facebook.com/" target="_blank">
-                                    <i class="bi-facebook" style="font-size: 2.5rem; color: black"></i>
-                                </a>
-                            </li>
-                        </ul>
+                    <div class="text-center mt-4">
+                        <a href="vues/cures.html" class="btn btn-outline-primary btn-lg">Voir toutes nos cures</a>
                     </div>
                 </div>
-            </div>
-        </footer>
+            </section>
+        
+            <!-- Section hébergement -->
+            <section class="py-5 bg-light">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 mb-4 mb-md-0">
+                            <div class="card">
+                                <img src="images/hotel.jpg" class="img-fluid rounded shadow" alt="Photo de l'hôtel">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="fs-5">
+                                Pour votre confort, notre hôtel intégré offre un accès direct à l’espace de soins. 
+                                Vue mer, jardin, piscine ou parc : choisissez l’environnement qui vous ressemble. 
+                                Nos 53 chambres accueillent 1 à 4 personnes : standard, confort ou suite.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+            <!-- Pourquoi nous choisir -->
+            <section class="py-5 bg-white">
+                <div class="container">
+                    <h2 class="text-center mb-5">Pourquoi choisir Therapp-Aisis ?</h2>
+                    <div class="row text-center">
+                        <div class="col-md-4">
+                            <i class="bi bi-heart-pulse fs-1 text-primary"></i>
+                            <h5 class="mt-3">Approche holistique</h5>
+                            <p>Nous combinons thérapies naturelles et technologies modernes pour un bien-être global.</p>
+                        </div>
+                        <div class="col-md-4">
+                            <i class="bi bi-tree fs-1 text-success"></i>
+                            <h5 class="mt-3">Cadre naturel exceptionnel</h5>
+                            <p>Situé en pleine nature, notre centre favorise la déconnexion et la régénération.</p>
+                        </div>
+                        <div class="col-md-4">
+                            <i class="bi bi-people fs-1 text-info"></i>
+                            <h5 class="mt-3">Équipe dédiée</h5>
+                            <p>Des professionnels attentifs à vos besoins pour un accompagnement personnalisé.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <section class="py-5 bg-dark">
+            <footer class="bg-dark text-light pt-5 pb-4 mt-5">
+                <div class="container text-center text-md-start">
+                    <div class="row">
+                        <!-- Aide -->
+                        <div class="col-md-4 mb-4">
+                            <h5 class="text-uppercase fw-bold">Aide</h5>
+                            <hr class="mb-4" style="width: 150px; border-top: 3px solid #fff;">
+                            <a href="./vues/a_propos_cures.html" class="text-light d-block mb-2">À propos</a>
+                        </div>
+            
+                        <!-- L'entreprise -->
+                        <div class="col-md-4 mb-4">
+                            <h5 class="text-uppercase fw-bold">L'entreprise</h5>
+                            <hr class="mb-4" style="width: 150px; border-top: 3px solid #fff;">
+                            <a href="#" class="text-light d-block mb-2">Nous contacter</a>
+                        </div>
+            
+                        <!-- Réseaux sociaux -->
+                        <div class="col-md-4 mb-4">
+                            <h5 class="text-uppercase fw-bold">Suivez-nous</h5>
+                            <hr class="mb-4" style="width: 150px; border-top: 3px solid #fff;">
+                            <div class="d-flex justify-content-center justify-content-md-start gap-3">
+                                <a href="https://instagram.com" target="_blank" class="text-light fs-4"><i class="bi bi-instagram"></i></a>
+                                <a href="https://youtube.com" target="_blank" class="text-light fs-4"><i class="bi bi-youtube"></i></a>
+                                <a href="https://pinterest.com" target="_blank" class="text-light fs-4"><i class="bi bi-pinterest"></i></a>
+                                <a href="https://facebook.com" target="_blank" class="text-light fs-4"><i class="bi bi-facebook"></i></a>
+                            </div>
+                        </div>
+                        <p>&copy; 2025 Therapp-Aisis. Tous droits réservés.</p>
+                    </div>
+                </div>
+            </footer>
+        </section>   
         <script src="scripts/badge_index.js"></script>
     </body>
 </html>
