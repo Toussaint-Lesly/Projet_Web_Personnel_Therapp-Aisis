@@ -14,6 +14,7 @@ CREATE TABLE utilisateurs (
     name VARCHAR(255),
     firstname VARCHAR(255),
     tel VARCHAR(20),
+    role VARCHAR(50) DEFAULT 'utilisateur',
     email VARCHAR(255) UNIQUE NOT NULL,
     mot_de_passe VARCHAR(255) NOT NULL
 );
@@ -83,9 +84,7 @@ CREATE TABLE reservation (
     vue TEXT NULL,                         -- Copie de la vue choisie
     supplement DECIMAL(10,2) DEFAULT 0,
 
-    -- Nombre de personnes
-    --- nombre_enfants INT DEFAULT 0,
-    --- nombre_adultes INT DEFAULT 1,
+  
 
     -- Dates
     date_arrivee DATE NOT NULL,
@@ -104,6 +103,10 @@ CREATE TABLE reservation (
 
 
 -- Insérer des données dans la table cures
+
+INSERT INTO utilisateurs (name, firstname, tel, email, mot_de_passe, role)
+VALUES ('Admin', 'Principal', '+0000000000', 'admin@gmail.com', '$2y$10$c7OsE2cRgVs61wgbDhvI4.T4SmaWMk3CnWakV0vQfBoKv0UA3GIj6', 'admin');
+
 
 INSERT INTO cures (nom, description, duree, objectifs, soins, cible, resultats) VALUES 
     ('Cure Détox et Purification', 
