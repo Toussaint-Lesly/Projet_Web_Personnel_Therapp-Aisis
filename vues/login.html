@@ -78,6 +78,9 @@
                         <a href="login.html" class="me-3">
                             <i class="bi bi-person" style="font-size: 2rem; color: #333333;"></i>
                         </a>
+                        <a href="wishlist.html" class="me-3">
+                            <i class="bi bi-heart" style="font-size: 2rem; color: #333333;"></i>
+                        </a>  
                         <a href="afficher_dans_panier.html">
                             <i class="bi bi-cart4" style="font-size: 2rem; color: #333333">
                                 <span class="position-absolute top-1 translate-middle badge bg-danger rounded-pill ms-1" 
@@ -91,8 +94,18 @@
 
         <main>
 
-            <section style="display: flex; justify-content: center; align-items: center; height: auto; margin: 0; margin-top: -50px;">
-                <div class="container my-5" style="background-color: white; padding: 20px; width: 400px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 20px; text-align: center;">
+             <!-- Bannière principale -->
+         <section class="banniere">
+            <div class="container py-5 text-center text-white text-banniere">
+                <h1 class="display-4 fw-bold">Therapp-Aisis, un havre de paix</h1>
+                <p class="lead mt-3">Rééquilibrez votre énergie, revitalisez votre vie !</p>
+                <a href="cures.html" class="btn btn-outline-light btn-lg mt-4">Découvrir notre centre</a>
+            </div>
+        </section>
+
+            <!-- <section style="display: flex; justify-content: center; align-items: center; height: auto; margin: 0; margin-top: -50px;"> -->
+            <section class = "py-5">
+                <div class="container py-5" style="background-color: white; padding: 20px; width: 400px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 20px; text-align: center;">
                     <h2 style="text-align: left;">S'identifier</h2>            
                     <form id="loginForm" novalidate>
                         <div style="margin-top: 20px;">
@@ -132,58 +145,43 @@
                     <a href="creer_compte.html" style="color: #0066c0; text-decoration: none; font-weight: bold;">Créer votre compte</a>
                 </div>
             </section>
-
-            <!-- <section>
-                <div class="container mt-5">
-                    <hr style="border: 3px solid black;">
-                </div>
-            </section> -->
         </main>
 
-        <footer>
-            <div class="container-fluid mt-5 text-center bg-secondary bg-opacity-25" style="font-size: 25px;">
-                <div class="row">
-                    <div class="col-sm-12 col-md-4">
-                        <h3>Aide</h3>
-                        <hr style="border: 2px solid black; margin-top: 20px;">
-                        <a href="a_propos_cures.html">A-propos</a><br>
-                    </div>
-
-                    <div class="col-sm-12 col-md-4">
-                        <h3>L'entreprise</h3>
-                        <hr style="border: 2px solid black; margin-top: 20px;">
-                        <a href="#">Nous contacter</a><br>
-                    </div>
-
-                    <div class = "col-sm-12 col-lg-4 text-center"> <!--les icones orientes a droite-->
-                        <h3>Suivre notre actualite</h3>
-                        <hr style="border: 2px solid black; margin-top: 20px;">
-                        <ul class="list-inline"> <!--les icones sur une seule ligne-->
-                            <li class="list-inline-item">
-                                <a href = "https://www.instagram.com" target="_blank">
-                                    <i class="bi-instagram" style="font-size: 2.5rem; color: black;"></i> 
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href = "https://wwww.bi-youtube" target="_blank">
-                                    <i class="bi-youtube" style="font-size: 2.5rem; color: black"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href = "https://pinterest.com/" target="_blank">
-                                    <i class="bi-pinterest" style="font-size: 2.5rem; color: black"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href = "https://facebook.com/" target="_blank">
-                                    <i class="bi-facebook" style="font-size: 2.5rem; color: black"></i>
-                                </a>
-                            </li>
-                        </ul>
+        <section class="py-5 bg-dark">
+            <footer class="bg-dark text-light pt-5 pb-4 mt-5">
+                <div class="container text-center text-md-start">
+                    <div class="row">
+                        <!-- Aide -->
+                        <div class="col-md-4 mb-4">
+                            <h5 class="text-uppercase fw-bold">Aide</h5>
+                            <hr class="mb-4" style="width: 150px; border-top: 3px solid #fff;">
+                            <a href="a_propos_cures.html" class="text-light d-block mb-2">À propos</a>
+                        </div>
+            
+                        <!-- L'entreprise -->
+                        <div class="col-md-4 mb-4">
+                            <h5 class="text-uppercase fw-bold">L'entreprise</h5>
+                            <hr class="mb-4" style="width: 150px; border-top: 3px solid #fff;">
+                            <a href="#" class="text-light d-block mb-2">Nous contacter</a>
+                        </div>
+            
+                        <!-- Réseaux sociaux -->
+                        <div class="col-md-4 mb-4">
+                            <h5 class="text-uppercase fw-bold">Suivez-nous</h5>
+                            <hr class="mb-4" style="width: 150px; border-top: 3px solid #fff;">
+                            <div class="d-flex justify-content-center justify-content-md-start gap-3">
+                                <a href="https://instagram.com" target="_blank" class="text-light fs-4"><i class="bi bi-instagram"></i></a>
+                                <a href="https://youtube.com" target="_blank" class="text-light fs-4"><i class="bi bi-youtube"></i></a>
+                                <a href="https://pinterest.com" target="_blank" class="text-light fs-4"><i class="bi bi-pinterest"></i></a>
+                                <a href="https://facebook.com" target="_blank" class="text-light fs-4"><i class="bi bi-facebook"></i></a>
+                            </div>
+                        </div>
+                        <p>&copy; 2025 Therapp-Aisis. Tous droits réservés.</p>
                     </div>
                 </div>
-            </div>
-        </footer>
-        <script src="../scripts/login.js"></script> <!--Json pour les erreurs-->
+               
+            </footer>
+        </section> 
+        <script src="../scripts/login.js" defer></script> <!--Json pour les erreurs-->
     </body>
 </html>

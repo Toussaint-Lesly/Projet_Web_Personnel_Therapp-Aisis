@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    let form = document.querySelector("form");
+    const form = document.querySelector("#registerForm"); // Correction ici : on sélectionne le bon formulaire
     let baliseNom = document.getElementById("name");
     let balisePrenom = document.getElementById("firstname");
     let baliseTel = document.getElementById("tel");
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let passWordMessage = document.getElementById("passWordMessages"); 
 
     function afficherErreur(container, message) {
-        container.innerHTML = ""; // Nettoie les messages précédents
+        container.innerHTML = ""; 
         let erreur = document.createElement("p");
         erreur.style.color = "red";
         erreur.textContent = message;
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function validerTel(tel, container) {
-        let telRegExp = /^\+?[0-9]{7,15}$/; // Accepte les numéros avec ou sans "+"
+        let telRegExp = /^\+?[0-9]{7,15}$/;
         if (!telRegExp.test(tel)) {
             afficherErreur(container, "Le numéro de téléphone est invalide !");
             return false;
@@ -48,9 +48,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function validerMotDePasse(password, passwordConfirm, container) {
-        container.innerHTML = ""; // Nettoie les messages précédents
-        if (password.length < 6) {
-            afficherErreur(container, "Le mot de passe doit contenir au moins 6 caractères.");
+        container.innerHTML = "";
+        let passwordRegExp = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,20}$/;
+        if (!passwordRegExp.test(password)) {
+            afficherErreur(container, "Le mot de passe doit contenir entre 6 et 20 caractères, inclure lettres et chiffres.");
             return false;
         }
         if (password !== passwordConfirm) {
@@ -61,9 +62,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     form.addEventListener("submit", (event) => {
-        event.preventDefault(); // Empêche le rechargement de la page
+        event.preventDefault();
 
-        // Efface tous les anciens messages d'erreur
         nomMessage.innerHTML = "";
         prenomMessage.innerHTML = "";
         telMessage.innerHTML = "";
@@ -72,7 +72,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let valide = true;
 
-        // Vérification des champs
         if (!verifierChamp(baliseNom, "Le champ Nom est obligatoire.", nomMessage)) valide = false;
         if (!verifierChamp(balisePrenom, "Le champ Prénom est obligatoire.", prenomMessage)) valide = false;
         if (!verifierChamp(baliseTel, "Le champ Téléphone est obligatoire.", telMessage)) valide = false;
@@ -80,13 +79,30 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!verifierChamp(balisePassword, "Le champ Mot de passe est obligatoire.", passWordMessage)) valide = false;
         if (!verifierChamp(balisePasswordConfirm, "Veuillez confirmer votre mot de passe.", passWordMessage)) valide = false;
 
-        // Validation spécifique
         if (!validerEmail(baliseEmail.value, emailMessage)) valide = false;
         if (!validerTel(baliseTel.value, telMessage)) valide = false;
         if (!validerMotDePasse(balisePassword.value, balisePasswordConfirm.value, passWordMessage)) valide = false;
 
         if (valide) {
-            form.submit(); // Envoie le formulaire si tout est valide
+            let formData = new FormData(form);
+            fetch("../backend/register.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert("Inscription réussie !");
+                    window.location.href = data.redirect || "../index.html";
+                } else {
+                    afficherErreur(passWordMessage, data.message || "Erreur lors de l'inscription.");
+                }
+            })
+            .catch(error => {
+                console.error("Erreur :", error);
+                afficherErreur(passWordMessage, "Une erreur s'est produite.");
+            });
         }
     });
 });
+

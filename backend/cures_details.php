@@ -103,6 +103,9 @@ if (isset($_GET['id'])) {
                         <a href="../vues/login.html" class="me-3">
                             <i class="bi bi-person" style="font-size: 2rem; color: #333333;"></i>
                         </a>
+                        <a href="../vues/wishlist.html" class="me-3">
+                            <i class="bi bi-heart" style="font-size: 2rem; color: #333333;"></i>
+                        </a>   
                         <a href="../vues/afficher_dans_panier.html">
                             <i class="bi bi-cart4" style="font-size: 2rem; color: #333333"></i>
                         </a>
@@ -112,19 +115,20 @@ if (isset($_GET['id'])) {
         </header>
 
     <main>
-        <section class="my-1">
-            <div class="container-fluid">
-                <div class="banniere">
-                    <h2>Therapp-Aisis, un havre de paix ! <br> Rééquilibrer votre énergie, revitalisez votre vie!</h2>
-                </div> 
+          <!-- Bannière principale -->
+        <section class="banniere">
+            <div class="container py-5 text-center text-white text-banniere">
+                <h1 class="display-4 fw-bold">Therapp-Aisis, un havre de paix</h1>
+                <p class="lead mt-3">Rééquilibrez votre énergie, revitalisez votre vie !</p>
+                <a href="vues/cures.html" class="btn btn-outline-light btn-lg mt-4">Découvrir notre centre</a>
             </div>
         </section>
-    
-        <section class="container mt-4 cure-details">
-            <h5 class="card-title text-center"><?php echo htmlspecialchars($cure['nom']); ?></h5> -->
+
+        <section class="container py-5 cure-details">
+            <h5 class="card-title text-center"><?php echo htmlspecialchars($cure['nom']); ?></h5>
                 <!-- Afficher la cure sélectionnée -->
                 <div id="cure-<?php echo $cure['id_cure']; ?>" class="row d-flex justify-content-center align-items-center">
-                    <div class="col-12 mb-4" style="width: auto">
+                    <div class="col-12 mb-4" style="width: 450px;">
                         <div class="card h-100">
                             <div class="card-body">
                                 
@@ -149,21 +153,22 @@ if (isset($_GET['id'])) {
             <div id="allCuresContainer" class="hidden mt-5">
                 <div class="row">
                     <?php foreach ($allCures as $otherCure): ?>
-                        <div class="col-md-4 mt-4 mb-4">
-                        <h5 class="card-title text-center"><?php echo htmlspecialchars($otherCure['nom']); ?></h5>
-                            <div class="card h-auto">
-                                <div class="card-body">
+                        <div class="col-md-4 mt-4 mb-4 d-flex align-items-stretch"> <!--sur la colonne permet d'étirer chaque carte à la même hauteur dans une ligne Bootstrap.-->
+                            <div class="card w-100" style="min-height: 100%;">
+                                <h5 class="card-title text-center m-2"><?php echo htmlspecialchars($otherCure['nom']); ?></h5>
+                                <div class="card-body d-flex flex-column">
                                     <p>💡 <strong>Objectifs :</strong> <?php echo htmlspecialchars($otherCure['objectifs']); ?></p>
                                     <p>🕒 <strong>Durée :</strong> <?php echo htmlspecialchars($otherCure['duree']); ?> jours</p>
                                     <p>🔹 <strong>Soins inclus :</strong> <?php echo htmlspecialchars($otherCure['soins']); ?></p>
                                     <p>👤 <strong>Cible :</strong> <?php echo htmlspecialchars($otherCure['cible']); ?></p>
                                     <p>✅ <strong>Résultats :</strong> <?php echo htmlspecialchars($otherCure['resultats']); ?></p>
-                                    <div class="text-center">
-                                        <a href="../vues/reservation.html" class="center btn btn-outline-primary text-dark">Reserver</a>
+                                    <div class="text-center mt-auto">
+                                        <a href="../vues/reservation.html" class="center btn btn-outline-primary text-dark">Réserver</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                     <?php endforeach; ?>
                 </div>
                 <!-- Nouveau bouton pour masquer les cures -->
@@ -175,11 +180,12 @@ if (isset($_GET['id'])) {
 
         <section>
                         
-            <div class="container my-5" style="font-size: 25px; text-align: justify;">
-                <h2 class="text-center mb-5"><strong>La Médecine Thérapeutique et le Bien-Être Holistique</strong></h2>
+            <div class="container my-5 fs-5" style="text-align: justify;">
+                <h2 class="text-center text-dark mb-5">La Médecine Thérapeutique et le Bien-Être Holistique</h2>
         
                 <section class="mb-5">
-                    <h3><strong>Qu'est-ce que la médecine thérapeutique ?</strong></h3>
+
+                    <h3 class="text-dark">Qu'est-ce que la médecine thérapeutique ?</h3>
                     <p>
                         La médecine thérapeutique repose sur une approche holistique du bien-être, visant à harmoniser le corps et l’esprit 
                         à travers des soins ciblés et naturels. Inspirée de pratiques ancestrales et enrichie par des avancées modernes, 
@@ -194,11 +200,11 @@ if (isset($_GET['id'])) {
                 </section>
         
                 <section class="mb-5">
-                    <h3><strong>Les principes fondamentaux de nos cures</strong></h3>
+                    <h3 class="text-dark">Les principes fondamentaux de nos cures</h3>
                     <p>
                         Nos programmes de soins s’appuient sur plusieurs axes complémentaires pour offrir une prise en charge complète et efficace :
                     </p>
-                    <ul>
+                    <ul class ="fs-5">
                         <li><strong>La détoxification :</strong> Élimination des toxines accumulées pour revitaliser l’organisme.</li>
                         <li><strong>La relaxation et la gestion du stress :</strong> Techniques de massage et de méditation pour apaiser le mental.</li>
                         <li><strong>Le renforcement du corps :</strong> Soins énergétiques et nutritionnels pour booster l’immunité et la vitalité.</li>
@@ -208,12 +214,12 @@ if (isset($_GET['id'])) {
                 </section>
         
                 <section class="mb-5">
-                    <h3><strong>Pourquoi suivre une cure bien-être ?</strong></h3>
+                    <h3 class="text-dark">Pourquoi suivre une cure bien-être ?</h3>
                     <p>
                         Nos cures bien-être sont conçues pour répondre à des objectifs variés, allant de la détente profonde à l’amélioration 
                         de la condition physique et mentale. Selon vos besoins, vous pourrez bénéficier des bienfaits suivants :
                     </p>
-                    <ul>
+                    <ul class ="fs-5">
                         <li>Réduction du stress et amélioration du sommeil.</li>
                         <li>Renforcement du système immunitaire et regain d’énergie.</li>
                         <li>Élimination des toxines et amélioration de la digestion.</li>
@@ -223,11 +229,11 @@ if (isset($_GET['id'])) {
                 </section>
         
                 <section class="mb-5">
-                    <h3><strong>Nos méthodes et techniques de soins</strong></h3>
+                    <h3 class="text-dark">Nos méthodes et techniques de soins</h3>
                     <p>
                         Pour garantir des résultats optimaux, nous utilisons une approche globale combinant plusieurs techniques thérapeutiques :
                     </p>
-                    <ul>
+                    <ul class ="fs-5">
                         <li><strong>Massothérapie :</strong> Massages relaxants, énergétiques et thérapeutiques pour soulager les tensions et dynamiser le corps.</li>
                         <li><strong>Thérapies naturelles :</strong> Utilisation d’huiles essentielles, de tisanes et de soins à base d’ingrédients naturels.</li>
                         <li><strong>Hydrothérapie :</strong> Bains thérapeutiques et enveloppements pour favoriser la circulation et la purification du corps.</li>
@@ -236,7 +242,7 @@ if (isset($_GET['id'])) {
                 </section>
         
                 <section class="mb-5">
-                    <h3><strong>Un cadre idéal pour une expérience de bien-être unique</strong></h3>
+                    <h3 class="text-dark">Un cadre idéal pour une expérience de bien-être unique</h3>
                     <p>
                         Situé en Jamaïque, <strong>Therapp-Aisis</strong> offre un cadre paisible où chaque visiteur peut profiter d’un 
                         environnement propice à la détente et au ressourcement. Nos espaces sont conçus pour maximiser l’expérience 
@@ -251,12 +257,12 @@ if (isset($_GET['id'])) {
                 </section>
         
                 <section class="mb-5">
-                    <h3><strong>Comment maximiser les bienfaits de votre cure ?</strong></h3>
+                    <h3 class="text-dark">Comment maximiser les bienfaits de votre cure ?</h3>
                     <p>
                         Pour tirer le meilleur parti de votre séjour chez <strong>Therapp-Aisis</strong>, nous vous recommandons de suivre 
                         quelques conseils simples :
                     </p>
-                    <ul>
+                    <ul class ="fs-5">
                         <li><strong>Planifiez vos soins à l’avance :</strong> Un programme personnalisé garantit une meilleure efficacité des traitements.</li>
                         <li><strong>Adoptez une routine bien-être :</strong> Intégrez des moments de relaxation et d’activité physique dans votre journée.</li>
                         <li><strong>Misez sur une alimentation saine :</strong> Optez pour une alimentation équilibrée pour soutenir les bienfaits des soins.</li>
@@ -265,7 +271,7 @@ if (isset($_GET['id'])) {
                 </section>
         
                 <section class="mb-5">
-                    <h3>Prolonger les effets du bien-être au quotidien</h3>
+                    <h3 class="text-dark">Prolonger les effets du bien-être au quotidien</h3>
                     <p>
                         Une fois votre cure terminée, il est essentiel de maintenir un mode de vie équilibré pour prolonger ses bienfaits. 
                         Des rituels simples comme les massages réguliers, la méditation, une bonne hydratation et une alimentation équilibrée 
@@ -284,53 +290,41 @@ if (isset($_GET['id'])) {
             </div>
         </section>
     </main>
-    <footer>
-            <div class="container-fluid mt-5 text-center bg-secondary bg-opacity-25" style="font-size: 25px;">
-                <div class="row">
-                    <div class="col-sm-12 col-md-4">
-                        <h3>Aide</h3>
-                        <hr style="border: 2px solid black; margin-top: 20px;">
 
-                        <!-- <a href="#">Conditions generales de vente</a><br> -->
-                        <a href="../vues/a_propos_cures.html">A-propos</a><br>
-                    </div>
-
-                    <div class="col-sm-12 col-md-4">
-                        <h3>L'entreprise</h3>
-                        <hr style="border: 2px solid black; margin-top: 20px;">
-                        <a href="#">Nous contacter</a><br>
-                        <!-- <a href="#">Avis clients</a> -->
-                    </div>
-
-                    <div class = "col-sm-12 col-lg-4 text-center"> <!--les icones orientes a droite-->
-                        <h3>Suivre notre actualite</h3>
-                        <hr style="border: 2px solid black; margin-top: 20px;">
-                        <ul class="list-inline"> <!--les icones sur une seule ligne-->
-                            <li class="list-inline-item">
-                                <a href = "https://www.instagram.com" target="_blank">
-                                    <i class="bi-instagram" style="font-size: 2.5rem; color: black;"></i> 
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href = "https://wwww.bi-youtube" target="_blank">
-                                    <i class="bi-youtube" style="font-size: 2.5rem; color: black"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href = "https://pinterest.com/" target="_blank">
-                                    <i class="bi-pinterest" style="font-size: 2.5rem; color: black"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href = "https://facebook.com/" target="_blank">
-                                    <i class="bi-facebook" style="font-size: 2.5rem; color: black"></i>
-                                </a>
-                            </li>
-                        </ul>
+    <section class="py-5 bg-dark">
+            <footer class="bg-dark text-light pt-5 pb-4 mt-5">
+                <div class="container text-center text-md-start">
+                    <div class="row">
+                        <!-- Aide -->
+                        <div class="col-md-4 mb-4">
+                            <h5 class="text-uppercase fw-bold">Aide</h5>
+                            <hr class="mb-4" style="width: 150px; border-top: 3px solid #fff;">
+                            <a href="./vues/a_propos_cures.html" class="text-light d-block mb-2">À propos</a>
+                        </div>
+            
+                        <!-- L'entreprise -->
+                        <div class="col-md-4 mb-4">
+                            <h5 class="text-uppercase fw-bold">L'entreprise</h5>
+                            <hr class="mb-4" style="width: 150px; border-top: 3px solid #fff;">
+                            <a href="#" class="text-light d-block mb-2">Nous contacter</a>
+                        </div>
+            
+                        <!-- Réseaux sociaux -->
+                        <div class="col-md-4 mb-4">
+                            <h5 class="text-uppercase fw-bold">Suivez-nous</h5>
+                            <hr class="mb-4" style="width: 150px; border-top: 3px solid #fff;">
+                            <div class="d-flex justify-content-center justify-content-md-start gap-3">
+                                <a href="https://instagram.com" target="_blank" class="text-light fs-4"><i class="bi bi-instagram"></i></a>
+                                <a href="https://youtube.com" target="_blank" class="text-light fs-4"><i class="bi bi-youtube"></i></a>
+                                <a href="https://pinterest.com" target="_blank" class="text-light fs-4"><i class="bi bi-pinterest"></i></a>
+                                <a href="https://facebook.com" target="_blank" class="text-light fs-4"><i class="bi bi-facebook"></i></a>
+                            </div>
+                        </div>
+                        <p>&copy; 2025 Therapp-Aisis. Tous droits réservés.</p>
                     </div>
                 </div>
-            </div>
-        </footer>
+            </footer>
+        </section>   
     <script src="../scripts/cures_details.js"></script>
 </body>
 </html>
