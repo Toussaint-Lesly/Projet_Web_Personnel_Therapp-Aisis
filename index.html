@@ -13,8 +13,9 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> <!--pour bootstrap-->
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"> <!--pour les icones-->
-        <script src="scripts/navbar.js" defer></script>
-    </head>
+        <script src="scripts/index.js" defer></script>
+        <!-- <script src="scripts/navbar.js" defer></script> -->
+
 
     <body class="bg-success bg-opacity-10">
         <header>
@@ -65,27 +66,49 @@
                         </ul>
                     </div>
                     
-                    <form class="d-flex">
-                        <a href="#" id="search-icon" class="me-3">
-                            <i class="bi bi-search" type="submit" style="font-size: 2rem; color: #333333; cursor: pointer;"></i>
-                        </a>
-                        <input id="search-bar" class="form-control me-2 d-none" type="search" placeholder="Rechercher..." aria-label="Search"> 
-                        <a href="#" id="close-search" class="me-3 d-none">  
-                            <i class="bi bi-x" style="font-size: 2rem; color: red; cursor: pointer;"></i>
-                        </a>
-                        <a href="vues/login.html" class="me-3">
-                            <i class="bi bi-person" style="font-size: 2rem; color: #333333;"></i>
-                        </a>
-                        <a href="vues/wishlist.html" class="me-3">
-                            <i class="bi bi-heart" style="font-size: 2rem; color: #333333;"></i>
-                        </a>                        
-                        <a href="vues/afficher_dans_panier.html">
-                            <i class="bi bi-cart4" style="font-size: 2rem; color: #333333">
-                                <span class="position-absolute top-1 translate-middle badge bg-danger rounded-pill ms-1" 
-                                id="panier-count" style="font-size: 0.90rem; padding: 0.25em 0.4em;">0</span>
+                    <form class="d-flex">                
+                        <div class="connexion-container">
+                           
+                            <i class="bi bi-person me-3 icone-connexion" id="iconeConnexion" style="font-size: 2rem; font-style: normal"> 
+                                <span id="texteConnexion" style="font-size: 25px; color: #333333; font-style: normal;"> Se connecter</span> 
                             </i>
-                        </a>
-                      </form>
+                            
+                          
+                            <div class="popup-connexion" id="popupConnexion">
+                                  <!-- Contenu par défaut (non connecté) -->
+                                <div class="popup-header">
+                                    <strong>Bienvenue !</strong>
+                                    <p>Connectez-vous ou créez un compte pour bénéficier de tous les avantages de Therapp-Aisis</p>
+                                    <a href="vues/login.html" class="btn-connexion">Me connecter / M’inscrire</a>
+                                </div>
+                                <div class="popup-links">
+                                    <ul>
+                                        <li><a href="vues/creer_panier.html" style="text-decoration: none; color: #333333;">
+                                                <i class="bi bi-cart4" style="font-size: 1.5rem; color: #333333; font-style: normal;">
+                                                    <span class="position-absolute top-1 translate-middle badge bg-danger rounded-pill ms-1" 
+                                                    id="panier-count" style="font-size: 0.90rem; padding: 0.25em 0.4em;">0</span></i> Mon panier
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="vues/favoris.html" style="text-decoration: none; color: #333333">
+                                                <i class="bi bi-heart" id="navbar-heart" style="font-size: 1.5rem; color: #333333;"></i> Mes favoris
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="vues/commandes.html" style="text-decoration: none; color: #333333">
+                                                <i class="bi bi-receipt-cutoff" style="font-size: 1.5rem; color: #333333;"></i> Mes commandes
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" style="text-decoration: none; color: #333333">
+                                                <i class="bi bi-question-circle" style="font-size: 1.5rem; color: #333333"></i> Besoin d’aide ?
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>               
+                    </form>
                 </div>
             </nav>
         </header>
@@ -123,7 +146,7 @@
         
             <!-- Aperçu des cures -->
             <section class="py-5 bg-white">
-                <div class="container">
+                    <div class="container">
                     <h2 class="text-center mb-5">Nos cures phares</h2>
                     <div class="row text-center">
                         <div class="col-md-4 mb-4">
@@ -159,6 +182,62 @@
                     </div>
                 </div>
             </section>
+            <!-- <section class="py-5 bg-white">
+                <div class="container">
+                    <h2 class="text-center mb-5">Nos cures phares</h2>
+                    <div class="row text-center">
+                        
+                        <div class="col-md-4 mb-4">
+                            <div class="card" style="height: 100%;">
+                                <img src="images/detox_1.png" class="card-img-top img-fixe" alt="Cure Detox">
+                                <div class="card-body">
+                                    <h5 class="card-title">Cure Détox</h5>
+                                    <p class="card-text">Purifiez votre corps grâce à une cure revitalisante et naturelle.</p>
+                                    <button class="btn btn-sm btn-outline-primary" onclick="toggleDetails('detox')">En savoir plus >></button>
+                                    <div id="details-detox" class="mt-2 text-start text-muted" style="display: none;">
+                                        Cette cure aide à éliminer les toxines, relancer votre métabolisme et retrouver votre légèreté.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            
+                       
+                        <div class="col-md-4 mb-4">
+                            <div class="card" style="height: 100%;">
+                                <img src="images/antiStress.jpg" class="card-img-top img-fixe" alt="Cure Anti-Stress">
+                                <div class="card-body">
+                                    <h5 class="card-title">Cure Anti-Stress</h5>
+                                    <p class="card-text">Retrouvez votre sérénité grâce à nos soins relaxants et apaisants.</p>
+                                    <button class="btn btn-sm btn-outline-primary" onclick="toggleDetails('stress')">En savoir plus >></button>
+                                    <div id="details-stress" class="mt-2 text-start text-muted" style="display: none;">
+                                        Reconnectez-vous à vous-même avec des massages profonds, séances de relaxation et tisanes apaisantes.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            
+                        
+                        <div class="col-md-4 mb-4">
+                            <div class="card" style="height: 100%;">
+                                <img src="images/revitalisante.jpg" class="card-img-top img-fixe" alt="Cure Vitalité">
+                                <div class="card-body">
+                                    <h5 class="card-title">Cure Vitalité</h5>
+                                    <p class="card-text">Reboostez votre énergie avec des soins adaptés à vos besoins.</p>
+                                    <button class="btn btn-sm btn-outline-primary" onclick="toggleDetails('vitalite')">En savoir plus >></button>
+                                    <div id="details-vitalite" class="mt-2 text-start text-muted" style="display: none;">
+                                        Un programme dynamique avec soins énergétiques, alimentation revitalisante et activité douce.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <a href="vues/cures.html" class="btn btn-outline-primary btn-lg">Voir toutes nos cures</a>
+                    </div>
+                </div>
+            </section> -->
+            
+           
         
             <!-- Section hébergement -->
             <section class="py-5 bg-light">
@@ -169,7 +248,7 @@
                                 <img src="images/hotel.jpg" class="img-fluid rounded shadow" alt="Photo de l'hôtel">
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 mb-4">
                             <p class="fs-5">
                                 Pour votre confort, notre hôtel intégré offre un accès direct à l’espace de soins. 
                                 Vue mer, jardin, piscine ou parc : choisissez l’environnement qui vous ressemble. 
@@ -177,6 +256,9 @@
                             </p>
                         </div>
                     </div>
+                </div>
+                <div class="text-center mt-5">
+                    <a href="vues/hebergements.html" class="btn btn-outline-primary btn-lg">Voir notre hotel</a>
                 </div>
             </section>
         
@@ -238,8 +320,5 @@
                 </div>
             </footer>
         </section>   
-        <script src="scripts/badge_index.js"></script>
     </body>
 </html>
-
-

@@ -1,6 +1,10 @@
-<?php
 
-require_once 'db.php';
+<?php
+require 'session.php'; //ajout pour session
+header('Content-Type: application/json');
+//session_start(); // Nécessaire pour accéder à $_SESSION
+
+require_once 'db.php'; // Connexion à la base de données
 
 if (isset($_GET['id_hebergement'])) {
     $id_hebergement = $_GET['id_hebergement'];
@@ -32,4 +36,8 @@ if (isset($_GET['id_hebergement'])) {
 } else {
     echo json_encode(['error' => 'Aucune chambre fournie']);
 }
+exit;
 ?>
+
+
+
