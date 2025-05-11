@@ -1,0 +1,163 @@
+
+/*recap_panier*/
+ul {
+    list-style-type: none;
+    padding: 0;
+    }
+
+#contenuPanier {
+    font-size: 16px;
+}
+
+#totalGlobal {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 0;
+}
+
+/*paiement*/
+
+.form-section {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    background: #fff;
+  }
+
+  .form-control:invalid {
+    border-color: #dc3545;
+  }
+
+  .form-control:invalid ~ .invalid-feedback {
+    display: block;
+  }
+
+  .form-title {
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .form-label {
+    font-weight: 500;
+  }
+
+
+  /*****************/
+/* Style général pour la carte de commande */
+.card {
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  background-color: #fff;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Effet de survol pour ajouter un peu de dynamisme */
+}
+
+.card-header {
+  background-color: #007bff; /* Bleu vif */
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  padding: 15px;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+/* Table des détails de commande */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  padding: 10px;
+  text-align: left;
+}
+
+.table th {
+  background-color: #f1f1f1;
+  color: #333;
+  font-weight: bold;
+}
+
+.table td {
+  border-bottom: 1px solid #ddd;
+}
+
+.table-bordered {
+  border: 1px solid #ddd;
+}
+
+.table-striped tbody tr:nth-child(odd) {
+  background-color: #f9f9f9; /* Ajout de lignes alternées pour la lisibilité */
+}
+
+.table td, .table th {
+  font-size: 14px;
+}
+
+/* Mise en forme du total */
+.text-end {
+  text-align: right;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Styling de la section client */
+.card-body p {
+  font-size: 14px;
+  color: #555;
+}
+
+.card-body p strong {
+  color: #333;
+}
+
+.card-body table td {
+  font-size: 14px;
+  color: #666;
+}
+
+.card-body table th {
+  color: #333;
+  font-weight: bold;
+}
+
+/* Styling des bordures et ombres */
+.card-body {
+  border-radius: 8px;
+  background-color: #f8f9fa; /* Couleur de fond légère */
+  padding: 20px;
+}
+
+/* Style du texte de date et de numéro de commande */
+.card-header strong {
+  font-size: 16px;
+}
+
+/* Boutons ou éléments de navigation (si ajoutés) */
+.btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+

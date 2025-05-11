@@ -24,6 +24,85 @@ body {
     line-height: 1.6;
 }
 
+
+/*Se connecter*/
+.connexion-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+.popup-connexion {
+    display: none;
+    position: absolute;
+    top: 120%;
+    right: 0;
+    left: 50%;
+    transform: translateX(-56%);
+    width: 390px;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    z-index: 9999;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+  }
+  
+  /*Affiche la popup quand on survole le conteneur complet */
+.connexion-container:hover .popup-connexion {
+    display: block;
+  }
+  
+.popup-header p {
+    font-size: 14px;
+    color: #333;
+  }
+  
+.btn-connexion {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: black;
+    color: white;
+    padding: 8px 15px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+  }
+  
+.popup-links ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+  }
+  
+.popup-links li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #444;
+    cursor: pointer;
+  }
+  
+.popup-links li i {
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+.heart-icon {
+    color: #666;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.heart-icon.favored {
+    color: red;
+}
+
+header .row a:hover {
+    text-decoration: underline;
+    color: black;
+}
+
+/*banniere*/  
 .banniere {
     background: linear-gradient(rgba(0, 50, 100, 0.5), rgba(0, 50, 100, 0.5)), url('../images/beach.jpg');
     background-size: cover;
@@ -32,7 +111,7 @@ body {
     width: 100%;
     padding: 80px 20px;
     text-align: center;
-    border-radius: 12px;
+   /* border-radius: 12px;*/
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
@@ -70,12 +149,7 @@ h2.text-center {
     color: #003049;
 }
 
-.img-fixe {
-    height: 300px; /* ou une valeur adaptée à ton design */
-    object-fit: cover;
-    width: 100%;
-}
-
+/*footer*/
 
 footer {
     background-color: #003049;
@@ -122,19 +196,20 @@ footer .list-inline-item i:hover {
     display: block;
     padding: 0.75rem 1rem;
     text-decoration: none;
-  }
+}
   .sidebar a:hover {
     background-color: #495057;
-  }
-
-/************/
-
-header .row a:hover {
-    text-decoration: underline;
-    color: black;
 }
 
+
+
 /* les images */
+
+.img-fixe {
+    height: 300px;
+    object-fit: cover;
+    width: 100%;
+}
 
 .image-container {
     position: relative;
@@ -232,8 +307,9 @@ input {
 
 /*masquer les cures*/
 .hidden {
-    display: none;
+    display: none; 
 }
+  
 
 .reservation-card {
     border: 1px solid #ccc;
@@ -266,7 +342,7 @@ div.card:hover {
 }
 
 .card-title {
-    font-size: 1.5rem;  /* Agrandir le titre de la carte */
+    font-size: 1.5rem; 
     font-weight: bold;
 }
 
@@ -275,6 +351,7 @@ div.card:hover {
     font-weight: bold;
     color: #333333;
 }
+  
 
 /*les caroussel*/
 
@@ -291,4 +368,37 @@ div.carousel-inner:hover {
 
 .carousel-inner:hover img {
     transform: scale(1.05);
+}
+
+
+/* Animation pour le slide */
+.cure-slide-in {
+    animation: slideIn 0.5s ease-out forwards;
+}
+
+.cure-slide-out {
+    animation: slideOut 0.5s ease-in forwards;
+}
+
+/* Animation du slide */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Déplace l'élément vers le bas */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Retourne à sa position initiale */
+    }
+}
+
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(20px); /* Déplace l'élément vers le bas */
+    }
 }

@@ -46,63 +46,88 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         return true;
     }
-
+    
     function validerMotDePasse(password, passwordConfirm, container) {
+
+        console.log("Mot de passe:", password);
+        console.log("Confirmation:", passwordConfirm);
+
         container.innerHTML = "";
+    
+        // Nettoyer les espaces
+        password = password.trim();
+        passwordConfirm = passwordConfirm.trim();
+    
         let passwordRegExp = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,20}$/;
+    
         if (!passwordRegExp.test(password)) {
             afficherErreur(container, "Le mot de passe doit contenir entre 6 et 20 caractères, inclure lettres et chiffres.");
             return false;
         }
+    
         if (password !== passwordConfirm) {
             afficherErreur(container, "Les mots de passe ne correspondent pas.");
             return false;
         }
+    
         return true;
-    }
+    }   
 
     form.addEventListener("submit", (event) => {
         event.preventDefault();
-
+    
         nomMessage.innerHTML = "";
         prenomMessage.innerHTML = "";
         telMessage.innerHTML = "";
         emailMessage.innerHTML = "";
         passWordMessage.innerHTML = "";
-
+    
         let valide = true;
-
+    
         if (!verifierChamp(baliseNom, "Le champ Nom est obligatoire.", nomMessage)) valide = false;
         if (!verifierChamp(balisePrenom, "Le champ Prénom est obligatoire.", prenomMessage)) valide = false;
         if (!verifierChamp(baliseTel, "Le champ Téléphone est obligatoire.", telMessage)) valide = false;
         if (!verifierChamp(baliseEmail, "Le champ Email est obligatoire.", emailMessage)) valide = false;
-        if (!verifierChamp(balisePassword, "Le champ Mot de passe est obligatoire.", passWordMessage)) valide = false;
-        if (!verifierChamp(balisePasswordConfirm, "Veuillez confirmer votre mot de passe.", passWordMessage)) valide = false;
-
+        if (
+            verifierChamp(balisePassword, "Le champ Mot de passe est obligatoire.", passWordMessage) &&
+            verifierChamp(balisePasswordConfirm, "Veuillez confirmer votre mot de passe.", passWordMessage)
+        ) {
+            if (!validerMotDePasse(balisePassword.value, balisePasswordConfirm.value, passWordMessage)) {
+                valide = false;
+            }
+        } else {
+            valide = false;
+        }  
         if (!validerEmail(baliseEmail.value, emailMessage)) valide = false;
         if (!validerTel(baliseTel.value, telMessage)) valide = false;
-        if (!validerMotDePasse(balisePassword.value, balisePasswordConfirm.value, passWordMessage)) valide = false;
-
+    
         if (valide) {
             let formData = new FormData(form);
             fetch("../backend/register.php", {
                 method: "POST",
                 body: formData
             })
-            .then(response => response.json())
+            .then(response => response.text()) // d'abord on prend du texte
+            .then(text => {
+                console.log("Réponse brute :", text); // pour debug
+                return JSON.parse(text); // on tente ensuite de parser
+            })
             .then(data => {
                 if (data.success) {
-                    alert("Inscription réussie !");
-                    window.location.href = data.redirect || "../index.html";
+                    
+                    alert(data.message);
+                    window.location.href = data.redirect;
                 } else {
-                    afficherErreur(passWordMessage, data.message || "Erreur lors de l'inscription.");
+                    afficherErreur(passWordMessage, data.message || "Une erreur est survenue.");
                 }
             })
             .catch(error => {
-                console.error("Erreur :", error);
-                afficherErreur(passWordMessage, "Une erreur s'est produite.");
+                console.error("Erreur JS :", error);
+                afficherErreur(passWordMessage, "Erreur lors de l'inscription.");
             });
+            
         }
     });
+    
 });
 

@@ -1,4 +1,5 @@
 <?php
+require 'session.php'; //ajout pour session
 require 'db.php';
 
 header('Content-Type: application/json');
