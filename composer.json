@@ -1,0 +1,9 @@
+{
+    "name": "therapp-aisis",
+    "description": "Mon application PHP sur Heroku",
+    "require": {
+      "php": "^8.4.6",
+      "monolog/monolog": "^2.0"
+    }
+  }
+  
