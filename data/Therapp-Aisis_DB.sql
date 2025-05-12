@@ -159,6 +159,28 @@ CREATE TABLE commandes_details (
     date_enregistrement TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE reservation_cure TO "www-data";
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE reservation_chambre TO "www-data";
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE favoris TO "www-data";
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE utilisateurs TO "www-data";
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE commandes TO "www-data";
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE hebergement TO "www-data";
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE vue_chambre TO "www-data";
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE sous_types TO "www-data";
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE cures TO "www-data";
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE paiements TO "www-data";
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE commandes_details TO "www-data";
+GRANT USAGE, SELECT ON SEQUENCE favoris_id_favoris_seq TO "www-data";
+GRANT USAGE, SELECT ON SEQUENCE cures_id_cure_seq TO "www-data";
+GRANT USAGE, SELECT ON SEQUENCE hebergement_id_hebergement_seq TO "www-data";
+GRANT USAGE, SELECT ON SEQUENCE sous_types_id_sous_type_seq TO "www-data";
+GRANT USAGE, SELECT ON SEQUENCE paiements_id_seq TO "www-data";
+GRANT USAGE, SELECT ON SEQUENCE commandes_details_id_seq TO "www-data";
+GRANT USAGE, SELECT ON SEQUENCE utilisateurs_id_seq TO "www-data";
+GRANT USAGE, SELECT ON SEQUENCE commandes_id_commande_seq TO "www-data";
+GRANT USAGE, SELECT ON SEQUENCE reservation_chambre_id_reservation_chambre_seq TO "www-data";
+GRANT USAGE, SELECT ON SEQUENCE reservation_cure_id_reservation_cure_seq TO "www-data";
+GRANT USAGE, SELECT ON SEQUENCE vue_chambre_id_vue_chambre_seq TO "www-data";
 
 -- Insérer des données dans la table cures
 
@@ -401,3 +423,5 @@ et se connecter à la fin pour payer ou sauvegarder.
 
 Donc, session_id permet de suivre leurs actions avant qu'ils aient un user_id.
 */
+
+

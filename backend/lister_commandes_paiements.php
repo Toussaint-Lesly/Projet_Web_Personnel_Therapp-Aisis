@@ -4,7 +4,8 @@ header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 require 'session.php';
 header('Content-Type: application/json');
-require_once 'db.php';
+//require_once 'db.php';
+require_once 'db_connexion.php';
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);

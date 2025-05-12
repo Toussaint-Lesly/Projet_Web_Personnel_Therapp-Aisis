@@ -3,7 +3,8 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 require 'session.php'; //ajout pour session
-require 'db.php';
+//require_once 'db.php';
+require_once 'db_connexion.php';
 
 // Récupération de l'ID de la cure depuis l'URL
 if (isset($_GET['id'])) {

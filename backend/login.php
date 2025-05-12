@@ -5,7 +5,8 @@
     require 'session.php';
     header('Content-Type: application/json');
 
-    require 'db.php'; // Connexion à la base de données
+   //require_once 'db.php';
+    require_once 'db_connexion.php';
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $email = $_POST['email'];

@@ -4,7 +4,8 @@
  header("Access-Control-Allow-Headers: Content-Type, Authorization");
 require 'session.php';
 header('Content-Type: application/json');
-require 'db.php';
+//require_once 'db.php';
+require_once 'db_connexion.php';
 
 // Récupération du user_id et du session_id
 $user_id = $_SESSION['user_id'] ?? null;

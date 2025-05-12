@@ -6,7 +6,8 @@ require 'session.php';
 error_log("POST reçu enregistrer_panier_cure: " . print_r($_POST, true));
 header('Content-Type: application/json');
 
-require 'db.php';
+//require_once 'db.php';
+require_once 'db_connexion.php';
 
 // 2) Lecture de la requête
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {

@@ -5,7 +5,8 @@ header("Access-Control-Allow-Headers: Content-Type, Authorization");
 require 'session.php'; //ajout pour session
 header('Content-Type: application/json');
 
-require 'db.php';
+//require_once 'db.php';
+require_once 'db_connexion.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode(file_get_contents("php://input"), true);
