@@ -1,9 +1,23 @@
 /*panier card*/
 
-.navbar-nav {
-    margin: auto; /* Centre les éléments du menu */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
+/*prend la place à gauche.*/
+.navbar-collapse {
+    flex: 1;
+}
+
+/*margin-left: auto → pousse ce bloc à droite.*/
+.connexion-container {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+  
 .reservation-card {
     border-radius: 10px; /* Coins arrondis */
     background-color: #fff;

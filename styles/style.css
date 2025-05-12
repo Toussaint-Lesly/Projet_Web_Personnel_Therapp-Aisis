@@ -3,9 +3,25 @@ html, body {
     padding: 0;
 }
 
-.navbar-nav {
-    margin: auto; /* Centre les éléments du menu */
+/*display: flex + justify-content: space-between → répartit les deux blocs aux extrémités de la navbar.*/
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
+/*prend la place à gauche.*/
+.navbar-collapse {
+    flex: 1;
+}
+
+/*margin-left: auto → pousse ce bloc à droite.*/
+.connexion-container {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+  
 
 section h2 {
     font-size: 2.5rem;

@@ -18,7 +18,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"> <!--pour les icones-->
-        <!-- <script src="../scripts/maj_compteur_panier.js" defer></script> -->
+        <script src="../scripts/hebergements.js" defer></script>
         <script src="../scripts/navbar.js" defer></script>
     </head>
 
@@ -26,11 +26,6 @@
         <header>
             <nav class="navbar text-dark navbar-expand-md bg-light navbar-light bg-opacity-10" style="font-size: 25px;">
                 <div class="container-fluid px-5 d-flex justify-content-between align-items-center">
-                    
-                    <a class="navbar-brand" href="../index.html">
-                        <img src="../images/logo1.jpg" alt="logo du site" width="250" height="80">
-                    </a>
-
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -117,105 +112,110 @@
                 </div>
             </nav>
         </header>
-    <main>
+        <main>
 
-        <!-- Bannière principale -->
-        <section class="banniere">
-            <div class="container py-5 text-center text-white text-banniere">
-                <h1 class="display-4 fw-bold">Therapp-Aisis, un havre de paix</h1>
-                <p class="lead mt-3">Rééquilibrez votre énergie, revitalisez votre vie !</p>
-                <a href="cures.html" class="btn btn-outline-light btn-lg mt-4">Découvrir notre centre</a>
-            </div>
-        </section>
+            <!-- Bannière principale -->
+            <section class="banniere">
+                <div class="container py-5 text-center text-white text-banniere">
+                    <h1 class="display-4 fw-bold">Therapp-Aisis, un havre de paix</h1>
+                    <p class="lead mt-3">Rééquilibrez votre énergie, revitalisez votre vie !</p>
+                    <a href="cures.html" class="btn btn-outline-light btn-lg mt-4">Découvrir notre centre</a>
+                </div>
+            </section>
 
-        <div class="container py-5">
-            <h1 class="text-center mb-5">Nos hébergements</h1>
-          
-            <div class = "container my-5 align-items-center">
-                <div class = "row align-items-center">
-                    <div class = "col-sm-12 col-md-6" style="text-align: justify; font-size: 30px;">
-                        <p>
-                            Que vous veniez pour une cure ou simplement pour un moment de détente, nos chambres allient confort et sérénité. 
-                            Chaque espace est pensé pour votre bien-être, avec des vues imprenables sur la mer, les jardins luxuriants, 
-                            la piscine scintillante ou le parc verdoyant. Profitez d’un cadre apaisant, d’un accès direct aux soins et d’un service attentif pour un séjour ressourçant. 
-                            Quelle que soit votre préférence, chambre standard, confort ou suite élégante vous bénéficierez du meilleur en termes de confort et de services.
-                        </p>
-                    </div>
-                    <div class="col-sm-12 col-md-6">
-                        <div class = "card">
-                            <img src="../images/hotel.jpg" class="card-img-top" alt="" style="height: 500px; object-fit: cover; width: 100%;">
+            <div class="container py-5">
+                <h1 class="text-center mb-5">Nos hébergements</h1>
+            
+                <div class = "container my-5 align-items-center">
+                    <div class = "row align-items-center">
+                        <div class = "col-sm-12 col-md-6" style="text-align: justify; font-size: 30px;">
+                            <p>
+                                Que vous veniez pour une cure ou simplement pour un moment de détente, nos chambres allient confort et sérénité. 
+                                Chaque espace est pensé pour votre bien-être, avec des vues imprenables sur la mer, les jardins luxuriants, 
+                                la piscine scintillante ou le parc verdoyant. Profitez d’un cadre apaisant, d’un accès direct aux soins et d’un service attentif pour un séjour ressourçant. 
+                                Quelle que soit votre préférence, chambre standard, confort ou suite élégante vous bénéficierez du meilleur en termes de confort et de services.
+                            </p>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class = "card">
+                                <img src="../images/hotel.jpg" class="card-img-top" alt="" style="height: 500px; object-fit: cover; width: 100%;">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class = "container hebergementContainer">
-            <div class="row" id="container-chambres-classiques">
-                <h2 class="text-center mb-4">Chambres Standard</h2>
-                <!-- Les cartes normales vont ici -->
-            </div>
-            
-            <div class="row my-5" id="container-chambres-confort">
-                <h2 class="text-center mb-4">Chambres Confort</h2>
-                <!-- Les cartes normales vont ici -->
-            </div>
-            
-            <h2 class="text-center mb-4">Suite</h2>
-            <div id="container-suite">
-                <!-- La carte suite va ici -->
-            </div> 
+            <div class = "container hebergementContainer">
+                <div class="row" id="container-chambres-classiques">
+                    <h2 class="text-center mb-4">Chambres Standard</h2>
+                    <!-- Les cartes normales vont ici -->
+                </div>
+                
+                <div class="row my-5" id="container-chambres-confort">
+                    <h2 class="text-center mb-4">Chambres Confort</h2>
+                    <!-- Les cartes normales vont ici -->
+                </div>
+                
+                <h2 class="text-center mb-4">Suite</h2>
+                <div id="container-suite">
+                    <!-- La carte suite va ici -->
+                </div> 
 
-            <h2 class="text-center mb-4">Catégories des vues</h2>
-            <div id="vue_list">
-                <!-- Le carrousel sera injecté ici -->
-            </div>
-        </div>
-
-      
-        
-
-        <div class="text-center my-5">
-            <a href="../index.html" class="btn btn-outline-primary">Retour à l'accueil</a>
-        </div>
-    </main>
-
-    <section class="py-5 bg-dark">
-        <footer class="bg-dark text-light pt-5 pb-4 mt-5">
-            <div class="container text-center text-md-start">
-                <div class="row">
-                    <!-- Aide -->
-                    <div class="col-md-4 mb-4">
-                        <h5 class="text-uppercase fw-bold">Aide</h5>
-                        <hr class="mb-4" style="width: 150px; border-top: 3px solid #fff;">
-                        <a href="a_propos_cures.html" class="text-light d-block mb-2">À propos</a>
-                    </div>
-        
-                    <!-- L'entreprise -->
-                    <div class="col-md-4 mb-4">
-                        <h5 class="text-uppercase fw-bold">L'entreprise</h5>
-                        <hr class="mb-4" style="width: 150px; border-top: 3px solid #fff;">
-                        <a href="#" class="text-light d-block mb-2">Nous contacter</a>
-                    </div>
-        
-                    <!-- Réseaux sociaux -->
-                    <div class="col-md-4 mb-4">
-                        <h5 class="text-uppercase fw-bold">Suivez-nous</h5>
-                        <hr class="mb-4" style="width: 150px; border-top: 3px solid #fff;">
-                        <div class="d-flex justify-content-center justify-content-md-start gap-3">
-                            <a href="https://instagram.com" target="_blank" class="text-light fs-4"><i class="bi bi-instagram"></i></a>
-                            <a href="https://youtube.com" target="_blank" class="text-light fs-4"><i class="bi bi-youtube"></i></a>
-                            <a href="https://pinterest.com" target="_blank" class="text-light fs-4"><i class="bi bi-pinterest"></i></a>
-                            <a href="https://facebook.com" target="_blank" class="text-light fs-4"><i class="bi bi-facebook"></i></a>
-                        </div>
-                    </div>
-                    <p>&copy; 2025 Therapp-Aisis. Tous droits réservés.</p>
+                <h2 class="text-center mb-4">Catégories des vues</h2>
+                <div id="vue_list">
+                    <!-- Le carrousel sera injecté ici -->
                 </div>
             </div>
-        </footer>
-    </section> 
-    <script src="../scripts/hebergements.js"></script>
-</body>
+
+        
+            
+
+            <div class="text-center my-5">
+                <a href="../index.html" class="btn btn-outline-primary">Retour à l'accueil</a>
+            </div>
+        </main>
+
+        <section class="py-5 bg-dark">
+            <footer class="bg-dark text-light pt-5 pb-4 mt-5">
+                <div class="container text-center text-md-start">
+                    <div class="row">
+                        <!-- Aide -->
+                        <div class="col-md-4 mb-4 text-center">
+                            <h5 class="text-uppercase fw-bold">Aide</h5>
+                            <hr class="mb-4 mx-auto" style="width: 50%; border-top: 3px solid #fff;">
+                            <a href="#" class="text-light d-block mb-2">À propos</a>
+                        </div>
+            
+                        <!-- L'entreprise -->
+                        <div class="col-md-4 mb-4 text-center">
+                            <h5 class="text-uppercase fw-bold">L'entreprise</h5>
+                            <hr class="mb-4 mx-auto" style="width: 50%; border-top: 3px solid #fff;">
+                            <a href="#" class="text-light d-block mb-2">Nous contacter</a>
+                        </div>
+            
+                        <!-- Réseaux sociaux -->
+                        <div class="col-md-4 mb-4 text-center">
+                            <h5 class="text-uppercase fw-bold">Suivez-nous</h5>
+                            <hr class="mb-4 mx-auto" style="width: 50%; border-top: 3px solid #fff;">
+                            <div class="d-flex justify-content-center gap-3 ">
+                                <a href="https://instagram.com" target="_blank" class="text-light fs-4"><i class="bi bi-instagram"></i></a>
+                                <a href="https://youtube.com" target="_blank" class="text-light fs-4"><i class="bi bi-youtube"></i></a>
+                                <a href="https://pinterest.com" target="_blank" class="text-light fs-4"><i class="bi bi-pinterest"></i></a>
+                                <a href="https://facebook.com" target="_blank" class="text-light fs-4"><i class="bi bi-facebook"></i></a>
+                            </div>
+                        </div>
+                    <!-- Ajout à l'extérieur de .row -->
+                        <div class="text-center mt-4">
+                            <a href="index.html">
+                                <img src="../images/logo2.png" alt="logo du site" width="250" height="85">
+                            </a>
+                            <p class="mt-2 mb-0">&copy; 2025 Therapp-Aisis. Tous droits réservés.</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </section> 
+    </body>
 </html>
 
 

@@ -1,6 +1,7 @@
-
 <?php
-
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
 require 'session.php';
 error_log("POST reçu enregistrer_panier_cure: " . print_r($_POST, true));
 header('Content-Type: application/json');
