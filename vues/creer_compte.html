@@ -60,51 +60,50 @@
                                 </ul>
                             </li>
                         </ul>
+                        <form class="d-flex">                
+                            <div class="connexion-container">
+                               
+                                <i class="bi bi-person me-3 icone-connexion" id="iconeConnexion" style="font-size: 2rem; font-style: normal"> 
+                                    <span id="texteConnexion" style="font-size: 25px; color: #333333; font-style: normal;"> Se connecter</span> 
+                                </i>
+                                
+                              
+                                <div class="popup-connexion" id="popupConnexion">
+                                      <!-- Contenu par défaut (non connecté) -->
+                                    <div class="popup-header">
+                                        <strong>Bienvenue !</strong>
+                                        <p>Connectez-vous ou créez un compte pour bénéficier de tous les avantages de Therapp-Aisis</p>
+                                        <a href="login.html" class="btn-connexion">Me connecter / M’inscrire</a>
+                                    </div>
+                                    <div class="popup-links">
+                                        <ul>
+                                            <li><a href="creer_panier.html" style="text-decoration: none; color: #333333;">
+                                                    <i class="bi bi-cart4" style="font-size: 1.5rem; color: #333333; font-style: normal;">
+                                                        <span class="position-absolute top-1 translate-middle badge bg-danger rounded-pill ms-1" 
+                                                        id="panier-count" style="font-size: 0.90rem; padding: 0.25em 0.4em;">0</span></i> Mon panier
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="favoris.html" style="text-decoration: none; color: #333333">
+                                                    <i class="bi bi-heart" id="navbar-heart" style="font-size: 1.5rem; color: #333333;"></i> Mes favoris
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="commandes.html" style="text-decoration: none; color: #333333">
+                                                    <i class="bi bi-receipt-cutoff" style="font-size: 1.5rem; color: #333333;"></i> Mes commandes
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" style="text-decoration: none; color: #333333">
+                                                    <i class="bi bi-question-circle" style="font-size: 1.5rem; color: #333333"></i> Besoin d’aide ?
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>               
+                        </form>
                     </div>
-                    
-                    <form class="d-flex">                
-                        <div class="connexion-container">
-                           
-                            <i class="bi bi-person me-3 icone-connexion" id="iconeConnexion" style="font-size: 2rem; font-style: normal"> 
-                                <span id="texteConnexion" style="font-size: 25px; color: #333333; font-style: normal;"> Se connecter</span> 
-                            </i>
-                            
-                          
-                            <div class="popup-connexion" id="popupConnexion">
-                                  <!-- Contenu par défaut (non connecté) -->
-                                <div class="popup-header">
-                                    <strong>Bienvenue !</strong>
-                                    <p>Connectez-vous ou créez un compte pour bénéficier de tous les avantages de Therapp-Aisis</p>
-                                    <a href="login.html" class="btn-connexion">Me connecter / M’inscrire</a>
-                                </div>
-                                <div class="popup-links">
-                                    <ul>
-                                        <li><a href="creer_panier.html" style="text-decoration: none; color: #333333;">
-                                                <i class="bi bi-cart4" style="font-size: 1.5rem; color: #333333; font-style: normal;">
-                                                    <span class="position-absolute top-1 translate-middle badge bg-danger rounded-pill ms-1" 
-                                                    id="panier-count" style="font-size: 0.90rem; padding: 0.25em 0.4em;">0</span></i> Mon panier
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="favoris.html" style="text-decoration: none; color: #333333">
-                                                <i class="bi bi-heart" id="navbar-heart" style="font-size: 1.5rem; color: #333333;"></i> Mes favoris
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="commandes.html" style="text-decoration: none; color: #333333">
-                                                <i class="bi bi-receipt-cutoff" style="font-size: 1.5rem; color: #333333;"></i> Mes commandes
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" style="text-decoration: none; color: #333333">
-                                                <i class="bi bi-question-circle" style="font-size: 1.5rem; color: #333333"></i> Besoin d’aide ?
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>               
-                    </form>
                 </div>
             </nav>
         </header>
