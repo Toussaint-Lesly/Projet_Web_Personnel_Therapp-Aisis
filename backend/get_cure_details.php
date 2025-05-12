@@ -42,6 +42,7 @@ if (isset($_GET['id'])) {
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> <!--pour bootstrap-->
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"> <!--pour les icones-->
+        
         <script src="../scripts/cures_details.js" defer></script>
         <script src="../scripts/navbar.js" defer></script>
     </head>

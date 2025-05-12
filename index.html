@@ -13,6 +13,8 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> <!--pour bootstrap-->
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"> <!--pour les icones-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
         <script src="scripts/index.js" defer></script>
 
 
@@ -20,16 +22,13 @@
         <header>
             <nav class="navbar text-dark navbar-expand-md bg-light navbar-light bg-opacity-10" style="font-size: 25px;">
                 <div class="container-fluid px-5 d-flex justify-content-between align-items-center">
-                    
-                    <!-- <a class="navbar-brand" href="index.html">
-                        <img src="images/logo1.jpg" alt="logo du site" width="250" height="85">
-                    </a> -->
-
+                    <!-- Bouton de menu (pour les écrans petits) -->
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                                       
+            
+                    <!-- Menu principal (caché sur petits écrans, devient un menu déroulant) -->
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto">
                             <li class="nav-item">
@@ -50,9 +49,8 @@
                                     <li><a href="vues/cures.html#cure-remise-en-forme" class="text-dark" style="text-decoration: none;">Cure Remise en Forme</a></li>
                                 </ul>
                             </li>
-                            
+            
                             <li class="nav-item dropdown">
-                                <!-- j'ai enleve dropdown-toggle de la classe nav-link pour cacher la fleche-->
                                 <a class="nav-link text-dark mx-3" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Nos chambres</a>
                                 <ul class="dropdown-menu bg-light" style="width: 350px; text-decoration: none; padding: 10px; font-size: 25px;">
                                     <li><a href="vues/hebergements.html#chambre-standard-simple" class="text-dark" style="text-decoration: none;">Chambre standard simple</a></li>
@@ -63,51 +61,52 @@
                                 </ul>
                             </li>
                         </ul>
-
-                        <form class="d-flex">                
-                            <div class="connexion-container">
-                               
-                                <i class="bi bi-person me-3 icone-connexion" id="iconeConnexion" style="font-size: 2rem; font-style: normal"> 
-                                    <span id="texteConnexion" style="font-size: 25px; color: #333333; font-style: normal;"> Se connecter</span> 
-                                </i>
-                                
-                              
-                                <div class="popup-connexion" id="popupConnexion">
-                                      <!-- Contenu par défaut (non connecté) -->
-                                    <div class="popup-header">
-                                        <strong>Bienvenue !</strong>
-                                        <p>Connectez-vous ou créez un compte pour bénéficier de tous les avantages de Therapp-Aisis</p>
-                                        <a href="vues/login.html" class="btn-connexion">Me connecter / M’inscrire</a>
-                                    </div>
-                                    <div class="popup-links">
-                                        <ul>
-                                            <li><a href="vues/creer_panier.html" style="text-decoration: none; color: #333333;">
-                                                    <i class="bi bi-cart4" style="font-size: 1.5rem; color: #333333; font-style: normal;">
-                                                        <span class="position-absolute top-1 translate-middle badge bg-danger rounded-pill ms-1" 
-                                                        id="panier-count" style="font-size: 0.90rem; padding: 0.25em 0.4em;">0</span></i> Mon panier
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="vues/favoris.html" style="text-decoration: none; color: #333333">
-                                                    <i class="bi bi-heart" id="navbar-heart" style="font-size: 1.5rem; color: #333333;"></i> Mes favoris
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="vues/commandes.html" style="text-decoration: none; color: #333333">
-                                                    <i class="bi bi-receipt-cutoff" style="font-size: 1.5rem; color: #333333;"></i> Mes commandes
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#" style="text-decoration: none; color: #333333">
-                                                    <i class="bi bi-question-circle" style="font-size: 1.5rem; color: #333333"></i> Besoin d’aide ?
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>               
-                        </form>
                     </div>
+            
+                    <!-- Zone de connexion à droite -->
+                    <form class="d-flex">                
+                        <div class="connexion-container">
+                           
+                            <i class="bi bi-person me-3 icone-connexion" id="iconeConnexion" style="font-size: 2rem; font-style: normal"> 
+                                <span id="texteConnexion" style="font-size: 25px; color: #333333; font-style: normal;"> Se connecter</span> 
+                            </i>
+                            
+                          
+                            <div class="popup-connexion" id="popupConnexion">
+                                  <!-- Contenu par défaut (non connecté) -->
+                                <div class="popup-header">
+                                    <strong>Bienvenue !</strong>
+                                    <p>Connectez-vous ou créez un compte pour bénéficier de tous les avantages de Therapp-Aisis</p>
+                                    <a href="login.html" class="btn-connexion">Me connecter / M’inscrire</a>
+                                </div>
+                                <div class="popup-links">
+                                    <ul>
+                                        <li><a href="vues/creer_panier.html" style="text-decoration: none; color: #333333;">
+                                                <i class="bi bi-cart4" style="font-size: 1.5rem; color: #333333; font-style: normal;">
+                                                    <span class="position-absolute top-1 translate-middle badge bg-danger rounded-pill ms-1" 
+                                                    id="panier-count" style="font-size: 0.90rem; padding: 0.25em 0.4em;">0</span></i> Mon panier
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="vues/favoris.html" style="text-decoration: none; color: #333333">
+                                                <i class="bi bi-heart" id="navbar-heart" style="font-size: 1.5rem; color: #333333;"></i> Mes favoris
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="vues/commandes.html" style="text-decoration: none; color: #333333">
+                                                <i class="bi bi-receipt-cutoff" style="font-size: 1.5rem; color: #333333;"></i> Mes commandes
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" style="text-decoration: none; color: #333333">
+                                                <i class="bi bi-question-circle" style="font-size: 1.5rem; color: #333333"></i> Besoin d’aide ?
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>               
+                    </form>
                 </div>
             </nav>
         </header>
