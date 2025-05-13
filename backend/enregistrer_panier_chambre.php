@@ -4,6 +4,7 @@ header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 require 'session.php';    // contient session_set_cookie_params + session_start()
 header('Content-Type: application/json');
+
 //require_once 'db.php';
 require_once 'db_connexion.php';
 

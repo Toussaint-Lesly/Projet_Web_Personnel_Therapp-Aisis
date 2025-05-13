@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"> <!--pour les icones-->
         
        
-        <script src="../scripts/login.js" defer></script> <!--Json pour les erreurs-->
+        <script src="../scripts/login.js" defer></script>
         <script src="../scripts/navbar.js" defer></script>
     </head>
     
@@ -64,15 +64,17 @@
                         </ul>
                     </div>
 
-                    <!-- Zone de connexion à droite -->
-                    <form class="d-flex">
+                     <!-- Zone de connexion à droite -->
+                     <form class="d-flex">                
                         <div class="connexion-container">
+                           
                             <i class="bi bi-person me-3 icone-connexion" id="iconeConnexion" style="font-size: 2rem; font-style: normal"> 
-                                <span id="texteConnexion" style="font-size: 25px; color: #333333;"> Se connecter</span> 
+                                <span id="texteConnexion" style="font-size: 25px; color: #333333; font-style: normal;"> Se connecter</span> 
                             </i>
-            
-                            <!-- Popup connexion -->
+                            
+                          
                             <div class="popup-connexion" id="popupConnexion">
+                                  <!-- Contenu par défaut (non connecté) -->
                                 <div class="popup-header">
                                     <strong>Bienvenue !</strong>
                                     <p>Connectez-vous ou créez un compte pour bénéficier de tous les avantages de Therapp-Aisis</p>
@@ -80,32 +82,31 @@
                                 </div>
                                 <div class="popup-links">
                                     <ul>
-                                        <li>
-                                            <a href="creer_panier.html" class="popup-link">
-                                                <i class="bi bi-cart4">
-                                                    <span class="badge-count" id="panier-count">0</span></i> Mon panier
+                                        <li><a href="creer_panier.html" style="text-decoration: none; color: #333333;">
+                                                <i class="bi bi-cart4" style="font-size: 1.5rem; color: #333333; font-style: normal;">
+                                                    <span class="position-absolute top-1 translate-middle badge bg-danger rounded-pill ms-1" 
+                                                    id="panier-count" style="font-size: 0.90rem; padding: 0.25em 0.4em;">0</span></i> Mon panier
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="favoris.html" class="popup-link">
-                                                <i class="bi bi-heart" id="navbar-heart"></i> Mes favoris
+                                            <a href="favoris.html" style="text-decoration: none; color: #333333">
+                                                <i class="bi bi-heart" id="navbar-heart" style="font-size: 1.5rem; color: #333333;"></i> Mes favoris
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="commandes.html" class="popup-link">
-                                                <i class="bi bi-receipt-cutoff"></i> Mes commandes
+                                            <a href="commandes.html" style="text-decoration: none; color: #333333">
+                                                <i class="bi bi-receipt-cutoff" style="font-size: 1.5rem; color: #333333;"></i> Mes commandes
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#" class="popup-link">
-                                                <i class="bi bi-question-circle"></i> Besoin d’aide ?
+                                            <a href="aide.html" style="text-decoration: none; color: #333333">
+                                                <i class="bi bi-question-circle" style="font-size: 1.5rem; color: #333333"></i> Besoin d’aide ?
                                             </a>
                                         </li>
                                     </ul>
                                 </div>
-                                
                             </div>
-                        </div>
+                        </div>               
                     </form>
                 </div>
             </nav>
@@ -174,14 +175,14 @@
                         <div class="col-md-4 mb-4 text-center">
                             <h5 class="text-uppercase fw-bold">Aide</h5>
                             <hr class="mb-4 mx-auto" style="width: 50%; border-top: 3px solid #fff;">
-                            <a href="#" class="text-light d-block mb-2">À propos</a>
+                            <a href="aide.html" class="text-light d-block mb-2">À propos</a>
                         </div>
             
                         <!-- L'entreprise -->
                         <div class="col-md-4 mb-4 text-center">
                             <h5 class="text-uppercase fw-bold">L'entreprise</h5>
                             <hr class="mb-4 mx-auto" style="width: 50%; border-top: 3px solid #fff;">
-                            <a href="#" class="text-light d-block mb-2">Nous contacter</a>
+                            <a href="contact.html" class="text-light d-block mb-2">Nous contacter</a>
                         </div>
             
                         <!-- Réseaux sociaux -->
@@ -189,10 +190,10 @@
                             <h5 class="text-uppercase fw-bold">Suivez-nous</h5>
                             <hr class="mb-4 mx-auto" style="width: 50%; border-top: 3px solid #fff;">
                             <div class="d-flex justify-content-center gap-3 ">
-                                <a href="https://instagram.com" target="_blank" class="text-light fs-4"><i class="bi bi-instagram"></i></a>
-                                <a href="https://youtube.com" target="_blank" class="text-light fs-4"><i class="bi bi-youtube"></i></a>
-                                <a href="https://pinterest.com" target="_blank" class="text-light fs-4"><i class="bi bi-pinterest"></i></a>
-                                <a href="https://facebook.com" target="_blank" class="text-light fs-4"><i class="bi bi-facebook"></i></a>
+                                <a href="#" target="_blank" class="text-light fs-4"><i class="bi bi-instagram"></i></a>
+                                <a href="#" target="_blank" class="text-light fs-4"><i class="bi bi-youtube"></i></a>
+                                <a href="#" target="_blank" class="text-light fs-4"><i class="bi bi-pinterest"></i></a>
+                                <a href="#" target="_blank" class="text-light fs-4"><i class="bi bi-facebook"></i></a>
                             </div>
                         </div>
                        <!-- Ajout à l'extérieur de .row -->

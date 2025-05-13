@@ -66,7 +66,7 @@ function createCureSection(cure, favorisIds) {
 
     cure.options.forEach(option => {
       const col = document.createElement('div');
-      col.className = 'col-12 col-sm-6 d-flex justify-content-center';
+      col.className = 'col-12 col-sm-6 mt-4 mb-4 d-flex align-items-stretch';
 
       const card = createCard(option, favorisIds);
       col.appendChild(card);

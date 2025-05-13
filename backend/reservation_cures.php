@@ -8,6 +8,7 @@ session_start(); // Nécessaire pour accéder à $_SESSION
 
 //require_once 'db.php';
 require_once 'db_connexion.php';
+
 // Vérifier si 'id_cure' est passé en paramètre GET
 if (isset($_GET['id_cure'])) {
     $id_cure = intval($_GET['id_cure']);

@@ -4,6 +4,7 @@
  header("Access-Control-Allow-Headers: Content-Type, Authorization");
 require 'session.php';
 header('Content-Type: application/json');
+
 //require_once 'db.php';
 require_once 'db_connexion.php';
 

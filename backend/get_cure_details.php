@@ -3,6 +3,7 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 require 'session.php'; //ajout pour session
+
 //require_once 'db.php';
 require_once 'db_connexion.php';
 
@@ -126,7 +127,7 @@ if (isset($_GET['id'])) {
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#" style="text-decoration: none; color: #333333">
+                                            <a href="../vues/aide.html" style="text-decoration: none; color: #333333">
                                                 <i class="bi bi-question-circle" style="font-size: 1.5rem; color: #333333"></i> Besoin d’aide ?
                                             </a>
                                         </li>
@@ -325,14 +326,14 @@ if (isset($_GET['id'])) {
                         <div class="col-md-4 mb-4 text-center">
                             <h5 class="text-uppercase fw-bold">Aide</h5>
                             <hr class="mb-4 mx-auto" style="width: 50%; border-top: 3px solid #fff;">
-                            <a href="#" class="text-light d-block mb-2">À propos</a>
+                            <a href="../vues/aide.html" class="text-light d-block mb-2">À propos</a>
                         </div>
             
                         <!-- L'entreprise -->
                         <div class="col-md-4 mb-4 text-center">
                             <h5 class="text-uppercase fw-bold">L'entreprise</h5>
                             <hr class="mb-4 mx-auto" style="width: 50%; border-top: 3px solid #fff;">
-                            <a href="#" class="text-light d-block mb-2">Nous contacter</a>
+                            <a href="../vues/contact.html" class="text-light d-block mb-2">Nous contacter</a>
                         </div>
             
                         <!-- Réseaux sociaux -->
@@ -340,10 +341,10 @@ if (isset($_GET['id'])) {
                             <h5 class="text-uppercase fw-bold">Suivez-nous</h5>
                             <hr class="mb-4 mx-auto" style="width: 50%; border-top: 3px solid #fff;">
                             <div class="d-flex justify-content-center gap-3 ">
-                                <a href="https://instagram.com" target="_blank" class="text-light fs-4"><i class="bi bi-instagram"></i></a>
-                                <a href="https://youtube.com" target="_blank" class="text-light fs-4"><i class="bi bi-youtube"></i></a>
-                                <a href="https://pinterest.com" target="_blank" class="text-light fs-4"><i class="bi bi-pinterest"></i></a>
-                                <a href="https://facebook.com" target="_blank" class="text-light fs-4"><i class="bi bi-facebook"></i></a>
+                                <a href="#" target="_blank" class="text-light fs-4"><i class="bi bi-instagram"></i></a>
+                                <a href="#" target="_blank" class="text-light fs-4"><i class="bi bi-youtube"></i></a>
+                                <a href="#" target="_blank" class="text-light fs-4"><i class="bi bi-pinterest"></i></a>
+                                <a href="#" target="_blank" class="text-light fs-4"><i class="bi bi-facebook"></i></a>
                             </div>
                         </div>
                        <!-- Ajout à l'extérieur de .row -->

@@ -12,8 +12,17 @@
        
         <script src="https://kit.fontawesome.com/14273d579a.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> <!--pour bootstrap-->
-
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"> <!--pour les icones-->
+
+                <!-- jQuery (nécessaire) -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <!-- jQuery UI CSS -->
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+        <!-- jQuery UI JS -->
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+
 
 
         <script src="../scripts/reservation_script.js" defer></script> <!--les sous menus-->
@@ -122,8 +131,7 @@
             </section>
 
             <section>
-                <div class="container my-5" style="background-color: white; padding: 20px; width: 600px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 20px;">
-                   
+                <div class="container my-5" style="background-color: white; padding: 20px; width: 100%; max-width: 600px; margin: 0 auto; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 20px;">
                     <form method="POST" id="form-reservation">
                         <div style="border: 1px solid #ccc; padding: 20px; border-radius: 10px;">
                             <h2>Réservation de Cure</h2>
@@ -202,8 +210,8 @@
             </section>
 
             <section>
-                <div class="container my-5"  id="select_chambre" style="background-color: white; display: none; padding: 20px; width: 600px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 20px;">
-
+                <div class="container my-5"  id="select_chambre"  style="background-color: white; display: none; padding: 20px; width: 100%; max-width: 600px; margin: 0 auto; 
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 20px;">
                     <form method="POST" id="form-reservation-1">
                                  <!-- chambre  -->
                         <div style="border: 1px solid #ccc; padding: 20px; border-radius: 10px;">
@@ -279,14 +287,14 @@
                         <div class="col-md-4 mb-4 text-center">
                             <h5 class="text-uppercase fw-bold">Aide</h5>
                             <hr class="mb-4 mx-auto" style="width: 50%; border-top: 3px solid #fff;">
-                            <a href="#" class="text-light d-block mb-2">À propos</a>
+                            <a href="aide.html" class="text-light d-block mb-2">À propos</a>
                         </div>
             
                         <!-- L'entreprise -->
                         <div class="col-md-4 mb-4 text-center">
                             <h5 class="text-uppercase fw-bold">L'entreprise</h5>
                             <hr class="mb-4 mx-auto" style="width: 50%; border-top: 3px solid #fff;">
-                            <a href="#" class="text-light d-block mb-2">Nous contacter</a>
+                            <a href="contact.html" class="text-light d-block mb-2">Nous contacter</a>
                         </div>
             
                         <!-- Réseaux sociaux -->
@@ -294,10 +302,10 @@
                             <h5 class="text-uppercase fw-bold">Suivez-nous</h5>
                             <hr class="mb-4 mx-auto" style="width: 50%; border-top: 3px solid #fff;">
                             <div class="d-flex justify-content-center gap-3 ">
-                                <a href="https://instagram.com" target="_blank" class="text-light fs-4"><i class="bi bi-instagram"></i></a>
-                                <a href="https://youtube.com" target="_blank" class="text-light fs-4"><i class="bi bi-youtube"></i></a>
-                                <a href="https://pinterest.com" target="_blank" class="text-light fs-4"><i class="bi bi-pinterest"></i></a>
-                                <a href="https://facebook.com" target="_blank" class="text-light fs-4"><i class="bi bi-facebook"></i></a>
+                                <a href="#" target="_blank" class="text-light fs-4"><i class="bi bi-instagram"></i></a>
+                                <a href="#" target="_blank" class="text-light fs-4"><i class="bi bi-youtube"></i></a>
+                                <a href="#" target="_blank" class="text-light fs-4"><i class="bi bi-pinterest"></i></a>
+                                <a href="#" target="_blank" class="text-light fs-4"><i class="bi bi-facebook"></i></a>
                             </div>
                         </div>
                        <!-- Ajout à l'extérieur de .row -->

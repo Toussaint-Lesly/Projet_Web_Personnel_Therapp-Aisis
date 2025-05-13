@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const typeLower = h.type.toLowerCase();
                     //j'ai change chambre_card en card
                 const cardHTML = `
-                    <div id="${chambreId}" class="col-12 col-md-6 mb-4 d-flex justify-content-center">
+                    <div id="${chambreId}" class="col-12 col-md-6 mt-4 mb-4 d-flex align-items-stretch">
                         <div class="card chambre_card" style="width: 100%;">
                             <img src="${h.imageH}" class="card-img-top" alt="image de chambre" style="height: 350px; object-fit: cover;">
                             <div class="card-body text-center">

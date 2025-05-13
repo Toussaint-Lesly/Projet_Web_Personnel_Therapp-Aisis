@@ -5,7 +5,7 @@
     require 'session.php';
     header('Content-Type: application/json');
 
-   //require_once 'db.php';
+  //require_once 'db.php';
     require_once 'db_connexion.php';
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
