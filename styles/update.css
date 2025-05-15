@@ -1,0 +1,224 @@
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    line-height: 1.6;
+}
+   
+.navbar {
+    font-size: 1.15em;
+}
+
+.dropdown-menu {
+    width: 400px;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 1.15em;
+}
+
+.dropdown-menu a { 
+    text-decoration: none;
+    color:black;
+}
+
+.banniere {
+    background: linear-gradient(rgba(0, 50, 100, 0.5), rgba(0, 50, 100, 0.5)), url('../images/beach.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    padding: 80px 20px;
+    text-align: center;
+    height: auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.text-banniere {
+    color: #f0f8ff; 
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6); 
+}
+
+.banniere h1 {
+    color: #ffffff;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+}
+
+.banniere p {
+    color: #e0f0ff;
+}
+
+
+.banniere h2 {
+    font-size: 42px;
+    font-weight: bold;
+    color: #2d2d2d;
+}
+
+.banniere h2:hover {
+    color: black;
+}
+
+.img-fixe {
+    height: 300px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.truc p{
+    font-size: 1.15em;
+}
+
+div.card {
+    border-radius: 10px !important;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+    transition: all 0.3s ease-in-out;
+    border: 1px solid #ddd; 
+}
+
+div.card:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.75);
+    transform: translateY(-5px);
+}
+
+.card img {
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
+.card-title {
+    font-size: 1.5rem; 
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333333;
+}
+
+
+footer {
+    background-color: #003049;
+    color: #fff;
+    padding: 40px 20px;
+}
+
+footer h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+footer a {
+    color: #ddd;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: #0dcaf0 !important;
+}
+
+footer .list-inline-item i {
+    transition: transform 0.3s ease;
+}
+
+footer .list-inline-item i:hover {
+    transform: scale(1.2);
+    color: #fed6e3;
+}
+
+@media (max-width: 575px) {
+
+    .navbar { 
+        font-size: 0.875em;
+    }
+
+    .banniere {
+        padding: 2.5em 0.625em; 
+        background-position: center;
+        background-size: cover;
+        text-align: center;
+        height: 18em;
+    }
+
+    .text-banniere {
+        color: #f0f8ff; 
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.6); 
+    }
+
+    .banniere h1 {
+        font-size: 2em; 
+    }
+
+    .banniere h2 {
+        font-size: 1.5em;
+    }
+    
+    .banniere p {
+        font-size: 0.875em;
+    }
+
+    .banniere a {
+        font-size: 0.875em;
+    }
+
+    .img-fixe {
+        height: 9em;
+        object-fit: cover;
+        width: 100%;
+    }
+
+    .card-title {
+        font-size: 0.875em;
+    }
+
+    .card-text, .btn {
+        font-size: 0.7em;
+    }
+    
+    h2, h5 {
+        font-size: 1em;
+    }
+
+    p {
+        font-size: 0.875em;
+    }
+
+    .truc p {
+        font-size: 0.875em;
+        text-align: center;
+    }
+
+    footer h3 {
+        font-size: 1em;
+        margin-bottom: 10px;
+        color: #ffffff;
+    }
+
+
+    footer p {
+        font-size: 0.875em;
+    }
+
+    .dropdown-menu {
+        width: 100%;
+        padding: 0.5em;
+    }
+    
+    .dropdown-menu a {
+        display: block;
+        padding: 0.5em;
+        text-decoration: none;
+        font-size: 0.5em;
+    }
+}

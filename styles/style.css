@@ -1,3 +1,4 @@
+
 html, body {
     margin: 0;
     padding: 0;
@@ -21,7 +22,7 @@ html, body {
 .connexion-container {
     margin-left: auto;
     display: inline-block;
-    /*align-items: center;*/
+    
 }
 
 section h2 {
@@ -54,8 +55,9 @@ body {
     top: 120%;
     right: 0;
     left: 50%;
-    transform: translateX(-56%);
+    transform: translateX(-70%);
     width: 390px;
+    /*width: 100%; /* Assure que la largeur s'adapte à l'écran */
     background-color: white;
     border: 1px solid #ccc;
     padding: 20px;
@@ -63,6 +65,15 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
   }
+/*
+  .popup-connexion {
+    max-width: 300px; 
+    width: 100%; 
+    margin-right: 0; 
+    left: auto; 
+    right: 0; 
+}
+*/
   
   /*Affiche la popup quand on survole le conteneur complet */
 .connexion-container:hover .popup-connexion {
@@ -79,7 +90,7 @@ body {
     margin-top: 10px;
     background-color: black;
     color: white;
-    padding: 8px 15px;
+    padding: 8px 0 8px 8px;
     text-decoration: none;
     font-weight: bold;
     border-radius: 4px;
@@ -128,7 +139,7 @@ header .row a:hover {
     width: 100%;
     padding: 80px 20px;
     text-align: center;
-   /* border-radius: 12px;*/
+    height: auto;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 

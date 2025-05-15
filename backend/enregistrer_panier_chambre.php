@@ -1,12 +1,10 @@
 <?php
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
-header("Access-Control-Allow-Headers: Content-Type, Authorization");
-require 'session.php';    // contient session_set_cookie_params + session_start()
+require 'session.php';
+
 header('Content-Type: application/json');
 
-//require_once 'db.php';
-require_once 'db_connexion.php';
+require_once 'db.php';
+//require_once 'db_connexion.php';
 
 // 2) Méthode
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {

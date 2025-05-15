@@ -1,14 +1,12 @@
 
 <?php
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
-header("Access-Control-Allow-Headers: Content-Type, Authorization");
+
 require 'session.php'; //ajout pour session
 header('Content-Type: application/json');
 //session_start(); // Nécessaire pour accéder à $_SESSION
 
-//require_once 'db.php';
-require_once 'db_connexion.php';
+require_once 'db.php';
+//require_once 'db_connexion.php';
 
 if (isset($_GET['id_hebergement'])) {
     $id_hebergement = $_GET['id_hebergement'];
