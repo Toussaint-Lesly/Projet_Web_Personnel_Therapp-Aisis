@@ -2,8 +2,8 @@
 require 'session.php';
 header('Content-Type: application/json');
 
-require_once 'db.php';
-//require_once 'db_connexion.php';
+//require_once 'db.php';
+require_once 'db_connexion.php';
 
 // Récupération des cures avec leurs sous-types
 $query = "SELECT c.id_cure, c.nom AS cure_nom, s.id_sous_type, s.nom_sous_type, s.image, s.prix 

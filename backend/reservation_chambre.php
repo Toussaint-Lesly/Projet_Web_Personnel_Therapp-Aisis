@@ -5,8 +5,8 @@ require 'session.php'; //ajout pour session
 header('Content-Type: application/json');
 //session_start(); // Nécessaire pour accéder à $_SESSION
 
-require_once 'db.php';
-//require_once 'db_connexion.php';
+//require_once 'db.php';
+require_once 'db_connexion.php';
 
 if (isset($_GET['id_hebergement'])) {
     $id_hebergement = $_GET['id_hebergement'];

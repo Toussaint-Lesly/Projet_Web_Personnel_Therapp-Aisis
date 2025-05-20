@@ -2,8 +2,8 @@
 
 require 'session.php'; //ajout pour session
 
-require_once 'db.php';
-//require_once 'db_connexion.php';
+//require_once 'db.php';
+require_once 'db_connexion.php';
 
 if (isset($_POST['supprimer'], $_POST['id'], $_POST['type'])) {
     $id = (int) $_POST['id'];

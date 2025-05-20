@@ -10,7 +10,7 @@
     if (isset($_SESSION['name'])) {
         // Concatène prénom + nom
         $response['status']   = 'connected';
-        $response['username'] = trim($_SESSION['name']);
+        $response['username'] = trim($_SESSION['firstname']);
     } else {
         $response['status'] = 'not_connected';
     }

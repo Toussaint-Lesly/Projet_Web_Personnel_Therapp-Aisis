@@ -3,8 +3,8 @@ require 'session.php';
 error_log("POST reçu enregistrer_panier_cure: " . print_r($_POST, true));
 header('Content-Type: application/json');
 
-require_once 'db.php';
-//require_once 'db_connexion.php';
+//require_once 'db.php';
+require_once 'db_connexion.php';
 
 
 // 2) Lecture de la requête

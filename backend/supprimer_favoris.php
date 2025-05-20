@@ -2,8 +2,8 @@
 
 require 'session.php'; //ajout pour session
 
-require_once 'db.php';
-//require_once 'db_connexion.php';
+//require_once 'db.php';
+require_once 'db_connexion.php';
 
 header('Content-Type: application/json');
 

@@ -2,8 +2,8 @@
     require 'session.php';
     header('Content-Type: application/json');
     
-    require_once 'db.php';
-    //require_once 'db_connexion.php';
+   //require_once 'db.php';
+  require_once 'db_connexion.php';
 
     // 1) Récupère les deux clés pour filtrer
     $userId    = $_SESSION['user_id'] ?? null;
