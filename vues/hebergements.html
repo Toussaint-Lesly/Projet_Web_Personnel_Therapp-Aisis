@@ -5,118 +5,134 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Hebergements</title>
+        <title>Hebergements Therapp-Aisis</title>
         
-        <link href = "../styles/style.css" rel = "stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" 
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-            
-            <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Polices -->
+        <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins&display=swap" rel="stylesheet">
 
-        <!-- Bootstrap JS (inclut Popper pour les carrousels, dropdowns, etc.) -->
+        <!-- Bootstrap (même version pour CSS et JS) -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"> <!--pour les icones-->
+        <!-- Icônes -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+        <!-- Styles CSS -->
+        <link rel="stylesheet" href="../styles/style.css"> <!-- ou ./styles/style.css selon la page -->
+        <link rel="stylesheet" href="../styles/media_style.css">
+
+        <!-- JS -->
+        
         <script src="../scripts/hebergements.js" defer></script>
         <script src="../scripts/navbar.js" defer></script>
     </head>
 
     <body class="bg-success bg-opacity-10">
+      
         <header>
-            <nav class="navbar text-dark navbar-expand-md bg-light navbar-light bg-opacity-10" style="font-size: 25px;">
-                <div class="container-fluid px-5 d-flex justify-content-between align-items-center">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
+            <nav class="navbar navbar-expand-lg bg-light navbar-light">
+                <div class="container-fluid">
+                    <button class="navbar-toggler text-danger" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                                       
+
+                    <a class="navbar-brand p-3 me-auto text-dark" href="#" style="font-family: 'Great Vibes', cursive;" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-expanded="false">
+                        <span style="color: #e74c3c; font-size: 1.6em;">T</span>
+                        <span style="color: #f39c12; font-size: 1.6em;">h</span>
+                        <span style="color: #f1c40f; font-size: 1.6em;">e</span>
+                        <span style="color: #2ecc71; font-size: 1.6em;">r</span>
+                        <span style="color: #1abc9c; font-size: 1.6em;">a</span>
+                        <span style="color: #3498db; font-size: 1.6em;">p</span>
+                        <span style="color: #9b59b6; font-size: 1.6em;">p</span>
+                        <span style="color: #e67e22; font-size: 1.6em;">-</span>
+                        <span style="color: #e84393; font-size: 1.6em;">A</span>
+                        <span style="color: #00cec9; font-size: 1.6em;">i</span>
+                        <span style="color: #6c5ce7; font-size: 1.6em;">s</span>
+                        <span style="color: #fd79a8; font-size: 1.6em;">i</span>
+                        <span style="color: #d63031; font-size: 1.6em;">s</span>
+                    </a>
+
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link text-dark mx-3" href="../index.html">Accueil</a>
+                                <a class="nav-link text-dark" href="../index.html" style="font-size: 1.3em;">Accueil</a>
                             </li>
+
                             <li class="nav-item dropdown">
-                                <a class="nav-link text-dark mx-3" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Nos cures</a>
-                                <ul class="dropdown-menu bg-light" style="width: 400px; text-decoration: none; padding: 10px; font-size: 25px;">
-                                    <li><a href="cures.html#cure-detox-et-purification" class="text-dark" style="text-decoration: none;">Cure Détox et Purification</a></li>
-                                    <li><a href="cures.html#cure-relaxation-et-anti-stress" class="text-dark" style="text-decoration: none;">Cure Relaxation et Anti-Stress</a></li>
-                                    <li><a href="cures.html#cure-revitalisation-et-energie" class="text-dark" style="text-decoration: none;">Cure Revitalisation et Énergie</a></li>
-                                    <li><a href="cures.html#cure-sommeil-et-relaxation-profonde" class="text-dark" style="text-decoration: none;">Cure Sommeil et Relaxation Profonde</a></li>
-                                    <li><a href="cures.html#cure-minceur-et-equilibre-alimentaire" class="text-dark" style="text-decoration: none;">Cure Minceur et Équilibre Alimentaire</a></li>
-                                    <li><a href="cures.html#cure-anti-age-et-beaute" class="text-dark" style="text-decoration: none;">Cure Anti-Âge et Beauté</a></li>
-                                    <li><a href="cures.html#cure-immunite-et-renforcement-du-corps" class="text-dark" style="text-decoration: none;">Cure Immunité et Renforcement du Corps</a></li>
-                                    <li><a href="cures.html#cure-special-dos" class="text-dark" style="text-decoration: none;">Cure Spécial Dos</a></li>
-                                    <li><a href="cures.html#cure-prevention-sante" class="text-dark" style="text-decoration: none;">Cure Prévention Santé</a></li>
-                                    <li><a href="cures.html#cure-remise-en-forme" class="text-dark" style="text-decoration: none;">Cure Remise en Forme</a></li>
+                                <a class="nav-link text-dark" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" 
+                                style="font-size: 1.3em;">Nos cures</a>
+                                <ul class="dropdown-menu bg-light">
+                                    <li><a href="cures.html#cure-detox-et-purification">Cure Détox et Purification</a></li>
+                                    <li><a href="cures.html#cure-relaxation-et-anti-stress">Cure Relaxation et Anti-Stress</a></li>
+                                    <li><a href="cures.html#cure-revitalisation-et-energie">Cure Revitalisation et Énergie</a></li>
+                                    <li><a href="cures.html#cure-sommeil-et-relaxation-profonde">Cure Sommeil et Relaxation Profonde</a></li>
+                                    <li><a href="cures.html#cure-minceur-et-equilibre-alimentaire">Cure Minceur et Équilibre Alimentaire</a></li>
+                                    <li><a href="cures.html#cure-anti-age-et-beaute">Cure Anti-Âge et Beauté</a></li>
+                                    <li><a href="cures.html#cure-immunite-et-renforcement-du-corps">Cure Immunité et Renforcement du Corps</a></li>
+                                    <li><a href="cures.html#cure-special-dos">Cure Spécial Dos</a></li>
+                                    <li><a href="cures.html#cure-prevention-sante">Cure Prévention Santé</a></li>
+                                    <li><a href="cures.html#cure-remise-en-forme">Cure Remise en Forme</a></li>
                                 </ul>
                             </li>
-                            
-                            <li class="nav-item dropdown">
-                                <!-- j'ai enleve dropdown-toggle de la classe nav-link pour cacher la fleche-->
-                                <a class="nav-link text-dark mx-3" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Nos chambres</a>
-                                <ul class="dropdown-menu bg-light" style="width: 350px; text-decoration: none; padding: 10px; font-size: 25px;">
-                                    <li><a href="hebergements.html#chambre-standard-simple" class="text-dark" style="text-decoration: none;">Chambre standard simple</a></li>
-                                    <li><a href="hebergements.html#chambre-standard-double" class="text-dark" style="text-decoration: none;">Chambre standard double</a></li>
-                                    <li><a href="hebergements.html#chambre-confort-simple" class="text-dark" style="text-decoration: none;">Chambre confort simple</a></li>
-                                    <li><a href="hebergements.html#chambre-confort-double" class="text-dark" style="text-decoration: none;">Chambre confort double</a></li>
-                                    <li><a href="hebergements.html#suite" class="text-dark" style="text-decoration: none;">Suite</a></li>
+
+                           <li class="nav-item dropdown">
+                                <a class="nav-link text-dark" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"
+                                style="font-size: 1.3em;">Nos chambres</a>
+                                <ul class="dropdown-menu bg-light">
+                                    <li><a href="hebergements.html#chambre-standard-simple">Chambre standard simple</a></li>
+                                    <li><a href="hebergements.html#chambre-standard-double">Chambre standard double</a></li>
+                                    <li><a href="hebergements.html#chambre-confort-simple">Chambre confort simple</a></li>
+                                    <li><a href="hebergements.html#chambre-confort-double">Chambre confort double</a></li>
+                                    <li><a href="hebergements.html#suite">Suite</a></li>
                                 </ul>
                             </li>
                         </ul>
-                    </div>
-                    
-                    <form class="d-flex">                
+                    </div>  
+                        
+
+                    <ul class="navbar-nav d-flex flex-row">
                         <div class="connexion-container">
-                           
-                            <i class="bi bi-person me-3 icone-connexion" id="iconeConnexion" style="font-size: 2rem; font-style: normal"> 
-                                <span id="texteConnexion" style="font-size: 25px; color: #333333; font-style: normal;"> Se connecter</span> 
-                            </i>
-                            
-                          
-                            <div class="popup-connexion" id="popupConnexion">
-                                  <!-- Contenu par défaut (non connecté) -->
+                            <!-- Icône déclencheur -->
+                            <div class="me-3 icone-connexion text-dark" style="font-size: 1.4em;" id="iconeConnexion">
+                                <i class="bi bi-person"></i>
+                                <span id="texteConnexion">Se connecter</span> 
+                            </div>
+
+                            <!-- Fenêtre centrale personnalisée -->
+                            <div class="popup-connexion" style="font-size: 0.90rem;" id="popupConnexion">
                                 <div class="popup-header">
-                                    <strong>Bienvenue !</strong>
+                                    <h5>Bienvenue !</h5>
                                     <p>Connectez-vous ou créez un compte pour bénéficier de tous les avantages de Therapp-Aisis</p>
-                                    <a href="login.html" class="btn-connexion">Me connecter / M’inscrire</a>
+                                    <a href="login.html" class="btn-connexion mb-3"  style="font-size: 0.90rem;">Me connecter / M’inscrire</a>
                                 </div>
-                                <div class="popup-links">
-                                    <ul>
-                                        <li><a href="creer_panier.html" style="text-decoration: none; color: #333333;">
-                                                <i class="bi bi-cart4" style="font-size: 1.5rem; color: #333333; font-style: normal;">
-                                                    <span class="position-absolute top-1 translate-middle badge bg-danger rounded-pill ms-1" 
-                                                    id="panier-count" style="font-size: 0.90rem; padding: 0.25em 0.4em;">0</span></i> Mon panier
-                                            </a>
-                                        </li>
+                                <div >
+                                    <ul class="popup-links" style="font-size: 0.90rem;">
                                         <li>
-                                            <a href="favoris.html" style="text-decoration: none; color: #333333">
-                                                <i class="bi bi-heart" id="navbar-heart" style="font-size: 1.5rem; color: #333333;"></i> Mes favoris
+                                            <a href="creer_panier.html">
+                                                <i class="bi bi-cart4 me-1"> 
+                                                    <span class="position-absolute top-1 translate-middle badge bg-danger rounded-pill ms-1" id="panier-count" >0</span>
+                                                </i>
+                                                Mon panier
                                             </a>
                                         </li>
-                                        <li>
-                                            <a href="commandes.html" style="text-decoration: none; color: #333333">
-                                                <i class="bi bi-receipt-cutoff" style="font-size: 1.5rem; color: #333333;"></i> Mes commandes
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="aide.html" style="text-decoration: none; color: #333333">
-                                                <i class="bi bi-question-circle" style="font-size: 1.5rem; color: #333333"></i> Besoin d’aide ?
-                                            </a>
-                                        </li>
+                                        <li><a href="favoris.html"><i class="bi bi-heart me-1" id="navbar-heart"></i> Mes favoris</a></li>
+                                        <li><a href="commandes.html"><i class="bi bi-receipt-cutoff me-1"></i> Mes commandes</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>               
-                    </form>
+                    </ul>       
                 </div>
-            </nav>
+            </nav> 
         </header>
+        
         <main>
 
-            <!-- Bannière principale -->
-            <section class="banniere">
-                <div class="container py-5 text-center text-white text-banniere">
+             <!-- Bannière principale -->
+             <section class="banniere">
+                <div class="container text-center text-white text-banniere">
                     <h1 class="display-4 fw-bold">Therapp-Aisis, un havre de paix</h1>
                     <p class="lead mt-3">Rééquilibrez votre énergie, revitalisez votre vie !</p>
                     <a href="cures.html" class="btn btn-outline-light btn-lg mt-4">Découvrir notre centre</a>
@@ -124,11 +140,11 @@
             </section>
 
             <div class="container py-5">
-                <h1 class="text-center mb-5">Nos hébergements</h1>
+                <h2 class="extra text-center mb-5"><strong>Nos hébergements</strong></h2>
             
                 <div class = "container my-5 align-items-center">
                     <div class = "row align-items-center">
-                        <div class = "col-sm-12 col-md-6" style="text-align: justify; font-size: 30px;">
+                        <div class = "col-sm-12 col-md-6 truc text-center">
                             <p>
                                 Que vous veniez pour une cure ou simplement pour un moment de détente, nos chambres allient confort et sérénité. 
                                 Chaque espace est pensé pour votre bien-être, avec des vues imprenables sur la mer, les jardins luxuriants, 
@@ -147,28 +163,26 @@
 
             <div class = "container hebergementContainer">
                 <div class="row" id="container-chambres-classiques">
-                    <h2 class="text-center mb-4">Chambres Standard</h2>
+                    <h2 class="extra text-center mb-4"><strong>Chambres Standard</strong></h2>
                     <!-- Les cartes normales vont ici -->
                 </div>
                 
                 <div class="row my-5" id="container-chambres-confort">
-                    <h2 class="text-center mb-4">Chambres Confort</h2>
+                    <h2 class="extra text-center mb-4"><strong>Chambres Confort</strong></h2>
                     <!-- Les cartes normales vont ici -->
                 </div>
                 
-                <h2 class="text-center mb-4">Suite</h2>
+                <h2 class="extra text-center mb-4"><strong>Suite</strong></h2>
                 <div id="container-suite">
                     <!-- La carte suite va ici -->
+                     
                 </div> 
 
-                <h2 class="text-center mb-4">Catégories des vues</h2>
+                <h2 class="extra text-center mb-4"><strong>Catégories des vues</strong></h2>
                 <div id="vue_list">
                     <!-- Le carrousel sera injecté ici -->
                 </div>
             </div>
-
-        
-            
 
             <div class="text-center my-5">
                 <a href="../index.html" class="btn btn-outline-primary">Retour à l'accueil</a>
@@ -180,23 +194,25 @@
                 <div class="container text-center text-md-start">
                     <div class="row">
                         <!-- Aide -->
-                        <div class="col-md-4 mb-4 text-center">
+                        <div class="col-12 col-lg-4 mb-4 text-center">
                             <h5 class="text-uppercase fw-bold">Aide</h5>
                             <hr class="mb-4 mx-auto" style="width: 50%; border-top: 3px solid #fff;">
                             <a href="aide.html" class="text-light d-block mb-2">À propos</a>
                         </div>
             
                         <!-- L'entreprise -->
-                        <div class="col-md-4 mb-4 text-center">
+                        <div class="col-12 col-lg-4 mb-4 text-center">
                             <h5 class="text-uppercase fw-bold">L'entreprise</h5>
                             <hr class="mb-4 mx-auto" style="width: 50%; border-top: 3px solid #fff;">
+
                             <a href="contact.html" class="text-light d-block mb-2">Nous contacter</a>
                         </div>
             
                         <!-- Réseaux sociaux -->
-                        <div class="col-md-4 mb-4 text-center">
+                        <div class="col-12 col-lg-4 mb-4 text-center">
                             <h5 class="text-uppercase fw-bold">Suivez-nous</h5>
                             <hr class="mb-4 mx-auto" style="width: 50%; border-top: 3px solid #fff;">
+
                             <div class="d-flex justify-content-center gap-3 ">
                                 <a href="#" target="_blank" class="text-light fs-4"><i class="bi bi-instagram"></i></a>
                                 <a href="#" target="_blank" class="text-light fs-4"><i class="bi bi-youtube"></i></a>
@@ -204,14 +220,27 @@
                                 <a href="#" target="_blank" class="text-light fs-4"><i class="bi bi-facebook"></i></a>
                             </div>
                         </div>
-                    <!-- Ajout à l'extérieur de .row -->
-                        <div class="text-center mt-4">
-                            <a href="index.html">
-                                <img src="../images/logo2.png" alt="logo du site" width="250" height="85">
-                            </a>
-                            <p class="mt-2 mb-0">&copy; 2025 Therapp-Aisis. Tous droits réservés.</p>
-                        </div>
                     </div>
+                     <!-- Ajout à l'extérieur de .row -->
+                     <div class="mt-4 text-center">
+                        <a class="mt-2 mb-0" href="index.html" style="font-family: 'Great Vibes', cursive; font-size: 2rem;" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-expanded="false">
+                            <span style="color: #e74c3c;">T</span>
+                            <span style="color: #f39c12;">h</span>
+                            <span style="color: #f1c40f;">e</span>
+                            <span style="color: #2ecc71;">r</span>
+                            <span style="color: #1abc9c;">a</span>
+                            <span style="color: #3498db;">p</span>
+                            <span style="color: #9b59b6;">p</span>
+                            <span style="color: #e67e22;">-</span>
+                            <span style="color: #e84393;">A</span>
+                            <span style="color: #00cec9;">i</span>
+                            <span style="color: #6c5ce7;">s</span>
+                            <span style="color: #fd79a8;">i</span>
+                            <span style="color: #d63031;">s</span>
+                        </a>
+                        <p class="mt-2 mb-0">&copy; 2025. Tous droits réservés.</p>
+                    </div>
+
                 </div>
             </footer>
         </section> 

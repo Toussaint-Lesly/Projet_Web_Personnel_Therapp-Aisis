@@ -87,22 +87,24 @@ document.addEventListener("DOMContentLoaded", () => {
   
     // Image + overlay
     const imgCont = document.createElement('div');
-    imgCont.className = 'position-relative mb-2';
-    imgCont.style.height = '200px';
-    imgCont.style.overflow = 'hidden';
+    imgCont.classList.add('image-container', 'position-relative', 'mb-2');
+
+    /*imgCont.style.height = '350px';
+    imgCont.style.overflow = 'hidden';*/
+
     const img = document.createElement('img');
     img.src = option.image;
     img.className = 'card-img-top';
-    img.style.height = '100%';
+    img.alt = option.nom;
+    img.style.maxWidth = '100%';
+    img.style.height = '350px';
     img.style.objectFit = 'cover';
     imgCont.appendChild(img);
+
     const spanType = document.createElement('span');
+    spanType.className = 'image-info';
     spanType.innerHTML = `<strong>${option.nom_sous_type}</strong>`;
-    Object.assign(spanType.style, {
-      position: 'absolute', bottom: '10px', left: '3px',
-      backgroundColor: 'rgba(0,0,0,0.6)', color: 'white',
-      padding: '3px 8px', borderRadius: '4px'
-    });
+
     imgCont.appendChild(spanType);
   
     const body = creerCardBody(option);
@@ -176,7 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // création du bouton
     const btnRes = document.createElement('button');
     btnRes.type = 'button';                // <-- empêche le comportement submit par défaut
-    btnRes.className = 'btn btn-primary btn-sm';
+    btnRes.className = 'btn btn-sm btn-outline-primary';
     btnRes.textContent = 'Réserver';
 
     

@@ -4,125 +4,19 @@ html, body {
     padding: 0;
 }
 
-  /* Navbar container */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 25px;
-    background-color: #f8f9fa; /* Couleur de fond légère */
-}
+body {
+    font-family: 'Playfair Display', serif;
+    color: #3F3F3F;
+    line-height: 1.6;
+  }
 
-/* Colonne gauche (menu principal) */
-.navbar-collapse {
-    flex: 1;
-}
 
-/* Zone de connexion (à droite) */
-.connexion-container {
-    margin-left: auto;
-    display: inline-block;
-    
-}
-
-section h2 {
-    font-size: 2.5rem;
-    font-weight: bold;
-}
+/*a surveiller*/
 
 .section-title {
-    font-size: 32px;
+    font-size: 2rem;
     margin-bottom: 30px;
-    color: #0d1b2a;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8f9fa;
-    line-height: 1.6;
-}
-
-
-/*Se connecter*/
-.connexion-container {
-    position: relative;
-    display: inline-block;
-  }
-  
-.popup-connexion {
-    display: none;
-    position: absolute;
-    top: 120%;
-    right: 0;
-    left: 50%;
-    transform: translateX(-70%);
-    width: 390px;
-    /*width: 100%; /* Assure que la largeur s'adapte à l'écran */
-    background-color: white;
-    border: 1px solid #ccc;
-    padding: 20px;
-    z-index: 9999;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-  }
-/*
-  .popup-connexion {
-    max-width: 300px; 
-    width: 100%; 
-    margin-right: 0; 
-    left: auto; 
-    right: 0; 
-}
-*/
-  
-  /*Affiche la popup quand on survole le conteneur complet */
-.connexion-container:hover .popup-connexion {
-    display: block;
-  }
-  
-.popup-header p {
-    font-size: 14px;
-    color: #333;
-  }
-  
-.btn-connexion {
-    display: inline-block;
-    margin-top: 10px;
-    background-color: black;
-    color: white;
-    padding: 8px 0 8px 8px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 4px;
-  }
-  
-.popup-links ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 15px;
-  }
-  
-.popup-links li {
-    display: flex;
-    align-items: center;
-    margin-bottom: 8px;
-    font-size: 14px;
-    color: #444;
-    cursor: pointer;
-  }
-  
-.popup-links li i {
-    margin-right: 8px;
-    font-size: 16px;
-}
-
-.heart-icon {
-    color: #666;
-    cursor: pointer;
-    transition: color 0.2s;
-}
-.heart-icon.favored {
-    color: red;
+   
 }
 
 header .row a:hover {
@@ -130,7 +24,170 @@ header .row a:hover {
     color: black;
 }
 
-/*banniere*/  
+h2.text-center {
+    font-size: 1.5rem;
+}
+
+section .shit{
+    font-size: 2em;
+}
+
+.reservation-card {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    background-color: #fff8dc;
+}
+
+/*masquer les cures*/
+.hidden {
+    display: none; 
+}
+  
+
+/*Admin*/
+
+.sidebar {
+    height: 100vh;
+    background-color: #343a40;
+    padding-top: 2rem;
+    color: white;
+}
+.sidebar a {
+    color: white;
+    display: block;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+}
+.sidebar a:hover {
+    background-color: #495057;
+}
+
+/*******************/  
+p{
+    font-size: 1rem;
+    padding: 0 20px;
+}
+
+.dropdown-menu {
+    width: 250px;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.dropdown-menu a { 
+    text-decoration: none;
+    font-size: 1rem;
+    color: #3F3F3F;
+}
+
+header .row a:hover {
+    text-decoration: underline;
+    color: black;
+}
+
+/*Se connecter*/
+     
+.popup-header {
+    background-color: rgba(255, 255, 255, 0.95); /* Fond blanc semi-opaque */
+    border-radius: 0.75rem;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    animation: fadeIn 0.3s ease-in-out;
+    font-size: 1rem;
+}
+
+.popup-connexion {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.95); /* Fond blanc semi-opaque */
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    z-index: 1000;
+    width: 290px;
+    display: none; /* cachée par défaut */
+
+    display: none;
+    flex-direction: column;
+    align-items: flex-start; 
+    
+}
+
+.popup-connexion h5 {
+    margin-top: 0;
+}
+
+.popup-links {
+    margin-top: 20px;;
+    padding-left: 0;
+    list-style: none;
+}
+
+.popup-links ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.popup-links li {
+    margin-bottom: 0.5rem;
+}
+
+.popup-links li a {
+    font-size: 1rem;
+    text-decoration: none; 
+    color: #3F3F3F;
+}
+
+.popup-links li i {
+    margin-right: 8px;
+    font-size: 1rem;
+}
+
+/* Animation d’apparition */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+
+.btn-connexion {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: black;
+    color: white;
+    width: auto;
+    padding: 8px 0 8px 8px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+  }
+
+#panier-count {
+    font-size: 0.80rem; 
+    padding: 0.15em 0.3em;
+}
+
+.heart-icon {
+    color: #666;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.heart-icon.favored {
+    color: red;
+}
+/**************************/
+
+
+/***********************/
+
 .banniere {
     background: linear-gradient(rgba(0, 50, 100, 0.5), rgba(0, 50, 100, 0.5)), url('../images/beach.jpg');
     background-size: cover;
@@ -144,8 +201,8 @@ header .row a:hover {
 }
 
 .text-banniere {
-    color: #f0f8ff; /* Bleu très clair lisible sur fond bleu clair */
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.6); /* ajoute de la lisibilité */
+    color: #f0f8ff; 
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6); 
 }
 
 .banniere h1 {
@@ -159,7 +216,7 @@ header .row a:hover {
 
 
 .banniere h2 {
-    font-size: 42px;
+    font-size: 2.5rem;
     font-weight: bold;
     color: #2d2d2d;
 }
@@ -167,77 +224,13 @@ header .row a:hover {
 .banniere h2:hover {
     color: black;
 }
-
-p {
-    font-size: 18px;
-    padding: 0 20px;
-}
-
-h2.text-center {
-    color: #003049;
-}
-
-/*footer*/
-
-footer {
-    background-color: #003049;
-    color: #fff;
-    padding: 40px 20px;
-}
-
-footer h3 {
-    font-size: 22px;
-    margin-bottom: 10px;
-    color: #ffffff;
-}
-
-footer a {
-    color: #ddd;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-footer a:hover {
-    text-decoration: underline;
-    color: #0dcaf0 !important;
-}
-
-footer .list-inline-item i {
-    transition: transform 0.3s ease;
-}
-
-footer .list-inline-item i:hover {
-    transform: scale(1.2);
-    color: #fed6e3;
-}
-
-/*Admin*/
-
-.sidebar {
-    height: 100vh;
-    background-color: #343a40;
-    padding-top: 2rem;
-    color: white;
-  }
-  .sidebar a {
-    color: white;
-    display: block;
-    padding: 0.75rem 1rem;
-    text-decoration: none;
-}
-  .sidebar a:hover {
-    background-color: #495057;
-}
-
-
-
-/* les images */
-
+/******************/
 .img-fixe {
     height: 300px;
     object-fit: cover;
     width: 100%;
 }
+
 
 .image-container {
     position: relative;
@@ -246,7 +239,6 @@ footer .list-inline-item i:hover {
 
 .image-container img {
     width: 100%; 
-    /*height: 350px; */
     object-fit: cover; /* Coupe l'image pour remplir l'espace sans déformation */
     border-radius: 5px;
 }
@@ -258,7 +250,7 @@ footer .list-inline-item i:hover {
     background: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
     color: white;
     padding: 5px 10px;
-    font-size: 20px;
+    font-size: 1.25rem;
     opacity: 0; /* Caché par défaut */
     transition: opacity 0.3s ease-in-out;
     border-radius: 15px;
@@ -268,9 +260,11 @@ footer .list-inline-item i:hover {
     opacity: 1; /* Affiche le texte au survol */
 }
 
-    /*calendrier*/
+/*******************/
+
+/*calendrier*/
     
-    /* taille des cases */
+/* taille des cases */
 .ui-datepicker td, .ui-datepicker th {
     padding: 2px; 
 }
@@ -281,73 +275,18 @@ footer .list-inline-item i:hover {
     padding: 3px;
     text-align: center;
 }
+/******************/
 
-/*reservation*/
-
-input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.truc {
+    font-size: 1rem;
+    text-align: center;
 }
 
-.help {
-    text-align: left;
-    margin-top: 15px;
-}
-.help a {
-    color: #0066c0;
-    text-decoration: none;
-    font-size: 14px;
-}
-.help a:hover {
-    text-decoration: underline;
+.truc p{
+    font-size: 1rem;
 }
 
-
-/**************************/
-.business, .register {
-    margin-top: 20px;
-    font-size: 14px;
-}
-.register a {
-    color: #0066c0;
-    text-decoration: none;
-    font-weight: bold;
-}
-.register a:hover {
-    text-decoration: underline;
-}
-
-.radio-container {
-    display: flex;
-    align-items: center; /* Alignement vertical parfait */
-    gap: 10px; /* Espace entre le bouton et le texte */
-    margin-bottom: 5px; /* Espacement entre chaque option */
-}
-
-.radio-container input[type="radio"] {
-    width: 16px;
-    height: 16px;
-    margin: 0; /* Supprime le décalage */
-}
-
-/*masquer les cures*/
-.hidden {
-    display: none; 
-}
-  
-
-.reservation-card {
-    border: 1px solid #ccc;
-    padding: 20px;
-    border-radius: 15px;
-    margin-bottom: 20px;
-    background-color: #fff8dc;
-}
-
-/* les cartes*/
+/***********************/
 
 div.card {
     border-radius: 10px !important;
@@ -370,16 +309,17 @@ div.card:hover {
 }
 
 .card-title {
-    font-size: 1.5rem; 
+    font-size: 1.3rem; 
     font-weight: bold;
 }
 
 .card-text {
     font-size: 1rem;
-    font-weight: bold;
-    color: #333333;
 }
-  
+
+.extra {
+    font-size: 1rem; /* Valeur par défaut */
+}
 
 /*les caroussel*/
 
@@ -430,3 +370,152 @@ div.carousel-inner:hover {
         transform: translateY(20px); /* Déplace l'élément vers le bas */
     }
 }
+
+/***********************/
+
+
+
+/**************************/
+.business, .register {
+    margin-top: 20px;
+    font-size: 0.90rem;
+}
+.register a {
+    color: #0066c0;
+    text-decoration: none;
+    font-weight: bold;
+}
+.register a:hover {
+    text-decoration: underline;
+}
+
+.radio-container {
+    display: flex;
+    align-items: center; /* Alignement vertical parfait */
+    gap: 10px; /* Espace entre le bouton et le texte */
+    margin-bottom: 5px; /* Espacement entre chaque option */
+}
+
+.radio-container input[type="radio"] {
+    width: 16px;
+    height: 16px;
+    margin: 0; /* Supprime le décalage */
+}
+
+/***********************/
+/*page reservation*/
+.reserv {
+    background-color: white; 
+    padding: 20px; 
+    width: 100%; 
+    max-width: 600px; 
+    margin: 0 auto; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    border-radius: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.help {
+    text-align: left;
+    margin-top: 15px;
+}
+.help a {
+    color: #0066c0;
+    text-decoration: none;
+    font-size: 1rem;
+}
+.help a:hover {
+    text-decoration: underline;
+}
+
+.choix button {
+    width: auto;
+}
+
+
+/*hebergememnts*/
+#select_chambre {
+    background-color: white; 
+    display: none;
+    padding: 20px; 
+    width: 100%; 
+    max-width: 600px; 
+    margin: 0 auto; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    border-radius: 20px;
+}
+
+/*creer compte*/
+.compte {
+    width: 400px; 
+    height: auto; 
+    background-color: white; 
+    box-shadow: 2px; 
+    border-radius: 20px; 
+    padding: 20px;
+}
+
+/*login*/
+
+.log {
+    background-color: white; 
+    padding: 20px; 
+    width: 400px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    border-radius: 20px; 
+    text-align: center;
+}
+
+/*contact *aide*/
+.cont {
+    max-width: 800px; 
+    margin: 40px auto; 
+    padding: 30px; 
+    background-color: #ffffff;
+    border-radius: 12px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/***********************/
+
+footer {
+    background-color: #003049;
+    color: #fff;
+    padding: 40px 20px;
+}
+
+footer h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+footer a {
+    color: #ddd;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: #0dcaf0 !important;
+}
+
+footer .list-inline-item i {
+    transition: transform 0.3s ease;
+}
+
+footer .list-inline-item i:hover {
+    transform: scale(1.2);
+    color: #fed6e3;
+}
+
+/***********************/

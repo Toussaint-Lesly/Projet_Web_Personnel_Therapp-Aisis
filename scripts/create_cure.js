@@ -66,7 +66,7 @@ function createCureSection(cure, favorisIds) {
 
     cure.options.forEach(option => {
       const col = document.createElement('div');
-      col.className = 'col-12 col-sm-6 mt-4 mb-4 d-flex align-items-stretch';
+      col.className = 'col-6 mt-4 mb-4 d-flex align-items-stretch';
 
       const card = createCard(option, favorisIds);
       col.appendChild(card);
@@ -81,7 +81,7 @@ function createCureSection(cure, favorisIds) {
 function createContainer() {
     const container = document.createElement('div');
     container.className = 'container my-5 text-center';
-    container.style.fontSize = '20px';
+    container.style.fontSize = '1.25em';
     return container;
 }
 
@@ -89,9 +89,8 @@ function createTitleRow(name) {
     const titleRow = document.createElement('div');
     titleRow.className = 'row justify-content-center';
 
-    const title = document.createElement('p');
-    title.className = 'text-center';
-    title.style.fontSize = '30px';
+    const title = document.createElement('h2');
+    title.className = 'text-center extra'; // Ajoute une classe
     const slug = slugify(name);
     title.id = slug;
     title.innerHTML = `<strong>${name}</strong>`;
@@ -100,12 +99,13 @@ function createTitleRow(name) {
     return titleRow;
 }
 
+
 // 5) Crée la carte d'une option
 function createCard(option, favorisIds) {
     const card = document.createElement('div');
     card.className = 'card';
     card.style.width = '100%';
-    card.style.borderRadius = '10px';
+    card.style.borderRadius = '0.625em';
 
     const imageContainer = document.createElement('div');
     imageContainer.className = 'image-container d-flex justify-content-center';
@@ -153,7 +153,7 @@ function createHeartIcon(idCure, favorisIds, option) {
     heart.classList.add('bi', 'heart-icon');
     heart.dataset.id = idCure;
     heart.style.cursor = 'pointer';
-    heart.style.fontSize = '24px';
+    heart.style.fontSize = '1.5em';
 
     updateHeartAppearance(heart, favorisIds.includes(idCure));
 

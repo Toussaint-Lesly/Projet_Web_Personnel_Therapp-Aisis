@@ -12,7 +12,7 @@
         let total = 0;
   
         let html = `
-          <table class="table table-bordered">
+          <table class="table table-bordered entete-tableau">
             <thead>
               <tr>
                 <th>Type</th>

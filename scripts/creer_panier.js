@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // 1) Colonne responsive
             const carte = document.createElement('div');
-            carte.classList.add('col-md-4', 'mb-4');
+            carte.classList.add('col-6', 'col-md-4', 'mb-4');
             carte.id = `carte-cure-${res.id_reservation_cure}`;
 
              // 2) Card container
@@ -50,6 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const span = document.createElement('span');
             span.innerHTML = `<strong>${res.nom_sous_type}</strong>`;
+            span.classList.add('spanPanier');
             span.style.position = 'absolute';
             span.style.bottom = '10px';
             span.style.left = '10px';
@@ -61,6 +62,10 @@ document.addEventListener("DOMContentLoaded", function () {
             imageContainer.appendChild(span);
             cardBody.appendChild(imageContainer);
 
+            // --- Ligne contenant le prix et le bouton  19 Mai ---
+            const lignePrix = document.createElement('div');
+            lignePrix.className = 'd-flex justify-content-between align-items-center';
+
             // --- Prix ---
             const prix = document.createElement('p');
             prix.innerHTML = `<strong>Prix :</strong> <span class="prix-item">${parseFloat(res.prix_total).toFixed(2)}</span> €`;
@@ -70,14 +75,30 @@ document.addEventListener("DOMContentLoaded", function () {
             const btnContainer = document.createElement('div');
             btnContainer.className = 'mt-auto d-flex justify-content-end gap-2'; //placer le bouton a droite
 
-            const btn = document.createElement('button');
-            btn.className = 'btn btn-danger btn-supprimer';
+           /* const btn = document.createElement('button');
+            btn.className = 'btn btn-supprimer';
             btn.dataset.id = res.id_reservation_cure;
             btn.dataset.type = 'cure';
-            btn.innerHTML = '🗑 Supprimer';
+            btn.innerHTML = '🗑';*/
 
-            btnContainer.appendChild(btn);
-            cardBody.appendChild(btnContainer);
+            /*Ajout 19 Mai*/
+            const btn = document.createElement('button');
+            btn.className = 'btn btn-supprimer';
+            btn.style.color = 'red';
+            btn.dataset.id = res.id_reservation_cure;
+            btn.dataset.type = 'cure';
+            btn.innerHTML = '🗑';
+            btn.setAttribute('data-bs-toggle', 'tooltip');
+            btn.setAttribute('data-bs-placement', 'top');
+            btn.setAttribute('title', 'Supprimer');
+
+
+            /*btnContainer.appendChild(btn);
+            cardBody.appendChild(btnContainer);*/
+            // Ajout au conteneur
+            lignePrix.appendChild(prix);
+            lignePrix.appendChild(btn);
+            cardBody.appendChild(lignePrix);
 
             card.appendChild(cardBody);
             carte.appendChild(card);
@@ -86,14 +107,18 @@ document.addEventListener("DOMContentLoaded", function () {
             // --- Total ---
             totalPrix += parseFloat(res.prix_total);
 
-            
+            const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+                new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+   
         });
         
         // Afficher les chambres
     data.chambres.forEach(res => {
         // 1) Colonne responsive
         const carte = document.createElement('div');
-        carte.classList.add('col-md-4', 'mb-4');
+        carte.classList.add('col-6', 'col-md-4', 'mb-4');
         carte.id = `carte-chambre-${res.id_reservation_chambre}`;
     
         // 2) Card container
@@ -124,10 +149,11 @@ document.addEventListener("DOMContentLoaded", function () {
         // Span du type de chambre (en haut, centré)
         const spanType = document.createElement('span');
         spanType.innerHTML = `<strong>${res.type_chambre}</strong>`;
+        spanType.classList.add('spanPanier');
         Object.assign(spanType.style, {
         position: 'absolute',
         top: '10px',
-        left: '45%',
+        left: '35%',
         transform: 'translateX(-50%)',
         backgroundColor: 'rgba(0, 0, 0, 0.6)',
         color: 'white',
@@ -139,10 +165,11 @@ document.addEventListener("DOMContentLoaded", function () {
         // Span des dates (en bas, centré)
         const spanDates = document.createElement('span');
         spanDates.innerHTML = `<strong>${res.date_arrivee} – ${res.date_depart}</strong>`;
+        spanDates.classList.add('spanPanier');
         Object.assign(spanDates.style, {
         position: 'absolute',
         bottom: '10px',
-        left: '45%',
+        left: '35%',
         transform: 'translateX(-50%)',
         backgroundColor: 'rgba(0, 0, 0, 0.6)',
         color: 'white',
@@ -152,6 +179,10 @@ document.addEventListener("DOMContentLoaded", function () {
         imageContainer.appendChild(spanDates);
 
         cardBody.appendChild(imageContainer);
+
+         // --- Ligne contenant le prix et le bouton  19 Mai ---
+        const lignePrix = document.createElement('div');
+        lignePrix.className = 'd-flex justify-content-between align-items-center';
   
         const prix = document.createElement('p');
         prix.innerHTML = `<strong>Total :</strong> <span class="prix-item">${parseFloat(res.prix_total).toFixed(2)}</span> €`;
@@ -161,14 +192,30 @@ document.addEventListener("DOMContentLoaded", function () {
         const btnContainer = document.createElement('div');
         btnContainer.className = 'mt-auto d-flex justify-content-end gap-2';
     
-        const btn = document.createElement('button');
+        /*const btn = document.createElement('button');
         btn.className = 'btn btn-danger btn-supprimer';
         btn.dataset.id = res.id_reservation_chambre;
         btn.dataset.type = 'chambre';
-        btn.innerHTML = '🗑 Supprimer';
+        btn.innerHTML = '🗑';*/
+
+         /*Ajout 19 Mai*/
+        const btn = document.createElement('button');
+        btn.className = 'btn btn-supprimer';
+        btn.style.color = 'red';
+        btn.dataset.id = res.id_reservation_cure;
+        btn.dataset.type = 'cure';
+        btn.innerHTML = '🗑';
+        btn.setAttribute('data-bs-toggle', 'tooltip');
+        btn.setAttribute('data-bs-placement', 'top');
+        btn.setAttribute('title', 'Supprimer');
+
     
-        btnContainer.appendChild(btn);
-        cardBody.appendChild(btnContainer);
+        /*btnContainer.appendChild(btn);
+        cardBody.appendChild(btnContainer);*/
+
+        lignePrix.appendChild(prix);
+        lignePrix.appendChild(btn);
+        cardBody.appendChild(lignePrix);
     
         // 8) Assemblage final
         card.appendChild(cardBody);
@@ -176,6 +223,11 @@ document.addEventListener("DOMContentLoaded", function () {
         cartCardsContainer.appendChild(carte);
     
         totalPrix += parseFloat(res.prix_total);
+
+        const tooltipTriggerList1 = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        tooltipTriggerList1.forEach(function (tooltipTriggerEl) {
+                new bootstrap.Tooltip(tooltipTriggerEl);
+        });
     });  
 
 

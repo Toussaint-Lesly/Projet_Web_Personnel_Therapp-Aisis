@@ -29,11 +29,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 const typeLower = h.type.toLowerCase();
                     //j'ai change chambre_card en card
                 const cardHTML = `
-                    <div id="${chambreId}" class="col-12 col-md-6 mt-4 mb-4 d-flex align-items-stretch">
+                    <div id="${chambreId}" class="col-6 mt-4 mb-4 d-flex align-items-stretch">
                         <div class="card chambre_card" style="width: 100%;">
                             <img src="${h.imageH}" class="card-img-top" alt="image de chambre" style="height: 350px; object-fit: cover;">
                             <div class="card-body text-center">
-                                <h5 class="card-title">${h.type}</h5>
+                                <h5 class="card-title extra">${h.type}</h5>
                                 <p class="card-text">À partir de <strong>${parseFloat(h.prixH).toFixed(2)} €</strong></p>
                             </div>
                         </div>
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-md-5 mt-5 mb-4" style="text-align: justify; font-size: 30px;">
+                            <div class="col-12 col-md-5 mt-5 truc mb-4">
                                 <p>
                                     Notre suite allie élégance et confort pour un séjour d’exception. Spacieuse et raffinée, elle comprend un espace salon, 
                                     une chambre luxueuse et une salle de bain moderne. Profitez d’une vue imprenable et de services haut de gamme pour une expérience inoubliable.

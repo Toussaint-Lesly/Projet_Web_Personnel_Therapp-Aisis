@@ -1,74 +1,98 @@
 document.addEventListener("DOMContentLoaded", async function () { //asunc pour reconnaitre await
 
-     // Connexion
-     const icone = document.getElementById("iconeConnexion");
-     const popup = document.getElementById("popupConnexion");
- 
-     let popupTimeout;
- 
-     // Afficher la popup quand la souris entre sur l’icône
-     icone.addEventListener("mouseenter", () => {
-         clearTimeout(popupTimeout);
-         popup.style.display = "block";
-     });
- 
-     // Garder visible quand la souris entre dans la popup
-     popup.addEventListener("mouseenter", () => {
-         clearTimeout(popupTimeout);
-         popup.style.display = "block";
-     });
- 
-     // Cacher quand la souris quitte l’icône ou la popup
-     icone.addEventListener("mouseleave", () => {
-         popupTimeout = setTimeout(() => {
-             popup.style.display = "none";
-         }, 300);
-     });
- 
-     popup.addEventListener("mouseleave", () => {
-         popupTimeout = setTimeout(() => {
-             popup.style.display = "none";
-         }, 300);
-     });
- 
-     fetch('../backend/user_connexion.php', {
-         credentials: 'include'   // ou 'same-origin' si même domaine/port
-     })
-     .then(res => res.json())
-     .then(data => {
-         const popup = document.getElementById('popupConnexion');
-         
-         if (data.status === 'connected') {
-             // 1) Mettre à jour la popup
-             /*text-align: justify;*/
-             popup.querySelector('.popup-header').innerHTML = `
-             <div style="font-size: 0.90rem;"> 
-                 Bienvenue <strong>${data.username}</strong>, votre moment de détente commence ici. Ressentez l’harmonie dès maintenant !
-             </div>
-         `;
-         
-             const p = popup.querySelector('.popup-header p');
-             if (p) p.remove();
-             const btn = popup.querySelector('.btn-connexion');
-             if (btn) btn.remove();
-     
-             const ul = popup.querySelector('.popup-links ul');
-             ul.insertAdjacentHTML('beforeend', `
-                 <li>
-                     <a href="../backend/logout.php" id="logout-link" style="text-decoration: none; color: #333333">
-                         <i class="bi bi-box-arrow-right" style="font-size: 1.5rem; color: #333333"></i> Se déconnecter
-                     </a>
-                 </li>
-             `);
-     
-             // 2) Modifier le texte dans l'icône "Se connecter"
-             const texteConnexion = document.getElementById('texteConnexion');
-             if (texteConnexion) {
-                 texteConnexion.textContent = `Bonjour ${data.username} !` ;
-             }
-         }
-     })
-     .catch(err => console.error('Impossible de récupérer l’utilisateur :', err));
+      // Gestion de la popup de connexion
+
+      const icone = document.getElementById("iconeConnexion");
+      const popup = document.getElementById("popupConnexion");
+      const closeBtn = document.getElementById("closeConnexion");
+  
+  if (icone && popup) {
+      let isMobile = window.matchMedia("(hover: none)").matches;
+  
+      // CAS MOBILE — toggle au clic
+      if (isMobile) {
+          icone.addEventListener("click", (e) => {
+              e.stopPropagation();
+              popup.style.display = popup.style.display === "block" ? "none" : "block";
+          });
+  
+          // Fermer au clic ailleurs
+          document.addEventListener("click", function (event) {
+              if (!popup.contains(event.target) && !icone.contains(event.target)) {
+                  popup.style.display = "none";
+              }
+          });
+      }
+  
+      // CAS DESKTOP — apparition au survol
+      else {
+          let popupTimeout;
+  
+          icone.addEventListener("mouseenter", () => {
+              clearTimeout(popupTimeout);
+              popup.style.display = "block";
+          });
+  
+          popup.addEventListener("mouseenter", () => {
+              clearTimeout(popupTimeout);
+          });
+  
+          icone.addEventListener("mouseleave", () => {
+              popupTimeout = setTimeout(() => {
+                  popup.style.display = "none";
+              }, 300);
+          });
+  
+          popup.addEventListener("mouseleave", () => {
+              popupTimeout = setTimeout(() => {
+                  popup.style.display = "none";
+              }, 300);
+          });
+      }
+  
+      // Bouton X pour fermer (commun aux deux)
+      if (closeBtn) {
+          closeBtn.addEventListener("click", () => {
+              popup.style.display = "none";
+          });
+      }
+  }
+  
+  
+// Vérification utilisateur connecté
+fetch('../backend/user_connexion.php', { credentials: 'include' })
+    .then(res => res.json())
+    .then(data => {
+        if (data.status === 'connected') {
+            const popupHeader = popup.querySelector('.popup-header');
+            popupHeader.innerHTML = `
+                <div style="font-size: 0.90rem;"> 
+                    Bienvenue <strong>${data.username}</strong>, votre moment de détente commence ici. Ressentez l’harmonie dès maintenant !
+                </div>
+            `;
+
+            const p = popupHeader.querySelector('p');
+            if (p) p.remove();
+
+            const btn = popup.querySelector('.btn-connexion');
+            if (btn) btn.remove();
+
+            const ul = popup.querySelector('.popup-links');
+            ul.insertAdjacentHTML('beforeend', `
+                <li>
+                    <a href="../backend/logout.php" id="logout-link" style="text-decoration: none; color:">
+                        <i class="bi bi-box-arrow-right" style="font-size: 1.4em;"></i> Se déconnecter
+                    </a>
+                </li>
+            `);
+
+            const texteConnexion = document.getElementById('texteConnexion');
+            if (texteConnexion) {
+                texteConnexion.textContent = `Bonjour ${data.username} !`;
+            }
+        }
+    })
+    .catch(err => console.error('Impossible de récupérer l’utilisateur :', err));
 
 
     // Récupération des favoris

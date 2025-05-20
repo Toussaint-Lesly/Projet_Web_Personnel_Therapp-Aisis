@@ -36,12 +36,16 @@ document.addEventListener("DOMContentLoaded", function() {
                         div.classList.add("radio-container");
 
                         const input = document.createElement("input");
+                        input.classList.add("custom-radio"); //ajour pour diminuer taille
+                       
+
                         input.type = "radio";
                         input.name = "nom_sous_type";
                         input.value = type.nom_sous_type;
 
                         const label = document.createElement("label");
                         label.textContent = `${type.nom_sous_type} - $ ${type.prix}`;
+                        label.classList.add("custom-radio-label");  //ajour pour diminuer taille
 
                         div.appendChild(input);
                         div.appendChild(label);
@@ -66,7 +70,6 @@ document.addEventListener("DOMContentLoaded", function() {
                         if (selected) {
                             document.getElementById("id_sous_type").value = selected.id_sous_type;
                             document.getElementById("nom_sous_type").value = selected.nom_sous_type;
-                            //document.getElementById("description").value = selected.description || "";
                             document.getElementById("prix").value = selected.prix;
                             document.getElementById("prix_base").value = selected.prix;
 
@@ -93,6 +96,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         div.classList.add("radio-container");
 
                         const input = document.createElement("input");
+                        input.classList.add("custom-radio"); //ajour pour diminuer taille
                         input.type = "radio";
                         input.name = "vue";
                         input.value = vue.vue;
@@ -101,6 +105,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         input.dataset.idCure = vue.id_reservation_cure;
 
                         const label = document.createElement("label");
+                        label.classList.add("custom-radio-label");  //ajour pour diminuer taille
                         label.textContent = `${vue.vue} - supplément $ ${vue.supplement}`;
 
                         div.appendChild(input);
