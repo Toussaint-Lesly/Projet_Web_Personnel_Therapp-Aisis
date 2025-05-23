@@ -33,12 +33,12 @@ document.addEventListener('DOMContentLoaded', () => {
       let html = `
         <div class="card mb-3">
           <div class="card-header bg-primary text-white">
-            Commande n° <strong>${numeroCommande}</strong> - ${dateCommande}
+            <p>Commande n° <strong>${numeroCommande}</strong> - ${dateCommande}</p>
           </div>
           <div class="card-body">
             <p><strong>Client :</strong> ${clientFirstname} ${clientName}</p>
             <p><strong>Détails de la commande</strong></p>
-            <table class="table table-bordered">
+            <table class="table table-bordered entete-tableau">
               <thead>
                 <tr>
                   <th>Type</th>

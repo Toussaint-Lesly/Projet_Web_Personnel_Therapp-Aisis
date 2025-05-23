@@ -93,7 +93,7 @@ function createTitleRow(name) {
     title.className = 'text-center extra'; // Ajoute une classe
     const slug = slugify(name);
     title.id = slug;
-    title.innerHTML = `<strong>${name}</strong>`;
+    title.innerHTML = `${name}`;
 
     titleRow.appendChild(title);
     return titleRow;
@@ -128,7 +128,7 @@ function createCard(option, favorisIds) {
 
     const price = document.createElement('p');
     price.className = 'card-text';
-    price.textContent = `Dès ${option.prix} €`;
+    price.innerHTML = `Dès <strong>${option.prix} €</strong>`;
 
     const btnRow = document.createElement('div');
     btnRow.className = 'd-flex justify-content-between align-items-center';

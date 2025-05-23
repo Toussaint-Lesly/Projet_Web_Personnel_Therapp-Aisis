@@ -55,19 +55,21 @@ document.addEventListener("DOMContentLoaded", () => {
     return c;
   }
   
-  function creerTitleRow(titre) {
-    const row = document.createElement('div');
-    row.className = 'row justify-content-center';
-  
-    const p = document.createElement('p');
-    p.className = 'text-center';
-    p.style.fontSize = '30px';
-    p.innerHTML = `<strong>${titre}</strong>`;
-  
-    row.appendChild(p);
-    return row;
-  }
-  
+
+function creerTitleRow(titre) {
+  const row = document.createElement('div');
+  row.className = 'row justify-content-center mb-4';
+
+  const title = document.createElement('h2');
+  title.className = 'nom-cure'; // ✅ classe à cibler en CSS
+  title.innerHTML = `<strong>${titre}</strong>`;
+
+  row.appendChild(title);
+
+  return row;
+}
+
+
   function creerColonneOption(option) {
     const col = document.createElement('div');
     col.className = 'col-12 mb-4';
@@ -122,13 +124,13 @@ document.addEventListener("DOMContentLoaded", () => {
   
     // Header avis
     const header = document.createElement('div');
-    header.className = 'p-2 border-bottom';
+    header.className = 'p-2 border-bottom avis';
     header.innerHTML = '<strong>Avis clients</strong>';
     avisContainer.appendChild(header);
   
     // Zone scrollable
     const scrollZone = document.createElement('div');
-    scrollZone.className = 'p-2 flex-grow-1 overflow-auto';
+    scrollZone.className = 'p-2 flex-grow-1 overflow-auto avis';
     scrollZone.style.maxHeight = '240px';
   
     if (Array.isArray(option.avis) && option.avis.length) {
@@ -163,44 +165,40 @@ document.addEventListener("DOMContentLoaded", () => {
   
   function creerCardBody(option) {
     const body = document.createElement('div');
-    body.className = 'card-body d-flex flex-column';
+    body.className = 'card-body';
   
     // Prix
     const prix = document.createElement('p');
-    prix.className = 'card-text mb-2';
-    prix.textContent = `Dès ${option.prix} €`;
+    prix.className = 'card-text';
+    /*prix.style.align-text = 'justify';*/
+    prix.innerHTML = `<strong>${option.prix} €</strong>`;
     body.appendChild(prix);
     
     // Lignes de boutons
     const btnRow = document.createElement('div');
-    btnRow.className = 'mt-auto d-flex justify-content-between';
-  
+    btnRow.className = 'mt-auto d-flex justify-content-between align-items-center';
+
     // création du bouton
     const btnRes = document.createElement('button');
-    btnRes.type = 'button';                // <-- empêche le comportement submit par défaut
-    btnRes.className = 'btn btn-sm btn-outline-primary';
+    btnRes.type = 'button';
+    btnRes.className = 'btn btn-sm btn-outline-primary me-2 align-self-center';
     btnRes.textContent = 'Réserver';
-
-    
-    
-    // handler click
-    btnRes.addEventListener('click', function(e) {
-        e.preventDefault();                  // <-- sécurité en plus
-        console.log("📤 appeler ajouterAuPanierCure avec", option);
-    
-        ajouterAuPanierCure(option);         
-        retirerDesFavoris(option.id_sous_type || option.id_cure);
-        supprimerCarteFavori(this.closest('.card'));
+    btnRes.addEventListener('click', function (e) {
+      e.preventDefault();
+      ajouterAuPanierCure(option);
+      retirerDesFavoris(option.id_sous_type || option.id_cure);
+      supprimerCarteFavori(this.closest('.card'));
     });
-  
+
+    // icône poubelle
     const delIcon = document.createElement('i');
-    delIcon.className = 'bi bi-trash text-danger';
+    delIcon.className = 'bi bi-trash text-danger fs-5'; // fs-5 pour taille icône optionnelle
     delIcon.style.cursor = 'pointer';
     delIcon.addEventListener('click', () => {
-        retirerDesFavoris(option.id_sous_type || option.id_cure);
-        supprimerCarteFavori(delIcon.closest('.card'));
-      });
-  
+      retirerDesFavoris(option.id_sous_type || option.id_cure);
+      supprimerCarteFavori(delIcon.closest('.card'));
+    });
+
     btnRow.append(btnRes, delIcon);
     body.appendChild(btnRow);
   

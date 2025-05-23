@@ -1,5 +1,28 @@
 @media (max-width: 575px) {
 
+/*Titres et textes*/
+
+h2 {
+    font-size: 1.2rem !important;
+    font-weight: bold;
+}
+
+h3, 
+h5 {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+
+p {
+    font-size: 1rem;
+    padding: 0 20px;
+}
+
+a {
+    font-size: 0.9rem;
+}
+
 /* NAVBAR */
 .navbar { 
   font-size: 1rem;
@@ -11,7 +34,6 @@
 
 /* DROPDOWN */
 
-
 .dropdown-menu {
   width: 65%;
   padding: 0.5em;
@@ -21,12 +43,14 @@
   display: block;
   width: auto;
   text-decoration: none;
-  font-size: 0.75rem !important;
+  font-size: 0.875rem !important;
+  color: #3F3F3F;
 }
 
 .hey h5 {
   font-size: 1rem;
 }
+
 /*CONNEXION*/
 
 .icone-connexion {
@@ -71,6 +95,11 @@
 
 .popup-links li a {
   font-size: 0.875rem;
+  color: #3F3F3F;
+}
+
+.popup-connexion p {
+    font-size: 0.875rem !important;
 }
 
 .popup-links li i {
@@ -130,40 +159,47 @@
 }
 
 /* TEXTES GÉNÉRAUX */
-h2, h5 {
-  font-size: 1rem;
-}
 
-p {
-  font-size: 0.75rem;
-}
 
 .card-body .card-text,
 .card-body p {
-  font-size: 0.5em;
+  font-size: 0.75rem !important;
+  padding: 0;
+}
+
+.card-header p {
+    font-size: 1rem; 
+    padding: 0px;
+    font-weight: bold;
+}
+
+
+.card-body p {
+    font-size: 1rem !important; 
+    font-weight: bold;
 }
 
 section .shit{
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
 
 
 .card-title {
-  font-size: 0.875rem;
+  font-size: 1rem;
 }
-
+/*
 .text-center strong {
   font-size: 0.75rem;
 }
 
 section
 .extra {
-  font-size: 1.125rem; /*avant c'etait 1.2em*/
+  font-size: 1.125rem;
 }
 
 .extra {
-  font-size: 0.875rem;
-}
+  font-size: 1rem;
+}*/
 
 /* ÉLÉMENTS DIVERS - "TRUC" */
 .truc {
@@ -195,12 +231,21 @@ section
   font-size: 0.875rem !important;
 }
 
-.text-end h2{
+.avis {
+  font-size: 1rem;
+}
+
+.avis p {
   font-size: 0.875rem;
 }
 
+
+.text-end h2{
+  font-size: 0.875rem !important;
+}
+
 .text-end span{
-  font-size: 0.875rem;
+  font-size: 0.875rem !important;
 }
 
 
@@ -214,21 +259,28 @@ section
   padding: 10px;
   margin: 10px auto;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  font-size: 0.875rem;
+  font-size: 0.875rem !important;
 }
 
 .invalid-feedback {
   font-size: 0.875rem;
 }
-.form-control::placeholder {
-    font-size: 0.75rem;
+
+
+.form-label,
+#dropdownMenu2,
+.btn,
+.form-control,
+.form-control::placeholder  {
+    font-size: 0.875rem;
 }
+
 
 /*Aide*/
 
 
 section .cont p {
-    font-size: 0.75rem; /* Réduit un peu le texte */
+    font-size: 1rem; /* Réduit un peu le texte */
 }
 
 
@@ -239,7 +291,7 @@ section .cont label {
 
 section .cont input,
 section .cont textarea {
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     padding: 8px;
 }
 
@@ -254,14 +306,37 @@ section .cont h2 {
     font-size: 1rem; /* Réduit un peu les titres */
 }
 
-section .cont ul.faq li {
-    font-size: 0.75rem;
+ul.faq li {
+    background-color: #ecf4f6;
+    border-left: 5px solid #3498db;
+    border-radius: 8px;
+    font-size:0.875rem;
+}
+
+ul.faq li strong {
+    display: block;
+    font-size: 0.875rem;
+}
+
+/*Recap-panier*/
+
+.entete-tableau th {
+    font-size: 1rem !important;
+}
+
+.entete-tableau th:last-child {
+    white-space: nowrap;
+}
+
+.entete-tableau td {
+    font-size: 0.875rem !important;
 }
 
 /************************/
 
 .form-select {
-  width: 100%;
+  width: auto;
+  font-size: 0.875rem !important;
 }
 
 .sous-reserv {
@@ -277,7 +352,7 @@ section .cont ul.faq li {
 }
 
 .custom-radio-label {
-    font-size: 0.75rem; /* réduit la taille du texte */
+    font-size: 0.875rem; /* réduit la taille du texte */
 }
 
 .sous-reserv h2 {
@@ -318,7 +393,7 @@ section .cont ul.faq li {
 #message-reservation,
 #message-reservation-1,
 #prix-total {
-    font-size: 0.75rem;
+    font-size: 0.875rem;
 }
 
 .cont {
@@ -346,25 +421,25 @@ section .cont ul.faq li {
 
 #arrival-date, #departure-date {
   width: auto;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
 }
 
 /* Réduire la taille globale du calendrier */
 .ui-datepicker {
-    font-size: 0.5em; /* Par exemple, 80% de la taille normale */
-    padding: 0.3em;
+    font-size: 0.6em; /* Par exemple, 80% de la taille normale */
+    padding: 0.4em;
 }
 
 /* Réduire la taille des cellules */
 .ui-datepicker td a {
-    padding: 0.20em 0.3em;
-    font-size: 0.5em;
+    padding: 0.40em 0.6em;
+    font-size: 0.8em;
 }
 
 /* Optionnel : réduire les flèches de navigation */
 .ui-datepicker .ui-datepicker-prev,
 .ui-datepicker .ui-datepicker-next {
-    font-size: 0.5em;
+    font-size: 0.8em;
     top: 1px;
 }
 
@@ -374,7 +449,6 @@ section .cont ul.faq li {
 .btn {
   font-size: 0.5em !important;
   padding: auto! important;
-  /*margin-top: -10px !important;*/
   border-radius: 10px !important;
   width: auto;
 }
@@ -393,22 +467,30 @@ section .cont ul.faq li {
   font-size: 0.875rem;
 }
 
+.prixPanier strong {
+  font-size: 0.875;
+}
+.prix-item {
+  font-size: 0.875rem !important;
+}
+
 #contenuPanier td {
   font-size: 0.75rem;
 }
 
 /* FOOTER */
 footer h3 {
-  font-size: 1rem;
+  font-size: 1rem !important;
   margin-bottom: 10px;
   color: #ffffff;
 }
 
-footer p {
-  font-size: 0.875rem;
+footer a.text-light {
+    color: #ddd !important;
+    font-size: 0.9rem;
 }
 
-footer .text-center {
-  font-size: 0.875rem;
+footer p {
+  font-size: 0.875rem !important;
 }
 }

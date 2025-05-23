@@ -68,18 +68,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // --- Prix ---
             const prix = document.createElement('p');
-            prix.innerHTML = `<strong>Prix :</strong> <span class="prix-item">${parseFloat(res.prix_total).toFixed(2)}</span> €`;
+            prix.className ='prixPanier';
+            prix.innerHTML = `<strong>Prix :</strong> <span class="prix-item">${parseFloat(res.prix_total).toFixed(2)} €</span>`;
             cardBody.appendChild(prix);
 
             // --- Bouton Supprimer ---
             const btnContainer = document.createElement('div');
             btnContainer.className = 'mt-auto d-flex justify-content-end gap-2'; //placer le bouton a droite
-
-           /* const btn = document.createElement('button');
-            btn.className = 'btn btn-supprimer';
-            btn.dataset.id = res.id_reservation_cure;
-            btn.dataset.type = 'cure';
-            btn.innerHTML = '🗑';*/
 
             /*Ajout 19 Mai*/
             const btn = document.createElement('button');
@@ -92,9 +87,6 @@ document.addEventListener("DOMContentLoaded", function () {
             btn.setAttribute('data-bs-placement', 'top');
             btn.setAttribute('title', 'Supprimer');
 
-
-            /*btnContainer.appendChild(btn);
-            cardBody.appendChild(btnContainer);*/
             // Ajout au conteneur
             lignePrix.appendChild(prix);
             lignePrix.appendChild(btn);
@@ -191,12 +183,6 @@ document.addEventListener("DOMContentLoaded", function () {
         // 7) Bouton supprimer aligné en bas
         const btnContainer = document.createElement('div');
         btnContainer.className = 'mt-auto d-flex justify-content-end gap-2';
-    
-        /*const btn = document.createElement('button');
-        btn.className = 'btn btn-danger btn-supprimer';
-        btn.dataset.id = res.id_reservation_chambre;
-        btn.dataset.type = 'chambre';
-        btn.innerHTML = '🗑';*/
 
          /*Ajout 19 Mai*/
         const btn = document.createElement('button');
@@ -208,10 +194,6 @@ document.addEventListener("DOMContentLoaded", function () {
         btn.setAttribute('data-bs-toggle', 'tooltip');
         btn.setAttribute('data-bs-placement', 'top');
         btn.setAttribute('title', 'Supprimer');
-
-    
-        /*btnContainer.appendChild(btn);
-        cardBody.appendChild(btnContainer);*/
 
         lignePrix.appendChild(prix);
         lignePrix.appendChild(btn);

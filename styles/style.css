@@ -1,4 +1,6 @@
 
+/*structure generale*/
+
 html, body {
     margin: 0;
     padding: 0;
@@ -8,28 +10,66 @@ body {
     font-family: 'Playfair Display', serif;
     color: #3F3F3F;
     line-height: 1.6;
-  }
-
-
-/*a surveiller*/
-
-.section-title {
-    font-size: 2rem;
-    margin-bottom: 30px;
-   
 }
 
-header .row a:hover {
-    text-decoration: underline;
-    color: black;
+
+/*Titres et textes*/
+
+h2 {
+    font-size: 1.8rem !important;
+    font-weight: bold;
 }
 
-h2.text-center {
-    font-size: 1.5rem;
+h3 {
+    font-size: 1.6rem;
+    font-weight: bold;
 }
 
-section .shit{
-    font-size: 2em;
+h5 {
+    font-size: 1.4rem;
+}
+
+p {
+    font-size: 1.4rem;
+    padding: 0 20px;
+}
+
+a {
+    font-size: 1.3rem;
+}
+
+h2 .extra {
+    font-size: 1.8rem; 
+}
+
+
+/*Menu et dropdowns*/
+
+.dropdown-menu {
+    width: 250px;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.dropdown-menu a { 
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #3F3F3F;
+}
+
+/*Blocs et Sections personnalisees*/
+
+.truc {
+    font-size: 1.4rem;
+    text-align: center;
+}
+.truc p{
+    font-size: 1.4rem;
+}
+
+section .shit {
+    font-size: 1.8rem;
 }
 
 .reservation-card {
@@ -40,13 +80,11 @@ section .shit{
     background-color: #fff8dc;
 }
 
-/*masquer les cures*/
 .hidden {
     display: none; 
 }
-  
 
-/*Admin*/
+/*Page admin*/
 
 .sidebar {
     height: 100vh;
@@ -64,34 +102,18 @@ section .shit{
     background-color: #495057;
 }
 
-/*******************/  
-p{
-    font-size: 1rem;
-    padding: 0 20px;
-}
-
-.dropdown-menu {
-    width: 250px;
-    text-decoration: none;
-    padding: 10px;
-    font-size: 1rem;
-}
-
-.dropdown-menu a { 
-    text-decoration: none;
-    font-size: 1rem;
-    color: #3F3F3F;
-}
+/*Liens Hover menu*/
 
 header .row a:hover {
     text-decoration: underline;
     color: black;
 }
 
-/*Se connecter*/
-     
+
+/*Connexion popup*/
+
 .popup-header {
-    background-color: rgba(255, 255, 255, 0.95); /* Fond blanc semi-opaque */
+    background-color: rgba(255, 255, 255, 0.95);
     border-radius: 0.75rem;
     width: 100%;
     max-width: 400px;
@@ -105,26 +127,27 @@ header .row a:hover {
     position: absolute;
     top: 100%;
     right: 0;
-    background-color: rgba(255, 255, 255, 0.95); /* Fond blanc semi-opaque */
+    background-color: rgba(255, 255, 255, 0.95);
     border: 1px solid #ccc;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     padding: 1rem;
     z-index: 1000;
     width: 290px;
-    display: none; /* cachée par défaut */
-
     display: none;
     flex-direction: column;
     align-items: flex-start; 
-    
 }
 
 .popup-connexion h5 {
     margin-top: 0;
 }
 
+.popup-connexion p {
+    font-size: 1rem !important;
+}
+
 .popup-links {
-    margin-top: 20px;;
+    margin-top: 20px;
     padding-left: 0;
     list-style: none;
 }
@@ -150,13 +173,6 @@ header .row a:hover {
     font-size: 1rem;
 }
 
-/* Animation d’apparition */
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.95); }
-    to   { opacity: 1; transform: scale(1); }
-}
-
-
 .btn-connexion {
     display: inline-block;
     margin-top: 10px;
@@ -167,7 +183,9 @@ header .row a:hover {
     text-decoration: none;
     font-weight: bold;
     border-radius: 4px;
-  }
+}
+
+/*Icones et interactions*/
 
 #panier-count {
     font-size: 0.80rem; 
@@ -175,18 +193,15 @@ header .row a:hover {
 }
 
 .heart-icon {
-    color: #666;
+   /* color: #666;*/
     cursor: pointer;
     transition: color 0.2s;
 }
-
 .heart-icon.favored {
     color: red;
 }
-/**************************/
 
-
-/***********************/
+/*Bannieres et images*/
 
 .banniere {
     background: linear-gradient(rgba(0, 50, 100, 0.5), rgba(0, 50, 100, 0.5)), url('../images/beach.jpg');
@@ -202,91 +217,69 @@ header .row a:hover {
 
 .text-banniere {
     color: #f0f8ff; 
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.6); 
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1); 
 }
 
 .banniere h1 {
     color: #ffffff;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+.banniere h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
 }
 
 .banniere p {
     color: #e0f0ff;
 }
 
-
-.banniere h2 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #2d2d2d;
-}
-
-.banniere h2:hover {
-    color: black;
-}
-/******************/
 .img-fixe {
     height: 300px;
     object-fit: cover;
     width: 100%;
 }
 
-
 .image-container {
     position: relative;
-    overflow: hidden; /* Empêche le débordement */
+    overflow: hidden;
 }
-
 .image-container img {
     width: 100%; 
-    object-fit: cover; /* Coupe l'image pour remplir l'espace sans déformation */
+    object-fit: cover;
     border-radius: 5px;
 }
-
 .image-info {
     position: absolute;
     bottom: 10px;
     left: 10px;
-    background: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
+    background: rgba(0, 0, 0, 0.7);
     color: white;
     padding: 5px 10px;
     font-size: 1.25rem;
-    opacity: 0; /* Caché par défaut */
+    opacity: 0;
     transition: opacity 0.3s ease-in-out;
     border-radius: 15px;
 }
-
 .image-container:hover .image-info {
-    opacity: 1; /* Affiche le texte au survol */
+    opacity: 1;
 }
 
-/*******************/
+/*Calendrier*/
 
-/*calendrier*/
-    
-/* taille des cases */
 .ui-datepicker td, .ui-datepicker th {
     padding: 2px; 
 }
 
-    /* Champ de sélection */
 #arrival-date, #departure-date {
     font-size: 0.9rem;
     padding: 3px;
     text-align: center;
 }
-/******************/
 
-.truc {
-    font-size: 1rem;
-    text-align: center;
-}
 
-.truc p{
-    font-size: 1rem;
-}
-
-/***********************/
+/*Cartes et Caroussel*/
 
 div.card {
     border-radius: 10px !important;
@@ -294,7 +287,6 @@ div.card {
     transition: all 0.3s ease-in-out;
     border: 1px solid #ddd; 
 }
-
 div.card:hover {
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.75);
     transform: translateY(-5px);
@@ -303,43 +295,50 @@ div.card:hover {
 .card img {
     transition: transform 0.3s ease-in-out;
 }
-
 .card:hover img {
     transform: scale(1.05);
 }
 
 .card-title {
+    font-size: 1.4rem; 
+    font-weight: bold;
+}
+
+.card-header p {
     font-size: 1.3rem; 
     font-weight: bold;
 }
 
+.card-header strong {
+    font-size: 1.3rem; 
+    font-weight: bold;
+}
+
+.card-body p {
+    font-size: 1.3rem !important; 
+    font-weight: bold;
+}
+
 .card-text {
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
 
-.extra {
-    font-size: 1rem; /* Valeur par défaut */
-}
-
-/*les caroussel*/
-
+/* Carousel */
 div.carousel-inner {
     border-radius: 10px !important;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
     transition: all 0.3s ease-in-out;
 }
-
 div.carousel-inner:hover {
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.75);
     transform: translateY(-5px);
 }
-
 .carousel-inner:hover img {
     transform: scale(1.05);
 }
 
+/*Annimations*/
 
-/* Animation pour le slide */
 .cure-slide-in {
     animation: slideIn 0.5s ease-out forwards;
 }
@@ -348,15 +347,14 @@ div.carousel-inner:hover {
     animation: slideOut 0.5s ease-in forwards;
 }
 
-/* Animation du slide */
 @keyframes slideIn {
     from {
         opacity: 0;
-        transform: translateY(20px); /* Déplace l'élément vers le bas */
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
-        transform: translateY(0); /* Retourne à sa position initiale */
+        transform: translateY(0);
     }
 }
 
@@ -367,21 +365,43 @@ div.carousel-inner:hover {
     }
     to {
         opacity: 0;
-        transform: translateY(20px); /* Déplace l'élément vers le bas */
+        transform: translateY(20px);
     }
 }
 
-/***********************/
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+/*Recap-panier*/
+
+.entete-tableau th {
+    font-size: 1.4rem !important;
+}
+
+.entete-tableau th:last-child {
+    white-space: nowrap;
+}
+
+.entete-tableau td {
+    font-size: 1.3rem !important;
+}
 
 
+/*Formulaire divers
+Connexion
+Inscription
+Reservation
+Radios
+Aide
+*/
 
-/**************************/
 .business, .register {
     margin-top: 20px;
     font-size: 0.90rem;
 }
 .register a {
-    color: #0066c0;
     text-decoration: none;
     font-weight: bold;
 }
@@ -391,19 +411,16 @@ div.carousel-inner:hover {
 
 .radio-container {
     display: flex;
-    align-items: center; /* Alignement vertical parfait */
-    gap: 10px; /* Espace entre le bouton et le texte */
-    margin-bottom: 5px; /* Espacement entre chaque option */
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
 }
-
 .radio-container input[type="radio"] {
     width: 16px;
     height: 16px;
-    margin: 0; /* Supprime le décalage */
+    margin: 0;
 }
 
-/***********************/
-/*page reservation*/
 .reserv {
     background-color: white; 
     padding: 20px; 
@@ -412,6 +429,25 @@ div.carousel-inner:hover {
     margin: 0 auto; 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
     border-radius: 20px;
+    font-size: 1.3rem;
+}
+
+.form-select, 
+.form-label,
+#dropdownMenu2 {
+    font-size: 1.3rem;
+}
+
+.btn {
+    /*margin-top: 20px; 
+    padding: 10px; */
+    cursor: pointer; 
+    border-radius: 20px;
+    font-size: 1.3rem;
+}
+
+.form-control {
+    font-size: 1.3rem;
 }
 
 input {
@@ -427,9 +463,8 @@ input {
     margin-top: 15px;
 }
 .help a {
-    color: #0066c0;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.3rem;
 }
 .help a:hover {
     text-decoration: underline;
@@ -439,8 +474,11 @@ input {
     width: auto;
 }
 
+/*Hebergement
+Compte
+Login
+Contact*/
 
-/*hebergememnts*/
 #select_chambre {
     background-color: white; 
     display: none;
@@ -452,7 +490,6 @@ input {
     border-radius: 20px;
 }
 
-/*creer compte*/
 .compte {
     width: 400px; 
     height: auto; 
@@ -462,18 +499,14 @@ input {
     padding: 20px;
 }
 
-/*login*/
-
 .log {
     background-color: white; 
     padding: 20px; 
     width: 400px; 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
     border-radius: 20px; 
-    text-align: center;
 }
 
-/*contact *aide*/
 .cont {
     max-width: 800px; 
     margin: 40px auto; 
@@ -483,7 +516,13 @@ input {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/***********************/
+/*Favoris*/
+
+.avis {
+  font-size: 1.4rem;
+}
+
+/*Footer*/
 
 footer {
     background-color: #003049;
@@ -492,14 +531,14 @@ footer {
 }
 
 footer h3 {
-    font-size: 1.25rem;
+    font-size: 1.8rem !important;
     margin-bottom: 10px;
     color: #ffffff;
 }
 
-footer a {
-    color: #ddd;
-    font-size: 1rem;
+footer a.text-light {
+    color: #ddd !important;
+    font-size: 1.6rem;
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -518,4 +557,19 @@ footer .list-inline-item i:hover {
     color: #fed6e3;
 }
 
-/***********************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

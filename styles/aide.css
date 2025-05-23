@@ -9,43 +9,46 @@ body {
     line-height: 1.6;
   }
 
+ h2 {
+    color: #2980b9;
+    font-size: 1.8rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }
+
+h3 {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+h5 {
+    font-size: 1.4rem;
+}
+
+
+p {
+    font-size: 1.4rem;
+    padding: 0 20px;
+    line-height: 1.6;
+}
+
+a {
+    font-size: 1.3rem;
+}
+
 .dropdown-menu {
-    width: 400px;
+    width: 250px;
     text-decoration: none;
     padding: 10px;
-    font-size: 1.15em;
-    color: red;
+    font-size: 1rem;
 }
 
 .dropdown-menu a { 
     text-decoration: none;
-    font-size: 0.875em;
-    color: red;
-}
-
-section h2 {
-    font-size: 2.5rem;
-    font-weight: bold;
-}
-
-.section-title {
-    font-size: 32px;
-    margin-bottom: 30px;
+    font-size: 1.2rem;
+    color: #3F3F3F;
     
 }
-
-section .shit{
-    color: green;
-    font-size: 2em;
-}
-
-p{
-    font-size: 1.15em;
-    padding: 0 20px;
-    color : yellow;
-}
-
-
 
 /*Se connecter*/
      
@@ -57,7 +60,7 @@ p{
     text-align: center;
     position: relative;
     animation: fadeIn 0.3s ease-in-out;
-    font-size: 1em;
+    font-size: 1rem;
 }
 
 .popup-connexion {
@@ -71,7 +74,6 @@ p{
     z-index: 1000;
     width: 290px;
     display: none; /* cachée par défaut */
-    color: #333;
 
     display: none;
     flex-direction: column;
@@ -81,6 +83,10 @@ p{
 
 .popup-connexion h5 {
     margin-top: 0;
+}
+
+.popup-connexion p {
+    font-size: 1rem !important;
 }
 
 .popup-links {
@@ -100,19 +106,14 @@ p{
 }
 
 .popup-links li a {
-    font-size: 0.90rem;
+    font-size: 1rem;
     text-decoration: none; 
-    color: #333333;
+   color: #3F3F3F;
 }
 
 .popup-links li i {
     margin-right: 8px;
-    font-size: 1.4em;
-}
-
-header .row a:hover {
-    text-decoration: underline;
-    color: black;
+    font-size: 1rem;
 }
 
 /* Animation d’apparition */
@@ -138,8 +139,6 @@ header .row a:hover {
     font-size: 0.80rem; 
     padding: 0.15em 0.3em;
 }
-  
-
 
 .heart-icon {
     color: #666;
@@ -150,8 +149,6 @@ header .row a:hover {
 .heart-icon.favored {
     color: red;
 }
-/**************************/
-
 
 /***********************/
 
@@ -214,14 +211,14 @@ footer {
 }
 
 footer h3 {
-    font-size: 1.3em;
+    font-size: 1.3rem !important;
     margin-bottom: 10px;
     color: #ffffff;
 }
 
-footer a {
-    color: #ddd;
-    font-size: 1.15em;
+footer a.text-light {
+    color: #ddd !important;
+    font-size: 1.6rem;
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -289,6 +286,7 @@ form input, form textarea {
 label {
     font-weight: bold;
     margin-bottom: 5px;
+    font-size: 1.3rem;
   }
   
   input[type="text"],
@@ -299,6 +297,7 @@ label {
     border-radius: 8px;
     width: 100%;
     box-sizing: border-box;
+    font-size: 1.3rem;
   }
   
   textarea {
@@ -322,40 +321,22 @@ label {
 
   /*******************/
 
-  h1 {
-    color: #2c3e50;
-    font-size: 2.2em;
-    margin-bottom: 10px;
-    text-align: center;
-  }
-  
-  h2 {
-    color: #2980b9;
-    font-size: 1.6em;
-    margin-top: 30px;
-    margin-bottom: 15px;
-  }
-  
-  p {
-    line-height: 1.6;
-  }
-  
-  ul.faq {
+ul.faq {
     list-style-type: none;
     padding: 0;
-  }
-  
-  ul.faq li {
+}
+
+ul.faq li {
     margin-bottom: 20px;
     background-color: #ecf4f6;
     padding: 15px;
     border-left: 5px solid #3498db;
     border-radius: 8px;
-  }
-  
-  ul.faq li strong {
+    font-size: 1.4rem;
+}
+
+ul.faq li strong {
     display: block;
-    font-size: 1.1em;
+    font-size: 1.4rem;
     margin-bottom: 5px;
-  }
-  
+}
