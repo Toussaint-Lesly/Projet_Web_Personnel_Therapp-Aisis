@@ -6,7 +6,11 @@ header('Content-Type: application/json');
 //require_once 'db.php';
 require_once 'db_connexion.php';
 
-require_once 'mailToUser.php';
+require_once __DIR__ . '/mailToUser.php';
+
+if (!function_exists('envoyerMailConfirmation')) {
+    die(json_encode(['success' => false, 'message' => 'Erreur critique : fonction envoyerMailConfirmation() non trouvée.']));
+}
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -49,12 +53,10 @@ try {
   }
 
   foreach ($cures as $cure) {
-    // Insérer dans commandes
     $stmt = $pdo->prepare("INSERT INTO commandes (user_id, session_id, type, prix)
                            VALUES (?, ?, 'cure', ?)");
     $stmt->execute([$user_id, $session_id, $cure['prix']]);
 
-    // Sauvegarder dans commandes_details
     $stmtDetails = $pdo->prepare("INSERT INTO commandes_details (user_id, session_id, type, details)
                                   VALUES (?, ?, 'cure', ?)");
     $stmtDetails->execute([
@@ -68,17 +70,12 @@ try {
   $stmtChambres = $pdo->prepare("SELECT * FROM reservation_chambre WHERE session_id = ? AND statut = 'panier'");
   $stmtChambres->execute([$session_id]);
   $chambres = $stmtChambres->fetchAll(PDO::FETCH_ASSOC);
-  if (count($chambres) === 0) {
-    $chambres = [];
-  }
 
   foreach ($chambres as $chambre) {
-    // Insérer dans commandes
     $stmt = $pdo->prepare("INSERT INTO commandes (user_id, session_id, type, prix)
                            VALUES (?, ?, 'chambre', ?)");
     $stmt->execute([$user_id, $session_id, $chambre['prix_total']]);
 
-    // Sauvegarder dans commandes_details
     $stmtDetails = $pdo->prepare("INSERT INTO commandes_details (user_id, session_id, type, details)
                                   VALUES (?, ?, 'chambre', ?)");
     $stmtDetails->execute([
@@ -92,14 +89,14 @@ try {
   $pdo->prepare("DELETE FROM reservation_cure WHERE session_id = ? AND statut = 'panier'")->execute([$session_id]);
   $pdo->prepare("DELETE FROM reservation_chambre WHERE session_id = ? AND statut = 'panier'")->execute([$session_id]);
 
-  // 5. Envoi mail
-  if (envoyerMailConfirmation($email, $prenom, $nom)) {
+  // 5. Envoi mail de confirmation
+  if (envoyerMailConfirmation($email, $prenom, $nom, $cures, $chambres)) {
     echo json_encode(['success' => true, 'redirect' => 'commandes.html']);
   } else {
     echo json_encode(['success' => false, 'message' => 'Email non envoyé.']);
   }
 
-} catch (PDOException $e) {
+} catch (Exception $e) {
   http_response_code(500);
   echo json_encode([
     'success' => false,
