@@ -179,7 +179,7 @@ if (isset($_GET['id'])) {
                             <p>👤 <strong>Cible :</strong> <?php echo htmlspecialchars($cure['cible']); ?></p>
                             <p>✅ <strong>Résultats :</strong> <?php echo htmlspecialchars($cure['resultats']); ?></p>
                             <div class="d-flex justify-content-center">
-                                <a href="../vues/reservation.html" class="btn btn-outline-primary text-dark">Réserver</a>
+                                <a href="../vues/reservation.html" class="btn btn-outline-secondary text-dark">Réserver</a>
                             </div>
                         </div>
                     </div>
@@ -188,7 +188,7 @@ if (isset($_GET['id'])) {
 
             <!-- Bouton pour afficher les autres cures -->
             <div class="text-center mt-4">
-                    <button id="toggleCuresBtn" class="btn btn-outline-primary text-dark">Afficher plus >></button>
+                    <button id="toggleCuresBtn" class="btn btn-outline-secondary text-dark">Afficher plus >></button>
             </div> 
                 <!-- Affichage de toutes les autres cures, cachées par défaut -->
             <div id="allCuresContainer" class="mt-5">
@@ -215,7 +215,7 @@ if (isset($_GET['id'])) {
                 </div>
                 <!-- Nouveau bouton pour masquer les cures -->
                 <div class="text-center mt-4">
-                    <button id="hideCuresBtn" class="btn btn-outline-primary text-dark">Masquer les details</button>
+                    <button id="hideCuresBtn" class="btn btn-outline-secondary text-dark">Masquer les details</button>
                 </div>
             </div>
         </section>
@@ -326,7 +326,7 @@ if (isset($_GET['id'])) {
                 </section>
         
                 <div class="text-center my-5">
-                    <a href="../index.html" class="btn btn-outline-primary text-dark">Retour à l'accueil</a>
+                    <a href="../index.html" class="btn btn-outline-secondary text-dark">Retour à l'accueil</a>
                 </div>
 
             </div>

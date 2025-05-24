@@ -106,22 +106,4 @@ try {
     'message' => 'Erreur : ' . $e->getMessage()
   ]);
 }
-
-
-/*
- Si tu veux aller plus loin, voici quelques suggestions :
-
-Sécuriser les accès : Vérifie bien que seuls les utilisateurs authentifiés peuvent valider une commande.
-
-Éviter les doublons : Ajoute une contrainte ou une vérification pour éviter les doublons si l’utilisateur recharge la page au mauvais moment.
-
-Afficher un récapitulatif : Tu pourrais rediriger vers une page commande-confirmation.php avec un récapitulatif des achats.
-
-Gérer les erreurs d'email : Actuellement, même si l’email échoue, les commandes sont enregistrées. Tu peux améliorer le message ou proposer un renvoi manuel.
-
-
-
-Tu veux qu’on s’occupe de la fusion automatique des favoris "session" vers "user_id" lors de la connexion, pour que l'utilisateur garde ce qu’il avait ajouté avant de se connecter ?
-
-*/
 ?>

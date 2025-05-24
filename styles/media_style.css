@@ -219,7 +219,6 @@ section
     width: 60%; 
     border-radius: 15px; 
     font-size: 0.875rem;
-    
 }
 
 #loginForm label {
@@ -337,6 +336,10 @@ ul.faq li strong {
 .form-select {
   width: auto;
   font-size: 0.875rem !important;
+}
+
+#cure {
+  max-width: 100%;
 }
 
 .sous-reserv {

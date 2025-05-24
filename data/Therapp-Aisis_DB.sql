@@ -152,12 +152,17 @@ CREATE TABLE commandes (
 
 CREATE TABLE commandes_details (
     id SERIAL PRIMARY KEY,
+   -- id_commande INT NOT NULL, -- 🔥 Liaison obligatoire avec commandes*/
     user_id INT NULL,
     session_id VARCHAR(255) NULL,
     type VARCHAR(50) NOT NULL, -- 'cure' ou 'chambre'
     details JSONB NOT NULL,
-    date_enregistrement TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    date_enregistrement TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+    -- FOREIGN KEY (id_commande) REFERENCES commandes(id_commande) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES utilisateurs(id) ON DELETE SET NULL
 );
+
 
 GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE reservation_cure TO "www-data";
 GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE reservation_chambre TO "www-data";

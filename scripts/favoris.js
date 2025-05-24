@@ -151,7 +151,7 @@ function creerTitleRow(titre) {
     // Footer pour ajouter un avis
     const footer = document.createElement('div');
     footer.className = 'p-2 border-top text-center';
-    footer.innerHTML = '<button class="btn btn-sm btn-outline-primary">+ Ajouter un avis</button>';
+    footer.innerHTML = '<button class="btn btn-sm btn-outline-secondary">+ Ajouter un avis</button>';
     avisContainer.appendChild(footer);
   
     rightCol.appendChild(avisContainer);
@@ -181,7 +181,7 @@ function creerTitleRow(titre) {
     // création du bouton
     const btnRes = document.createElement('button');
     btnRes.type = 'button';
-    btnRes.className = 'btn btn-sm btn-outline-primary me-2 align-self-center';
+    btnRes.className = 'btn btn-sm btn-outline-secondary me-2 align-self-center';
     btnRes.textContent = 'Réserver';
     btnRes.addEventListener('click', function (e) {
       e.preventDefault();

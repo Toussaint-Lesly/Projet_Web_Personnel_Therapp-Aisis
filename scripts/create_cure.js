@@ -135,7 +135,7 @@ function createCard(option, favorisIds) {
 
     const btn = document.createElement('a');
     btn.href = option.link;
-    btn.className = 'btn btn-outline-primary text-dark';
+    btn.className = 'btn btn-outline-secondary text-dark';
     btn.textContent = 'En savoir plus >>';
 
     const heart = createHeartIcon(option.id_sous_type, favorisIds, option);

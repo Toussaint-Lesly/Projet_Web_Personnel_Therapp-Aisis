@@ -438,6 +438,13 @@ Aide
     font-size: 1.3rem;
 }
 
+#dropdownMenu2 {
+  top: 100% !important; /* force à toujours s'ouvrir en bas */
+  bottom: auto !important;
+  transform: none !important;
+}
+
+
 .btn {
     /*margin-top: 20px; 
     padding: 10px; */

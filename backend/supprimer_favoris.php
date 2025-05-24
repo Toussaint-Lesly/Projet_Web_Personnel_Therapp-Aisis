@@ -1,6 +1,6 @@
 <?php
 
-require 'session.php'; //ajout pour session
+require 'session.php'; 
 
 //require_once 'db.php';
 require_once 'db_connexion.php';

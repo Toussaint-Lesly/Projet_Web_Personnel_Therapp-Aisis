@@ -60,7 +60,7 @@ try {
     // Créer la réponse JSON
     echo json_encode([
       'success'               => true,
-      'message'               => '✅ Réservation de cure enregistrée avec succès !',
+      'message'                   => '✅ Réservation de cure enregistrée avec succès ! <a href="creer_panier.html">Voir le panier ?</a>',
       'id_reservation_cure'   => $id_reservation_cure
     ]);
     exit;

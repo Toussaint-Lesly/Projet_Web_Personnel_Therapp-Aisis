@@ -1,6 +1,3 @@
-
-
-
 document.addEventListener('DOMContentLoaded', () => {
   fetch('../backend/lister_commandes_paiements.php')
   .then(response => response.json())
