@@ -163,7 +163,7 @@ a {
 
 .card-body .card-text,
 .card-body p {
-  font-size: 0.75rem !important;
+  font-size: 0.875rem !important;
   padding: 0;
 }
 
@@ -173,33 +173,14 @@ a {
     font-weight: bold;
 }
 
-
-.card-body p {
-    font-size: 1rem !important; 
-    font-weight: bold;
-}
-
 section .shit{
     font-size: 1.2rem;
 }
 
-
 .card-title {
   font-size: 1rem;
 }
-/*
-.text-center strong {
-  font-size: 0.75rem;
-}
 
-section
-.extra {
-  font-size: 1.125rem;
-}
-
-.extra {
-  font-size: 1rem;
-}*/
 
 /* ÉLÉMENTS DIVERS - "TRUC" */
 .truc {
