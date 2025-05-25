@@ -45,13 +45,11 @@ if (isset($_GET['id'])) {
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"> <!--pour les icones-->
 
-
-
         <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-
 
         <link href = "../styles/style.css" rel = "stylesheet">
         <link href = "../styles/media_style.css" rel = "stylesheet">
+
         <script src="../scripts/cures_details.js" defer></script>
         <script src="../scripts/navbar.js" defer></script>
         

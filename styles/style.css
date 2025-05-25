@@ -179,7 +179,8 @@ header .row a:hover {
     background-color: black;
     color: white;
     width: auto;
-    padding: 8px 0 8px 8px;
+    /*padding: 8px 0 8px 8px;*/
+    padding: 8px;
     text-decoration: none;
     font-weight: bold;
     border-radius: 4px;
@@ -229,6 +230,10 @@ header .row a:hover {
     font-size: 2.5rem;
     font-weight: bold;
     color: white;
+}
+
+.lead {
+    font-size: 2rem;
 }
 
 .banniere p {
@@ -314,14 +319,18 @@ div.card:hover {
     font-weight: bold;
 }
 
+.card-header strong {
+    font-size: 1.3rem; 
+    font-weight: bold;
+}
+
 .card-body p {
     font-size: 1.3rem !important; 
-    font-weight: bold;
 }
 
 .card-text {
     font-size: 1.2rem;
-    font-weight: normal;
+    font-weight: normal !important;
 }
 
 /* Carousel */
